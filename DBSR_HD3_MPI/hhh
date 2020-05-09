@@ -1,0 +1,11 @@
+Comparing files h_out.f90 and H_OUT.FF
+***** h_out.f90
+      write(nuh) jtarg(1:ntarg)
+      write(nuh) (0,i=1,ntarg)
+
+***** H_OUT.FF
+      write(nuh) jtarg(1:ntarg)
+      write(nuh) (0,i=1,ntarg),ptarg(1:ntarg)
+
+*****
+

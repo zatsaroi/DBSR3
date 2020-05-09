@@ -1,0 +1,114 @@
+
+========================================
+ B - S P L I N E  D I R A C - F O C K   
+========================================
+
+name:   5s5p6                                                                           
+
+ATOM    Xe    
+TERM    jj    
+Z      54.
+
+core:   1s   2s   2p-  2p   3s   3p-  3p   3d-  3d   4s   4p-  4p   4d-  4d
+conf:   5s(1.0)5p-(2.0)5p(4.0)
+
+orbitals to optimize:  none                                                                            
+
+
+Running parameters:
+
+scf_tol =  1.00E-10     - energy convergence tolerance
+orb_tol =  1.00E-07     - orbital convergence tolerance
+end_tol =  1.00E-07     - orbital tail cut-off
+max_it  =  75           - max. number of iterations
+
+
+B-spline parameters:
+
+ns   =  113             -  number of splines
+ks   =    9             -  order  of splines
+ksp  =    8             -  for large component
+ksq  =    9             -  for small component
+hi   =    0.250         -  initial point
+he   =    0.250         -  exponetial step size
+tmax =   50.538         -  maximum radius
+
+Spline integrals:
+
+kmin =    0             -  min. multipole index
+kmax =    5             -  max. multipole index
+ntype=    4             -  number of different integrals
+memory=    189.38       -  memory required (in Mb)
+
+
+Initial estimations for orbitals:
+
+  1s  - read from file 5s5p6.bsw
+  2s  - read from file 5s5p6.bsw
+  2p- - read from file 5s5p6.bsw
+  2p  - read from file 5s5p6.bsw
+  3s  - read from file 5s5p6.bsw
+  3p- - read from file 5s5p6.bsw
+  3p  - read from file 5s5p6.bsw
+  3d- - read from file 5s5p6.bsw
+  3d  - read from file 5s5p6.bsw
+  4s  - read from file 5s5p6.bsw
+  4p- - read from file 5s5p6.bsw
+  4p  - read from file 5s5p6.bsw
+  4d- - read from file 5s5p6.bsw
+  4d  - read from file 5s5p6.bsw
+  5s  - read from file 5s5p6.bsw
+  5p- - read from file 5s5p6.bsw
+  5p  - read from file 5s5p6.bsw
+
+
+Iteration      1
+----------------
+
+  nl         e(nl)          dpm         ns
+
+
+Etotal =   -7445.92429625
+
+Maximum orbital diff.     0.00D+00
+Energy difference         0.00D+00
+
+------------------------------------------------------------------------------------
+
+ATOM  Xe    
+
+core: 1s   2s   2p-  2p   3s   3p-  3p   3d-  3d   4s   4p-  4p   4d-  4d
+
+conf: 5s(1)5p(6)
+
+
+  nl         e(nl)          dmp         ns      <r>      max_r
+
+  1s   -1277.63158265     0.00D+00      56     0.027     2.323
+  2s    -202.83884801     0.00D+00      62     0.114     7.538
+  2p-   -190.05346041     0.00D+00      59     0.096     4.538
+  2p    -178.07827822     0.00D+00      59     0.102     4.538
+  3s     -43.38330184     0.00D+00      70     0.305    15.538
+  3p-    -38.03220319     0.00D+00      68     0.295    13.538
+  3p     -35.69761445     0.00D+00      70     0.307    15.538
+  3d-    -26.39607344     0.00D+00      65     0.278    10.538
+  3d     -25.90983084     0.00D+00      70     0.281    15.538
+  4s      -8.80100459     0.00D+00      72     0.717    17.538
+  4p-     -6.82226137     0.00D+00      70     0.747    15.538
+  4p      -6.35276477     0.00D+00      72     0.773    17.538
+  4d-     -3.08101779     0.00D+00      74     0.869    19.538
+  4d      -3.00355141     0.00D+00      73     0.879    18.538
+  5s      -1.42301847     0.00D+00      77     1.843    22.538
+  5p-     -0.82408172     0.00D+00      76     2.133    21.538
+  5p      -0.76680811     0.00D+00      76     2.223    21.538
+
+Orbital convergence:      0.00D+00
+Energy  convergence:      0.00D+00
+
+Coulomb energy:       -7445.924296253719149 au     -202613.083517240098445 eV
+
+Atomic state energies:
+
+5s(1).5p-(2).5p(4).1/2    -7445.924296253720968 au          0.00000 eV
+
+time:      2.27  sec

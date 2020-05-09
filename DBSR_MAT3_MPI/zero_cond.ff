@@ -1,0 +1,45 @@
+!======================================================================
+      Subroutine Zero_cond
+!======================================================================
+!     apply zero conditions at r = 0 and on boundary if any;
+!     in the begining, the number of deleted B-splines is controled by
+!     parameter ilzero, on the boundery - ibzero
+!     Nulified B-splines are recorded in array iprm.     
+!----------------------------------------------------------------------
+      Use dbsr_mat
+
+      Implicit none
+      Integer :: i,l,m, ip,jp, ich
+
+! ... define pointer to nulified elements:
+
+      if(allocated(iprm)) Deallocate(iprm); Allocate(iprm(mhm))
+      iprm=1; ip=0; jp=0
+      Do ich=1,nch
+       l=lch(ich)+1
+       if(ilzero.eq.0) l=1 
+       if(l.gt.ksp-1) l=1 
+
+       m=nsp+1-ibzero 
+       Do i=1,ns; ip=ip+1
+        if(i.le.l) iprm(ip)=0                   
+        if(i.ge.m) iprm(ip)=0
+        jp=jp+iprm(ip)
+       End do
+
+       if(kch(ich).lt.0) l=lch(ich)+2
+       if(kch(ich).ge.1) l=lch(ich)
+       if(jlzero.eq.0) l=1
+       if(l.gt.ksq-1)  l=1 
+
+       m=nsq+1-jbzero
+       Do i=1,ns; ip=ip+1
+        if(i.le.l) iprm(ip)=0                   
+        if(i.ge.m) iprm(ip)=0
+        jp=jp+iprm(ip)
+       End do
+      End do
+
+      nhm = jp + npert
+
+      End Subroutine Zero_cond

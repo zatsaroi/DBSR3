@@ -1,0 +1,47 @@
+include ${HOME}/DEFS_03
+
+#  make  PROGRAM with name:
+ 
+N  = dbsr_mat3a_mpi
+
+# Libraries to be searched:
+ 
+L  =  $(DBS) $(ZCONFJJ) $(ZCOM) $(LAPACK)  # or  -mkl instead LAPACK
+ 
+SO =	mod_dbsr_mat.f90          MOD_c_data.f90           L_data.f90           \
+     O_data.f90                R_data.f90               S_data.f90           \
+     add_integral.f90                                   check_mat.f90        \
+     dbs_orth.f90              diag.f90                 gen_matrix.f90       \
+     idef_type.f90             read_arg.f90             read_data.f90        \
+     state_res.f90             target_subs.f90          transform_matrix.f90 \
+     updates.f90               zero_cond.f90                                 \
+     check_det_new.f90         det_fact_new.f90         
+                                                        
+SM =	dbsr_mat_mpi.f90          record_matrix_mpi.f90    sub1_mpi.f90   
+                                                        
+SB = br_DBS_orbitals_pq.f90    br_arg.f90               br_buffer.f90        \
+     br_channel_jj.f90         br_conf_jj.f90           br_dets.f90          \
+     br_orb_jj.f90             br_grid_jj.f90           br_phys_orb_jj.f90   \
+     br_radial_overlaps.f90    br_target_jj.f90         br_barrier.f90
+                                                        
+O = $(SO:.f90=.o)  $(SM:.f90=.o)  $(SB:.f90=.o)         
+                                                        
+$(N): $(O)
+	$(FC_mpi) -o $(N) $(O) $(link) $(L) 
+	mv $(N) $(BINDIR)
+	rm *.o *.mod 
+ 
+clean:
+	rm -f *.o *.mod 
+ 
+x:
+	rm -f $(N)
+ 
+.SUFFIXES:
+.SUFFIXES: .f90 .mod .o
+ 
+.f90.o:
+	$(FC) $(comp)  $<
+ 
+
+# -traceback -CB

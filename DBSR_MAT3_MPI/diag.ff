@@ -1,0 +1,69 @@
+!======================================================================
+      Subroutine diag_channels
+!======================================================================
+!     Diagonalize the diagonal channel blocks
+!     DIAG array then will contain solutions and energies 
+!----------------------------------------------------------------------
+      Use dbsr_mat
+
+      Implicit none
+
+      Real(8) :: ach(ms,ms), bch(ms,ms), w(ms)
+      Integer :: ich, k, i,j, ii, ishift, ksol,info
+
+! ... apply zero conditions:
+
+      Call Zero_cond
+
+! ... diagonalize all blocks:
+
+      if(allocated(ipsol)) Deallocate(ipsol); Allocate(ipsol(0:nch))
+      ipsol= 0 
+      
+      Do ich = 1,nch;  k=icc(ich,ich); if(k.eq.0) Cycle 
+
+       ishift=(ich-1)*ms  
+       ach(:,:) = hch(:,:,k)
+       bch(:,:) = diag(:,:,ich)
+       ii = 1
+       Do i=1,ms; if(iprm(i+ishift).ne.0) Cycle; ii=ii+1
+        ach(i,:) = 0.d0; ach(:,i) = 0.d0; ach(i,i) = Edmax*ii
+        bch(i,:) = 0.d0; bch(:,i) = 0.d0; bch(i,i) = 1.d0
+       End do
+ 
+       Call LAP_DSYGV ('V','L',ms,ms,ach,bch,w,info) 
+       if(info.ne.0) Stop 'channel diagonalization failed'
+
+       ksol = 0
+       Do i=1,ms
+        if(w(i).lt.Edmin) Cycle
+        if(w(i).gt.Edmax) Cycle
+        if(abs(w(i)).lt.Egap) Cycle
+        ksol=ksol+1
+        diag( :,ksol,ich) = ach(:,i)
+        diag(ksol,ms,ich) = w(i)       
+if(ksol.ne.1) Cycle 
+write(pri,'(10E15.5)') ach(1:ns,i)
+write(pri,'(10E15.5)') ach(ns+1:ns+ns,i)
+       End do
+
+       ipsol(ich) = ksol
+
+       if(debug.gt.0.and.pri.gt.0) then
+        write(pri,'(/a,a6,2i5/)') 'Channel eigenvalues:',elc(ich),ich,ksol 
+        Do i=1,ms; if(w(i).lt.Edmin) Cycle; j=i; Exit; End do
+        j = j - 1
+        write(pri,'(5e15.7)') w(1:j)
+        write(pri,'(1x,74("-"))') 
+        write(pri,'(5e15.7)') w(j+1:ms)
+
+write(pri,'(20i3)') iprm(ishift+1:ishift+ns)
+write(pri,'(20i3)') iprm(ishift+1+ns:ishift+ns+ns)
+
+       end if
+
+      End do    ! over ich  
+
+      End Subroutine diag_channels
+
+
