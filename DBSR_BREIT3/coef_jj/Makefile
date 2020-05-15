@@ -1,19 +1,19 @@
 include ${HOME}/DEFS_03
  
-N  = test_coef_2conf_jj
+N  = coef_jj
  
 # Libraries to be searched:
  
 L  =  $(ZCONFJJ) $(ZCOM)
 
-S  =	mod_boef_list.f90 test_coef_2conf_jj.f90  coef_2conf_jj.f90 
+S  =	 coef_jj.f90   
 
 O = $(S:.f90=.o)
  
 $(N): $(O)
 	$(FC) -o $(N) $(O) $(link) $(L)
 	mv $(N) $(BINDIR)
-	rm *.o *.mod 
+	rm *.o  
  
 clean:
 	rm -f *.o *.mod *~
@@ -25,7 +25,6 @@ x:
 .SUFFIXES: .f90 .mod .o
  
 .f90.o:
-	$(FC) $(comp)  $<
+	$(FC) $(comp) -fcheck=all -Wall -fbacktrace -fcheck=bounds $<
  
-# -fbacktrace -fbounds-check   (gfortran)
 
