@@ -68,6 +68,7 @@
 !======================================================================
 !     record B-spline w.f. to file (unit nuw)
 !----------------------------------------------------------------------
+      Use DBS_nuclear
       Use DBS_grid
       Use DBS_gauss
       Use DF_orbitals
@@ -82,7 +83,9 @@
       open(nuw,file=AF_out,form='UNFORMATTED')
 
       rewind(nuw)
-      write(nuw) grid_type,ns,ks,t(1:ns+ks),ksp,ksq
+      write(nuw) grid_type,ns,ks,t(1:ns+ks),ksp,ksq, &
+           atomic_number, atomic_weight, nuclear,    &
+           r_uniform,a_fermi,c_fermi,t_fermi,rrms  
       Do i=1,nbf
        write(nuw) ebs(i),mbs(i),e(i,i)
        write(nuw) p(1:mbs(i),1,i)

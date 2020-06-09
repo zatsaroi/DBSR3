@@ -1,0 +1,39 @@
+================================================================================
+                   MULTICONFIGURATION B-SPLINE DIRAC-HARTREE-FOCK
+================================================================================
+
+Name of case:                     4
+
+Configuration file:               4.c
+
+Angular-coefficients file:        4.bnk
+
+--------------------------------------------------------------------------------
+
+c-file data: 
+
+number of electrons:              4
+number of configurations:      6752
+core orbitals:                    0
+number of peel orbitals:         25
+
+     1s      2s      2p-     2p      3s      3p-     3p      3d-     3d      4s 
+     4p-     4p      4d-     4d      4f-     4f      5s      5p-     5p      5d-
+     5d      5f-     5f      5g-     5g 
+
+number of J-blocks:   3
+
+block  1  2J=  0   ncfg=   936
+block  2  2J=  2   ncfg=  2508
+block  3  2J=  4   ncfg=  3308
+
+optimization mode: eol = 5  -  statistically weighted levels
+
+number of levels to optimize:  4
+
+block  1  level=  1   weight=    0.08333
+block  2  level=  1   weight=    0.25000
+block  2  level=  2   weight=    0.25000
+block  3  level=  1   weight=    0.41667
+
+Memory required for Hamiltonian matrix:     83.49 Mb

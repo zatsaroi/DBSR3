@@ -1,0 +1,15 @@
+mod_jj2ls.f90
+lq_jj_lls.f90
+check_jj_shells.f90
+Check_ovl.f90
+cm2j.f90
+get_LS_conf.f90
+get_LS_terms.f90
+get_tr_coef.f90
+g_factor.f90
+iterm_LS.f90
+jj2ls.f90
+jterm.f90
+recup_3j.f90
+recup_jj_shells.f90
+sub_nlLS.f90

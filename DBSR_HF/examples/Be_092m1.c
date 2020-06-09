@@ -1,0 +1,9 @@
+Core subshells:
+  1s
+Peel subshells:
+  2s
+CSF(s):
+  2s ( 2)
+         
+         0+       
+* 

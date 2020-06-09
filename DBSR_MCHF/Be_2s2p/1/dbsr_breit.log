@@ -1,0 +1,32 @@
+==============================================================
+ DBSR_BREIT: angular coefficients for Dirak-Breit Hamiltonian 
+==============================================================
+
+Max. multipole index =  9
+
+Tollerance for coefficients =    1.E-07
+
+Breit coefficients are not included
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =     4
+number of configurations  =     4
+number of ang. symmetries =     4
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1     4     1     2      0. sec   1s ( 1)  2p-( 1)
+ic,nsymc,kt,kdt =     2     4     1     1      0. sec   1s ( 1)  2p-( 1)
+ic,nsymc,kt,kdt =     3     4     1     2      0. sec   1s ( 1)  2p ( 1)
+ic,nsymc,kt,kdt =     4     4     1     1      0. sec   1s ( 1)  2p ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =         2         2
+number of overlap factors      =         3         2
+total number of coeff.s        =        21
+
+time:         0.00 min

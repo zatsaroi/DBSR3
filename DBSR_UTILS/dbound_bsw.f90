@@ -58,6 +58,7 @@
       Integer :: state = 0
       Integer :: klsp = 0
       Integer :: kk=ICHAR('k')  
+      Real(8) :: eps_c = 1.d-8
 
       Call Read_name(name)
 
@@ -76,6 +77,8 @@
        write(*,*) 
        Stop ' '
       end if
+
+      Call Read_rarg('eps_c',eps_c)
 
 !----------------------------------------------------------------------
 ! ... input data file:          
@@ -273,7 +276,7 @@
       write(nuc,'(20a5)') (ELF(i),i=ncore+1,nwf)
       write(nuc,'(a)') 'CSF(s):'
       Do jc = 1,ncfg; ic=ipt(jc)
-       if(abs(WC(ic)).gt.1.d-8)  Call Print_conf_jj(nuc,ic,WC(ic))
+       if(abs(WC(ic)).gt.eps_c)  Call Print_conf_jj(nuc,ic,WC(ic))
       End do
       write(nuc,'(a)') '*'
       Close(nuc)

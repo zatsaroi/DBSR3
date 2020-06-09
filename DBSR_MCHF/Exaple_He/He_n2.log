@@ -1,0 +1,313 @@
+================================================================================
+                   MULTICONFIGURATION B-SPLINE DIRAC-HARTREE-FOCK
+================================================================================
+
+Name of case:                     He_n2
+
+Configuration file:               He_n2.c
+
+Angular-coefficients file:        He_n2.bnk
+
+--------------------------------------------------------------------------------
+
+c-file data: 
+
+number of electrons:              2
+number of configurations:         4
+core orbitals:                    0
+number of peel orbitals:          4
+
+     1s      2s      2p-     2p 
+
+number of J-blocks:   1
+
+block  1  2J=  0   ncfg=     4
+
+optimization mode: eol = 5  -  statistically weighted levels
+
+number of levels to optimize:  1
+
+block  1  level=  1   weight=    1.00000
+
+Memory required for Hamiltonian matrix:      0.00 Mb
+
+--------------------------------------------------------------------------------
+
+B-spline parameters:
+
+ns   =   90             -  number of splines
+ks   =    9             -  order  of splines
+ksp  =    8             -  for large component
+ksq  =    9             -  for small component
+he   =    0.250         -  exponetial step size
+tmax =   25.674         -  maximum radius
+
+Spline integrals:
+
+kmin =    0             -  min. multipole index
+kmax =    3             -  max. multipole index
+ntype=    4             -  number of different integrals
+
+Memory required for spline integrals:       80.09 Mb
+
+--------------------------------------------------------------------------------
+
+Initial estimations:
+
+  1s  - read from file He.bsw
+  2s  - hydrogenic orbital with screening  1.00  and  n =  2
+  2p- - hydrogenic orbital with screening  1.00  and  n =  2
+  2p  - hydrogenic orbital with screening  1.00  and  n =  2
+
+--------------------------------------------------------------------------------
+
+Running parameters:
+
+scf_tol =  1.00E-09                    - tolerance for energy convergence
+orb_tol =  1.00E-05                    - tolerance for orbital convergence
+end_tol =  1.00E-06                    - tolerance for ending zeros
+max_it  =  25                          - max. number of iterations
+
+ipzero  =  0                           - initial zeros for larger component
+iqzero  =  0                           - initial zeros for small component
+jpzero  =  1                           - final zeros for larger component
+jqzero  =  1                           - final zeros for small component
+
+--------------------------------------------------------------------------------
+
+Additonal options (not applied if = 0)
+
+method  =  1                           - method for solving MCHF equation
+all     =  0                           - collective optimization
+irhs    =  0                           - convert right-hand-side to main matrix
+newton  =  0                           - use Newton-Rapson method
+rotate  =  0                           - use rotations
+debug   =  0                           - additional debug output
+
+--------------------------------------------------------------------------------
+
+c_au    =  137.0359997600000           - speed of light
+
+--------------------------------------------------------------------------------
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.86187565   1  1.0000   4  0.0041   3  0.0029   2 -0.0011
+
+--------------------------------------------------------------------------------
+Iteration    1
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.91805E+00    0.19999E+01    0.55227E-04     78
+   2s    -0.29971E+03    0.22342E-05    0.34175E+01     77
+   2p-   -0.75349E+02    0.16913E-04    0.27717E+01     68
+   2p    -0.75230E+02    0.33827E-04    0.27700E+01     68
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.88338014   1  0.9991   4  0.0272   2 -0.0257   3  0.0192
+
+etotal =            -2.88338014
+
+Maximum orbital diff (relative):         3.42D+00  1.00D-05
+Energy difference (relative):            7.46D-03  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    2
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.93959E+00    0.19965E+01    0.16110E-03     72
+   2s    -0.86693E+01    0.13202E-02    0.31361E+00     72
+   2p-   -0.80573E+01    0.73950E-03    0.34575E+00     69
+   2p    -0.80507E+01    0.14809E-02    0.34122E+00     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89571954   1  0.9973   2 -0.0501   4  0.0440   3  0.0313
+
+etotal =            -2.89571954
+
+Maximum orbital diff (relative):         3.46D-01  1.00D-05
+Energy difference (relative):            4.26D-03  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    3
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95196E+00    0.19891E+01    0.91868E-03     72
+   2s    -0.38393E+01    0.50255E-02    0.12837E+00     72
+   2p-   -0.41593E+01    0.19593E-02    0.11619E+00     71
+   2p    -0.41901E+01    0.38808E-02    0.11792E+00     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89768920   1  0.9964   2 -0.0594   4  0.0493   3  0.0350
+
+etotal =            -2.89768920
+
+Maximum orbital diff (relative):         1.28D-01  1.00D-05
+Energy difference (relative):            6.80D-04  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    4
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95400E+00    0.19856E+01    0.71197E-03     72
+   2s    -0.31565E+01    0.70491E-02    0.33486E-01     72
+   2p-   -0.35709E+01    0.24475E-02    0.25010E-01     69
+   2p    -0.35870E+01    0.48643E-02    0.27479E-01     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89780441   1  0.9962   2 -0.0614   4  0.0504   3  0.0357
+
+etotal =            -2.89780441
+
+Maximum orbital diff (relative):         3.35D-02  1.00D-05
+Energy difference (relative):            3.98D-05  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    5
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95411E+00    0.19848E+01    0.21149E-03     72
+   2s    -0.30417E+01    0.75441E-02    0.62981E-02     72
+   2p-   -0.34803E+01    0.25430E-02    0.39268E-02     69
+   2p    -0.34857E+01    0.50754E-02    0.49331E-02     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89780822   1  0.9962   2 -0.0618   4  0.0506   3  0.0358
+
+etotal =            -2.89780822
+
+Maximum orbital diff (relative):         6.30D-03  1.00D-05
+Energy difference (relative):            1.32D-06  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    6
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95411E+00    0.19847E+01    0.42824E-04     72
+   2s    -0.30227E+01    0.76327E-02    0.10500E-02     72
+   2p-   -0.34672E+01    0.25572E-02    0.54548E-03     69
+   2p    -0.34689E+01    0.51121E-02    0.82398E-03     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89780833   1  0.9962   2 -0.0618   4  0.0506   3  0.0358
+
+etotal =            -2.89780833
+
+Maximum orbital diff (relative):         1.05D-03  1.00D-05
+Energy difference (relative):            3.61D-08  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    7
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95411E+00    0.19847E+01    0.73535E-05     72
+   2s    -0.30197E+01    0.76473E-02    0.17100E-03     72
+   2p-   -0.34655E+01    0.25592E-02    0.69771E-04     69
+   2p    -0.34662E+01    0.51182E-02    0.13591E-03     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89780833   1  0.9962   2 -0.0618   4  0.0506   3  0.0358
+
+etotal =            -2.89780833
+
+Maximum orbital diff (relative):         1.71D-04  1.00D-05
+Energy difference (relative):            9.51D-10  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    8
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95411E+00    0.19847E+01    0.12173E-05     72
+   2s    -0.30192E+01    0.76497E-02    0.27761E-04     72
+   2p-   -0.34652E+01    0.25594E-02    0.78532E-05     69
+   2p    -0.34657E+01    0.51192E-02    0.22395E-04     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89780833   1  0.9962   2 -0.0618   4  0.0506   3  0.0358
+
+etotal =            -2.89780833
+
+Maximum orbital diff (relative):         2.78D-05  1.00D-05
+Energy difference (relative):            2.50D-11  1.00D-09
+
+--------------------------------------------------------------------------------
+Iteration    9
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.95411E+00    0.19847E+01    0.35474E-06     72
+   2s    -0.30191E+01    0.76501E-02    0.45062E-05     72
+   2p-   -0.34652E+01    0.25594E-02    0.88345E-06     69
+   2p    -0.34657E+01    0.51194E-02    0.36942E-05     69
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.89780833   1  0.9962   2 -0.0618   4  0.0506   3  0.0358
+
+etotal =            -2.89780833
+
+Maximum orbital diff (relative):         4.51D-06  1.00D-05
+Energy difference (relative):            7.48D-13  1.00D-09
+
+--------------------------------------------------------------------------------
+
+ATOM:  He
+
+Convergence (latest difference):
+Orbital diff. =                          4.51D-06
+SCF diff. =                              7.48D-13
+
+  nl       E(nl)        1/R       R       R**2       dmp       ns     max_R
+
+  1s     -0.95411174    1.689    0.928    1.189    3.55E-07    72     15.67
+  2s     -3.01907850    1.925    1.253    2.395    4.51E-06    72     15.67
+  2p-    -3.46522352    1.226    0.999    1.185    8.83E-07    69     12.67
+  2p     -3.46565331    1.226    0.999    1.185    3.69E-06    69     12.67
+
+Average energy:                          -2.8978083311292209
+
+Optimized states:
+
+1s2.0                                    -2.8978083311292209
+
+time:                    2.72  sec
+
+--------------------------------------------------------------------------------
+
+
+debug timing:
+
+time_matrix:             0.88  sec
+time_solve:              0.95  sec
+time_diag:               0.77  sec
+
+time_convolution:        0.47  sec
+time_density:            0.02  sec
+
+Calls to convol  =        908
+Calls to density =       1052

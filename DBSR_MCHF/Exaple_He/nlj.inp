@@ -1,0 +1,15 @@
+Core subshells:
+
+Peel subshells:
+  1s 
+Occupation limits:
+    2
+    2
+
+
+n_orbitals  =  1        ! number of peel subshels
+n_electrons =  2        ! number of peel electrons
+parity =  1             ! +1 or -1
+k_ref  =  1             ! reference orbitals
+k_min  =  0             ! min. promotion from the ref. orbitals
+k_max  =  2             ! max. promotion from the ref. orbitals

@@ -103,6 +103,9 @@
 !                             {1/2 0 -1/2}            
 !
 !     We devide on (2ja+1)(2jb+1) due to using Function Cjkj instead 3J-symbol 
+!
+!     Input parameter jj equal to ncore or nbf, depending what we need:
+!     core energy or total energy 
 !----------------------------------------------------------------------
       Use hf_energy
       Use df_orbitals
@@ -121,13 +124,13 @@
         c = WW(i,j)/2.d0       ! qsum(i)*(qsum(i)-1.d0)/2
         coef(i,i,0) = c
         Do k=1,(jbs(i)+jbs(i))/2
-         coef(i,i,k)=-c*Cjkj(jbs(i),k,jbs(i))**2/(jbs(i)*(jbs(i)+1))
+         coef(i,i,k)= -c * Cjkj(jbs(i),k,jbs(i))**2 / (jbs(i)*(jbs(i)+1))
         End do
        else
         c = WW(i,j)            ! qsum(i)*qsum(j)
         coef(i,j,0)=c
         Do k=iabs(jbs(i)-jbs(j))/2,(jbs(i)+jbs(j))/2
-         coef(j,i,k)=-c*Cjkj(jbs(i),k,jbs(j))**2/((jbs(i)+1)*(jbs(j)+1))
+         coef(j,i,k)= -c * Cjkj(jbs(i),k,jbs(j))**2 / ((jbs(i)+1)*(jbs(j)+1))
         End do
        end if
       End do; End do

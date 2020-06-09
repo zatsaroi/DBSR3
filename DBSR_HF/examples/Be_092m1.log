@@ -1,0 +1,101 @@
+
+========================================
+ B - S P L I N E  D I R A C - F O C K   
+========================================
+
+name:   Be_092m1                                                                        
+
+ATOM    U     
+TERM    LS    
+Z      92.
+
+core:   1s
+conf:   2s(2.0)
+
+orbitals to optimize:  all                                                                             
+
+
+Running parameters:
+
+scf_tol =  1.00E-10     - energy convergence tolerance
+orb_tol =  1.00E-07     - orbital convergence tolerance
+end_tol =  1.00E-07     - orbital tail cut-off
+max_it  =  75           - max. number of iterations
+
+
+B-spline parameters:
+
+ns   =  116             -  number of splines
+ks   =    9             -  order  of splines
+ksp  =    8             -  for large component
+ksq  =    9             -  for small component
+hi   =    0.125         -  initial point
+he   =    0.250         -  exponetial step size
+tmax =   50.431         -  maximum radius
+
+Spline integrals:
+
+kmin =    0             -  min. multipole index
+kmax =    1             -  max. multipole index
+ntype=    4             -  number of different integrals
+memory=     66.52       -  memory required (in Mb)
+
+
+Initial estimations for orbitals:
+
+  1s  - read from file Be_092m1.bsw and converted
+  2s  - read from file Be_092m1.bsw and converted
+
+
+Iteration      1
+----------------
+
+  nl         e(nl)          dpm         ns
+
+  1s   -4737.40260321     7.43D-07      50
+  2s   -1193.01197048     4.94D-07      57
+
+Etotal =  -12039.65693361
+
+Maximum orbital diff.     7.43D-07
+Energy difference         9.56D-12
+
+
+Iteration      2
+----------------
+
+  nl         e(nl)          dpm         ns
+
+  1s   -4737.40260323     6.47D-08      50
+  2s   -1193.01197049     6.03D-08      55
+
+Etotal =  -12039.65693361
+
+Maximum orbital diff.     6.47D-08
+Energy difference         7.55D-16
+
+------------------------------------------------------------------------------------
+
+ATOM  U     
+
+core: 1s
+
+conf: 2s(2)
+
+
+  nl         e(nl)          dmp         ns      <r>      max_r
+
+  1s   -4737.40260323     6.47D-08      50     0.014     0.305
+  2s   -1193.01197049     6.03D-08      55     0.055     0.929
+
+Orbital convergence:      6.47D-08
+Energy  convergence:      7.55D-16
+
+Coulomb energy:      -12039.656933607358951 au     -327614.965686250128783 eV
+
+Breit:                   14.903302970465127           405.538556306504233
+Self-energy:             22.633860480867046           615.897235749961396
+Vacuum polarization      -8.078402858326612          -219.824010752555040
+Sum:                 -12010.198173014352506       -326813.353904946183320
+
+time:      1.42  sec

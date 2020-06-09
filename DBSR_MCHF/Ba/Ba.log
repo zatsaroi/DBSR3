@@ -1,0 +1,200 @@
+================================================================================
+                   MULTICONFIGURATION B-SPLINE DIRAC-HARTREE-FOCK
+================================================================================
+
+Name of case:                     Ba
+
+Configuration file:               Ba.c
+
+Angular-coefficients file:        Ba.bnk
+
+--------------------------------------------------------------------------------
+
+c-file data: 
+
+number of electrons:              2
+number of configurations:         1
+core orbitals:                   17
+core:   1s   2s   2p-  2p   3s   3p-  3p   3d-  3d   4s   4p-  4p   4d-  4d   5s   5p-  5p
+number of peel orbitals:          1
+
+     6s 
+
+number of J-blocks:   1
+
+block  1  2J=  0   ncfg=     1
+
+optimization mode: eol = 5  -  statistically weighted levels
+
+number of levels to optimize:  1
+
+block  1  level=  1   weight=    1.00000
+
+Memory required for Hamiltonian matrix:      0.00 Mb
+
+--------------------------------------------------------------------------------
+
+B-spline parameters:
+
+ns   =  113             -  number of splines
+ks   =    9             -  order  of splines
+ksp  =    8             -  for large component
+ksq  =    9             -  for small component
+he   =    0.250         -  exponetial step size
+tmax =   50.538         -  maximum radius
+
+Spline integrals:
+
+kmin =    0             -  min. multipole index
+kmax =    5             -  max. multipole index
+ntype=    4             -  number of different integrals
+
+Memory required for spline integrals:      189.38 Mb
+
+--------------------------------------------------------------------------------
+
+Initial estimations:
+
+  1s  - read from file Ba.bsw
+  2s  - read from file Ba.bsw
+  2p- - read from file Ba.bsw
+  2p  - read from file Ba.bsw
+  3s  - read from file Ba.bsw
+  3p- - read from file Ba.bsw
+  3p  - read from file Ba.bsw
+  3d- - read from file Ba.bsw
+  3d  - read from file Ba.bsw
+  4s  - read from file Ba.bsw
+  4p- - read from file Ba.bsw
+  4p  - read from file Ba.bsw
+  4d- - read from file Ba.bsw
+  4d  - read from file Ba.bsw
+  5s  - read from file Ba.bsw
+  5p- - read from file Ba.bsw
+  5p  - read from file Ba.bsw
+  6s  - read from file Ba.bsw
+
+--------------------------------------------------------------------------------
+
+Running parameters:
+
+scf_tol =  1.00E-09                    - tolerance for energy convergence
+orb_tol =  1.00E-05                    - tolerance for orbital convergence
+end_tol =  1.00E-06                    - tolerance for ending zeros
+max_it  =  25                          - max. number of iterations
+
+ipzero  =  0                           - initial zeros for larger component
+iqzero  =  0                           - initial zeros for small component
+jpzero  =  1                           - final zeros for larger component
+jqzero  =  1                           - final zeros for small component
+
+--------------------------------------------------------------------------------
+
+Additonal options (not applied if = 0)
+
+method  =  1                           - method for solving MCHF equation
+all     =  0                           - collective optimization
+irhs    =  0                           - convert right-hand-side to main matrix
+newton  =  0                           - use Newton-Rapson method
+rotate  =  0                           - use rotations
+debug   =  0                           - additional debug output
+
+--------------------------------------------------------------------------------
+
+c_au    =  137.0359997600000           - speed of light
+
+--------------------------------------------------------------------------------
+
+Ecore  =   -8135.14612769
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0  -8135.65014505   1  1.0000
+
+--------------------------------------------------------------------------------
+Iteration    1
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.13838E+04    0.20000E+01    0.48922E-06     54
+   2s    -0.22258E+03    0.20000E+01    0.51396E-06     59
+   2p-   -0.20909E+03    0.20000E+01    0.68114E-06     57
+   2p    -0.19501E+03    0.40000E+01    0.75719E-06     57
+   3s    -0.48652E+02    0.20000E+01    0.45387E-06     63
+   3p-   -0.42957E+02    0.20000E+01    0.80861E-06     62
+   3p    -0.40167E+02    0.40000E+01    0.47436E-06     64
+   3d-   -0.30298E+02    0.40000E+01    0.57326E-06     61
+   3d    -0.29712E+02    0.60000E+01    0.66906E-06     63
+   4s    -0.10257E+02    0.20000E+01    0.79907E-06     68
+   4p-   -0.80991E+01    0.20000E+01    0.84726E-06     68
+   4p    -0.75132E+01    0.40000E+01    0.84187E-06     70
+   4d-   -0.39136E+01    0.40000E+01    0.18855E-05     68
+   4d    -0.38126E+01    0.60000E+01    0.11959E-05     68
+   5s    -0.16036E+01    0.20000E+01    0.85047E-06     72
+   5p-   -0.95642E+00    0.20000E+01    0.74924E-06     78
+   5p    -0.87267E+00    0.40000E+01    0.11560E-05     78
+   6s    -0.16318E+00    0.20000E+01    0.20518E-05     93
+
+Ecore  =   -8135.14612800
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0  -8135.65014505   1  1.0000
+
+etotal =         -8135.65014505
+
+Maximum orbital diff (relative):         2.05D-06  1.00D-05
+Energy difference (relative):            2.94D-14  1.00D-09
+
+--------------------------------------------------------------------------------
+
+ATOM:  Ba
+
+Convergence (latest difference):
+Orbital diff. =                          2.05D-06
+SCF diff. =                              2.94D-14
+
+  nl       E(nl)        1/R       R       R**2       dmp       ns     max_R
+
+  1s  -1383.83668085   60.698    0.026    0.001    4.89E-07    54      1.49
+  2s   -222.57766138   14.273    0.109    0.014    5.14E-07    59      4.54
+  2p-  -209.08793946   14.215    0.092    0.010    6.81E-07    57      2.90
+  2p   -195.01011575   12.982    0.098    0.012    7.57E-07    57      2.90
+  3s    -48.65170110    5.146    0.290    0.096    4.54E-07    63      8.54
+  3p-   -42.95657260    5.047    0.281    0.092    8.09E-07    62      7.54
+  3p    -40.16725729    4.745    0.292    0.099    4.74E-07    64      9.54
+  3d-   -30.29786052    4.592    0.264    0.082    5.73E-07    61      6.54
+  3d    -29.71189753    4.514    0.267    0.084    6.69E-07    63      8.54
+  4s    -10.25731259    2.088    0.674    0.511    7.99E-07    68     13.54
+  4p-    -8.09913270    1.981    0.698    0.553    8.47E-07    68     13.54
+  4p     -7.51321071    1.889    0.723    0.593    8.42E-07    70     15.54
+  4d-    -3.91355705    1.658    0.795    0.733    1.89E-06    68     13.54
+  4d     -3.81260093    1.634    0.805    0.751    1.20E-06    68     13.54
+  5s     -1.60355515    0.789    1.657    3.080    8.50E-07    72     17.54
+  5p-    -0.95641927    0.694    1.870    3.962    7.49E-07    78     23.54
+  5p     -0.87266558    0.661    1.951    4.311    1.16E-06    78     23.54
+  6s     -0.16317609    0.243    5.083   29.303    2.05E-06    93     38.54
+
+Average energy:                       -8135.6501450541582017
+
+Optimized states:
+
+6s2.0                                 -8135.6501450541582017
+
+time:                    6.83  sec
+
+--------------------------------------------------------------------------------
+
+
+debug timing:
+
+time_matrix:             1.48  sec
+time_solve:              1.20  sec
+time_diag:               1.73  sec
+
+time_convolution:        2.77  sec
+time_density:            0.09  sec
+
+Calls to convol  =       2812
+Calls to density =       9824

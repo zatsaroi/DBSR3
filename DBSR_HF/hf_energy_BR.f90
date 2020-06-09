@@ -65,7 +65,7 @@
       Integer, intent(in) :: ka,kb,kc,kd,L,v
       Real(8), intent(out) :: S(8)
       Integer :: i, la,lb,lc,ld, K,Kp, vv
-      Integer, External :: ITRA, l_kappa
+      Integer, external :: ITRA, l_kappa
       Real(8) :: b,c,bp,cp
 
       SMU = 0.d0; S = 0.d0; if(L.lt.0) Return;  if(v.lt.0) Return 
