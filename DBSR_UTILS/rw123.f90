@@ -14,12 +14,12 @@
       Character(80) ::  AF
       Character(6) ::  G92RWF 
       Character(5) ::  ELj,ELn
-      Character(5), External ::  ELi
+      Character(5), external ::  ELi
 
-      Real(8), Allocatable, Dimension(:) :: R,P,Q
+      Real(8), allocatable :: R(:),P(:),Q(:)
 
-      Integer(4) :: inp=1
-      Integer(4) :: out=2
+      Integer :: inp=1
+      Integer :: out=2
 
       Call Read_name(AF)
 
@@ -30,7 +30,7 @@
        write(*,*)                                                           
        write(*,*) '  1.w + 2.w + 3.w + ... --> result.w '             
        write(*,*)                                                           
-       write(*,*) 'Interactive input; knot.dat is required'                  
+       write(*,*) 'parameters are provided through interactive input'                  
        write(*,*) 
        Stop ' '
       end if

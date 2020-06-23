@@ -6,25 +6,38 @@
 !
 !     name.w  -->  name.nl1, name.nl1, name.nl1, ...
 !  
-!                  where nl's - one-electron orbitals
+!                  where nl's denote one-electron orbitals
 !
 !----------------------------------------------------------------------
-
       IMPLICIT REAL(8) (A-H, O-Z)
 
-      Character(80) ::  AF,BF
+      Character(80) :: AF, BF
       Character(6) :: G92RWF
       Character(5) :: EL, ELi
 
-      Real(8), Allocatable, Dimension(:) :: R,P,Q
+      Real(8), allocatable :: R(:),P(:),Q(:)
 
-      iarg = IARGC()
-
+      iarg = command_argument_count() 
       if(iarg.gt.0) then
-       Call GETARG(1,AF)
+       Call GET_COMMAND_ARGUMENT(1,AF)
       else
        Stop 'enter name for w-file as argument'
       end if
+
+      if(AF.eq.'?') then
+       write(*,*) 
+       write(*,*) 'rw_dat prepares the text files (one for each orbital)' 
+       write(*,*) 'suitable for plotting the radial functions:'
+       write(*,*)
+       write(*,*) 'name.w  -->  name.nl1, name.nl1, name.nl1, ... '     
+       write(*,*)                                                     
+       write(*,*) "             where nl's denote one-electron orbitals"
+       write(*,*) 
+       write(*,*) 'Call as:   rw_dat  name.w '
+       write(*,*)
+       Stop 
+      end if
+
 
       ii = INDEX(AF,'.',BACK=.TRUE.); if(ii.eq.0) ii=LEN_TRIM(AF) 
 
@@ -57,5 +70,4 @@
       go to 1
     2 Continue
 
-
-      END  ! Utility rw_dat
+      END  ! utility rw_dat

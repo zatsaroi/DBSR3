@@ -37,7 +37,7 @@
       
       Implicit real(8) (A-H,O-Z)
       Integer, parameter :: ma = 80
-      Character(ma) :: AFC,AFW, BFC,BFW, AF_inp
+      Character(ma) :: AFC,AFW, BFC,BFW, AF_inp, name = ' '
       Character(ma) :: AF = 'merge'
       Integer :: pri = 6;  Character(ma) :: AF_log ='dbsr_merge.log'
       Integer :: inp = 1;          ! list of c-files
@@ -49,27 +49,29 @@
 
       Real(8) :: eps_ovl  = 1.d-7
       Real(8) :: eps_core = 1.d-5
-
       Integer :: nfile = 0
 
-      Call Read_name(AF)
-      if(AF.eq.'?'.or.len_trim(AF).eq.0) then
+      Call Read_name(name)
+      if(name.eq.'?') then
        write(*,*)
-       write(*,*) 'Merging a set of (name.c, name.bsw) files to one pair'
+       write(*,*) 'Merging a set of (name.c, name.bsw) files to one pair (merge.c, merge.bsw)'
+       write(*,*) 'with consistent set-indexes if orbitals are not-orthogonal'
        write(*,*)
        write(*,*) 'Call as:  dbsr_merge AF1.c AF2.c ... nfile=.. merge=..'
        write(*,*)
-       write(*,*) 'list of merging file are given as first position arguments'
+       write(*,*) 'list of merging c-files are defined as first position arguments'
        write(*,*)
        write(*,*) 'list of merging files (AF1.c, AF.2.c, ...) '
-       write(*,*) 'also can be given in input file:  inp=...  '
+       write(*,*) 'also can be given in input file defined through inp=...  '
+       write(*,*) 'one filename per line'  
+       write(*,*) 'In this case call as: dbsr_merge inp=...  merge=...'
        write(*,*)  
        write(*,*) 'nfile  - number of merging files'
-       write(*,*) 'merge  - name for resulting files: merge.c and merge.bsw'
+       write(*,*) 'merge  - name for resulting c-file: merge.c and merge.bsw'
        write(*,*) 'jjmin  - minimum 2J value (optional)'
        write(*,*) 'jjmax  - maximum 2J value (optional)'
-       write(*,*) 'eps_ovl- tolerence for one-electron overlaps (optional)'
-       write(*,*) 'eps_core - tolerence for overlaps with core functions (optional)'
+       write(*,*) 'eps_ovl- tolerance for one-electron overlaps (optional)'
+       write(*,*) 'eps_core - tolerance for overlaps with core functions (optional)'
        Stop ' '
       end if
 
@@ -88,7 +90,7 @@
       write(pri,'(a,d15.5)') 'eps_ovl  = ',eps_ovl
       write(pri,'(a,d15.5)') 'eps_core = ',eps_core
 
-      jjmin=-1; Call Read_iarg('jjmin', jjmin )
+      jjmin=-1;    Call Read_iarg('jjmin', jjmin )
       jjmax=jjmin; Call Read_iarg('jjmax', jjmax )
       write(pri,'(/a,i5)') 'jjmin    = ',jjmin
       write(pri,'( a,i5)') 'jjmax    = ',jjmax
@@ -127,7 +129,7 @@
        if(AF_inp.ne.'no') then
         read(inp,'(a)') AFC
        else 
-        Call Getarg(it,AFC)
+        Call GET_COMMAND_ARGUMENT(it,AFC)
        end if
 
        Call Check_file(AFC)
