@@ -143,9 +143,8 @@
       Use boef_list
 
       Implicit none
-      Integer, Intent(in) :: int
-      Real(8), Intent(in) :: C
-      Integer :: i
+      Integer, intent(in) :: int
+      Real(8), intent(in) :: C
 
       if(mboef.eq.0.or.nboef.eq.mboef) Call Alloc_boef(mboef+iboef)
 
@@ -166,7 +165,7 @@
 
       Implicit none
       Integer :: l1,j1,m1, l2,j2,m2, l3,j3,m3, l4,j4,m4
-      Integer :: i1,i2,i3,i4, k,l,m,ipm 
+      Integer :: k,l,m,ipm 
 
       if(mblk.eq.0) Call Alloc_blk(iblk)
 

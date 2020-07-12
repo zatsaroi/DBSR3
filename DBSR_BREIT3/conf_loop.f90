@@ -11,10 +11,9 @@
       Use coef_list; Use zoef_list; Use boef_list
 
       Implicit none
-      Integer :: i,j,k,l,m,k1,k2,is,js, it,jt, ij
-      Real(8) :: t1,t2,tt
+      Integer :: i,j,k,k1,k2,is,js, it,jt, ij
+      Real(8) :: t1,t2
       Integer, external :: Iort_conf, DEF_ij
-      Real(8), external :: RRTC
 
 !----------------------------------------------------------------------
 ! ... cycle 1 over configurations:
@@ -40,7 +39,8 @@
         k=k+iq1(i)
        End do
 
-       t1=RRTC()
+       Call CPU_time(t1)
+
 !----------------------------------------------------------------------
 ! ... cycle 2 over configurations:
 
@@ -123,12 +123,12 @@
 
       End do    ! over jc
 
-      t2=RRTC();  tt=t2-t1
+      Call CPU_time(t2)
       Call Incode_confj1
       write(*,  '(a,4i6,f8.0,a,a)')  &
-        'ic,nsymc,kt,kdt =',ic,nsymc,kt1,kdt1,tt,' sec ',CONFIG(1:ia)
+        'ic,nsymc,kt,kdt =',ic,nsymc,kt1,kdt1,t2-t1,' sec ',CONFIG(1:ia)
       write(pri,'(a,4i6,f8.0,a,a)')  &
-        'ic,nsymc,kt,kdt =',ic,nsymc,kt1,kdt1,tt,' sec ',CONFIG(1:ia)
+        'ic,nsymc,kt,kdt =',ic,nsymc,kt1,kdt1,t2-t1,' sec ',CONFIG(1:ia)
 
       End do    ! over ic
 

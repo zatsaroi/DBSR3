@@ -1,12 +1,12 @@
 !======================================================================
-      MODULE  param_jj
+      Module  dbsr_breit
 !======================================================================
 !     main parameters and input/outpu files used in the program
 !----------------------------------------------------------------------
       Use zconst
 
       Implicit none
-      Save
+
 !----------------------------------------------------------------------
 !     names and units for input/output files:
 !     AF  -  standard (default) names
@@ -64,13 +64,11 @@
       Integer, parameter :: isboef = 50000   ! in module BOEF
       Integer, parameter :: isblk  = 5000    ! in module BOEF   
 
-
 ! ... MPI:
 
       Integer :: nprocs, myid, ierr
       Integer, Allocatable :: ip_proc(:)
 
-
-      End MODULE  param_jj
+      End Module dbsr_breit
 
 

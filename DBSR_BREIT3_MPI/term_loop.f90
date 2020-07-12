@@ -6,8 +6,7 @@
 !     Check also if the specific coefficient is needed to be added
 !     to the bank.
 !----------------------------------------------------------------------
-
-      USE param_jj 
+      USE dbsr_breit 
       USE term_exp
       USE zoef_list
       USE coef_list

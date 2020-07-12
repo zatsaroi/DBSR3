@@ -10,7 +10,7 @@
       Use term_exp;  Use zoef_list; Use coef_list
 
       Implicit none
-      Integer :: i,k,m, it,jt, k1,k2
+      Integer :: i,k,k1,k2
       Real(8) :: C
 
 ! ... find term-dependent coefficients between two determinants:

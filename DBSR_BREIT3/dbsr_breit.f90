@@ -1,5 +1,5 @@
 !=====================================================================
-!     PROGRAM   D B S R _ B R E I T  
+!     PROGRAM   D B S R _ B R E I T                           v.3
 !
 !               C O P Y R I G H T -- 2015
 !
@@ -35,24 +35,13 @@
       Use coef_list
 
       Implicit none
-      Integer :: klsp
-      Integer :: i, ii
+      Integer :: klsp, ii
       Real(8) :: t1,t2
-      Real(8), external :: RRTC
-
-      Character*80 :: cline
+      Character(80) :: cline
 
       Call Inf_dbsr_breit
 
 !----------------------------------------------------------------------
-! ... HEADER:
-
-      Call open_jj(pri,0)
-      write(pri,'(a/a/a)') &
-        '==================================',     &
-        ' DBSR_BREIT: angular coefficients ',     &
-        '=================================='
-
 ! ... read arguments if any from command line:
 
       Call Read_arg
@@ -62,39 +51,63 @@
 
       Do klsp = klsp1,klsp2
 
-       if(klsp.gt.0) then
-        write(pri,'(80(''-''))')
-        write(pri,'(/a,i5)') 'Partial wave: ',klsp
-        write(*  ,'(/a,i5)') 'Partial wave: ',klsp
-       end if
-
-       t1 = RRTC()
+       Call CPU_time(t1)
 
 ! ...  open relevant files:
 
+       Call open_jj(pri,klsp)
        Call open_jj(nuc,klsp)       ! c-file
        Call open_jj(nub,klsp)       ! data bank results, if any
-       Call open_jj(nur,klsp)       ! new results
-       Call open_jj(nui,klsp)       ! intermediate results
 
-       if(new)      write(pri,'(/a/)') 'It is a new calculation '
-       if(.NOT.new) write(pri,'(/a/)') 'It is a continued calculation '
+! ... print parameters:
 
-       if(mbreit.eq.1) write(pri,'(a/)') 'Breit contribution is included '    
-       if(mbreit.eq.0) write(pri,'(a/)') 'Breit contribution is not included '    
+       write(pri,'(a/a/a)') &
+        '==============================================================',     &
+        ' DBSR_BREIT: angular coefficients for Dirak-Breit Hamiltonian ',     &
+        '=============================================================='
+
+        if(klsp.gt.0) then
+         write(pri,'(/a,i5)') 'Partial wave: ',klsp
+         write(  *,'(/a,i5)') 'Partial wave: ',klsp
+        else
+         write(pri,'(/a,a )') 'Name of case: ',trim(name)
+         write(  *,'(/a,a )') 'Name of case: ',trim(name)
+        end if
+
+        write(pri,'(/a,i3)') 'Max. multipole index =',mk
+        write(pri,'(a,1PE8.0)') 'Tollerance for coefficients =',eps_c
+        if(mbreit.eq.0)  write(pri,'(a)') 'Breit coefficients are not included'
+        if(mbreit.eq.1)  write(pri,'(a)') 'Breit coefficients are included'
+
+        if(new) then
+         write(pri,'(/a)') 'It is new calculations '
+        else
+         write(pri,'(/a)') 'It is continued calculations '
+        end if
 
 ! ...  read the configuration list:
                            
        Call Read_conf_jj   
 
-       if(.not.icalc) then; Close(nur,STATUS='DELETE'); Cycle; end if
+       if(icalc .and. .not.new) then
+        write(pri,'(/a,a4/)')   'Need of additional calculations --> yes '
+        write(  *,'(/a,a4/)')   'Need of additional calculations --> yes '
+       elseif(.not.icalc .and. .not.new) then
+        write(pri,'(/a,a4/)')   'Need of additional calculations --> no '
+        write(  *,'(/a,a4/)')   'Need of additional calculations --> no '
+       end if
+
+       if(.not.icalc) Cycle
 
 ! ...  extract old results if any:
 
+       Call open_jj(nur,klsp)       ! new results
+       Call open_jj(nui,klsp)       ! intermediate results
+
+       nct = 0
        if(new) then
-        ndet=0; Call Alloc_det(idet)
-        ndef=0; Call Alloc_def(idef)
-                Call Alloc_ndet(0)
+        Call Alloc_det(-1)
+        Call Alloc_def(-1)
        else
         Call Read_det(nub)
         Call Read_def(nub)
@@ -109,18 +122,9 @@
 
 ! ...  calculations for new angular symmetries:
 
-       Call Conf_loop
+       nc=0;  Call Conf_loop;  nct = nct + nc
 
 ! ...  record results:
-
-       write(pri,'(/a/)') &
-          'Results for new angular symmetry calculations:'
-       ii=ldet/ndet + 1
-       write(pri,'(a,2i10)') &
-          'number of overlap determinants =', ndet,ii
-       ii=ldef/ndef + 1
-       write(pri,'(a,2i10)') &
-          'number of overlap factors      =', ndef,ii
 
        Call Write_symc(nur)
        Call Write_symt(nur)
@@ -128,62 +132,32 @@
        Call Record_det(nur)
        Call Record_def(nur)
 
-       rewind(nui);  Call RW(nui,nur,nct)
+       Close(nui); Close(nur); Close(nub)
 
-       write(pri,'(a,i10,f10.1)') 'total number of coeff.s        =', nct
-
-       close(nui); close(nur); close(nub)
-
-! ...  rename results as new data bank (jnt_res -> jnt_bnk):
-
-       if(klsp.eq.0) then
-        write(cline,*) 'mv ',trim(AF_r),' ',trim(AF_b)
-       else
-        write(cline,*) 'mv ',trim(BF_r),' ',trim(BF_b)
-       end if
-
+       write(cline,'(a,a,a,a)') 'cat ',trim(BF_i),' >> ',trim(BF_r)
        Call System(cline)
+
+       write(pri,'(/a/)')   'Data-bank contains:'
+       write(pri,'(a,i10)') 'number of overlap determinants =', ndet
+       write(pri,'(a,i10)') 'number of overlap factors      =', ndef
+       write(pri,'(a,i10)') 'total number of coeff.s        =', nct
+
+! ...  rename results as new data bank (int_res -> int_bnk):
+
+       write(cline,'(a,a,a,a)') 'mv ',trim(BF_r),'  ',trim(BF_b)
+       Call System(cline)
+
+       write(cline,'(a,a,a,a)') 'rm ',trim(BF_i);  Call System(cline)
 
 ! ...  time for one case:
 
-       t2=RRTC()
-       write(pri,'(/a,F12.2,a)') 'time: ',(t2-t1)/60,' min'
-       write(*,  '( a,F12.2,a)') 'time: ',(t2-t1)/60,' min'
+       Call CPU_time(t2)
+       write(pri,'(/a,T15,F12.2,a)') 'time: ',(t2-t1)/60,' min'
+       write(*,  '( a,T15,F12.2,a)') 'time: ',(t2-t1)/60,' min'
 
       End do  ! over klsp
 
       End ! Program dbsr_breit
-
-
-!======================================================================
-      Subroutine Read_arg
-!======================================================================
-!     read arguments from command line and check default settings
-!======================================================================
-      Use dbsr_breit
-      Implicit none
-      Integer :: klsp = 0
-
-! ... read arguments in command line:
-
-      Call Read_iarg('klsp'  ,klsp  )
-      Call Read_iarg('klsp1' ,klsp1 )
-      Call Read_iarg('klsp2' ,klsp2 )
-      Call Read_iarg('mk'    ,mk    )
-      Call Read_rarg('eps_c' ,eps_c )
-      Call Read_iarg('mbreit',mbreit)
-
-      if(klsp.gt.0) klsp1=klsp
-      if(klsp2.lt.klsp1) klsp2=klsp1
-
-      write(pri,'(/a,i3)') 'Max. multipole index =',mk
-
-      write(pri,'(/a,1PE10.0)') 'Tollerance for coefficients =',eps_c
-
-      if(mbreit.eq.0)  write(pri,'(/a)') 'Breit coefficients are not included'
-      if(mbreit.eq.1)  write(pri,'(/a)') 'Breit coefficients are included'
-
-      End Subroutine Read_arg
 
 
 !======================================================================

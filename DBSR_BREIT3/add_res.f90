@@ -9,7 +9,7 @@
 
       Implicit none
       Integer, intent(in) :: nu
-      Integer :: i,j,ij, it,jt, k,k1,k2, n
+      Integer :: i,j, it,jt, k,k1,k2
 
 ! ... convert det.factors from ndef_list to common def_list:
 

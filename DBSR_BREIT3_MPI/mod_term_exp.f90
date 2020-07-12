@@ -4,9 +4,7 @@
 !     Containes the term-dependent coefficients of det.expansion
 !     of two given conf.symmetries under consideration.
 !----------------------------------------------------------------------
-
       Implicit none
-      Save
 
 ! ... lists of ang.symmetries (1:kt)
 

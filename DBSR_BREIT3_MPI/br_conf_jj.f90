@@ -6,7 +6,7 @@
       USE conf_jj
       USE symc_list
       USE symt_list
-      USE param_jj, only: new, icalc
+      USE dbsr_breit, only: new, icalc
 
       Implicit none
       

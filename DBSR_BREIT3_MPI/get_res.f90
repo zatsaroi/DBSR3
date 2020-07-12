@@ -1,16 +1,15 @@
 !======================================================================
       Subroutine Get_res(id)
 !======================================================================
-      USE MPI
+      Use MPI
 
       Use NDET_list
       Use NDEF_list 
-      Use coef_list, only: ntrm,ncoef,idfc,intc,coef
-      Use term_exp,  only: jt1,jt2,JP_kt1,JP_kt2, IP_kt12
-      USE param_jj,  only: pri, AF_pri
+      Use coef_list,  only: ntrm,ncoef,idfc,intc,coef
+      Use term_exp,   only: jt1,jt2,JP_kt1,JP_kt2, IP_kt12
+      Use dbsr_breit, only: pri, AF_pri
 
       Implicit none
-      
       Integer :: id, itag, ierr, status(MPI_STATUS_SIZE)
 
       Call MPI_RECV(ncoef,1,MPI_INTEGER, MPI_ANY_SOURCE, &

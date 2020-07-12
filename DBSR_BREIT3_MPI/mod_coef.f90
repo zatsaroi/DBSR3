@@ -4,9 +4,7 @@
 !     Contains a set of coefficients with two identifiers (intc,idfc)
 !     The list of ordered according the pointer 'ipcoef'
 !--------------------------------------------------------------------
-
       IMPLICIT NONE 
-      SAVE
     
       Integer :: ncoef = 0        !  number of coefficients
       Integer :: mcoef = 0        !  current allocation size  
@@ -28,8 +26,7 @@
 !======================================================================
       Subroutine Alloc_trm(nt)
 !======================================================================
-
-      USE coef_list
+      Use coef_list
 
       Implicit none
       Integer, Intent(in) :: nt
@@ -52,13 +49,12 @@
 !======================================================================
       Subroutine Alloc_coef(mc)
 !======================================================================
-
-      USE coef_list
+      Use coef_list
 
       Implicit none
       Integer, Intent(in) :: mc
-      Integer, Allocatable :: ia(:)
-      Real(8), Allocatable :: ra(:,:)
+      Integer, allocatable :: ia(:)
+      Real(8), allocatable :: ra(:,:)
 
       if(ntrm.le.0.and.mc.gt.0) Stop ' Alloc_coef: ntrm = 0 '
 

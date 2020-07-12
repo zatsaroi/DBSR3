@@ -4,11 +4,11 @@
 !     records results from 'coef_list' to unit 'nu'
 !----------------------------------------------------------------------
 
-      USE param_jj
-      USE coef_list, only: ncoef,idfc,intc,coef,nc
-      USE term_exp
-      USE ndef_list, ONLY: IPF
-      USE symt_list
+      Use dbsr_breit
+      Use coef_list, only: ncoef,idfc,intc,coef,nc
+      Use term_exp
+      Use ndef_list, ONLY: IPF
+      Use symt_list
 
       Implicit none
       Integer, Intent(in) :: nu

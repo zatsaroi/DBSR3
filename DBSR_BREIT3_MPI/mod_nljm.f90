@@ -6,7 +6,6 @@
 !----------------------------------------------------------------------
 
       IMPLICIT NONE
-      SAVE
 
 ! ... common list of different orbital symmetries for two determinants:
 !

@@ -9,7 +9,7 @@
       Use conf_jj;  Use symc_list;  Use symt_list
 
       Implicit none
-      Integer :: i,j,k,ic,jc,ik,jk,it,jt,ii,ij,ijc, iort_c
+      Integer :: i,k,ic,jc,ik,jk,it,jt,ij,ijc, iort_c
       Integer, external :: Jdef_ncfg, Iadd_symc, Iadd_symt, &
                            Iort_conf_jj, DEF_ij
 
@@ -52,10 +52,10 @@
       go to 1
     2 Continue
 
-      write(pri,'(a,i5)') 'number of atomic states   = ',ncfg
-      write(pri,'(a,i5)') 'number of configurations  = ',nsymc
-      write(pri,'(a,i5)') 'number of ang. symmetries = ',nsymt
-      write(pri,*)
+      write(pri,'(/a,i5 )') 'number of atomic states   = ',ncfg
+      write(pri,'( a,i5 )') 'number of configurations  = ',nsymc
+      write(pri,'( a,i5\)') 'number of ang. symmetries = ',nsymt
+
 
 !----------------------------------------------------------------------
 ! ... define IP_term and IC_term pointers:
@@ -136,12 +136,6 @@
         IT_need(it) = k
        End do
 
-      end if
-
-      if(icalc) then
-       write(pri,'(a/)')   'Need of additional calculations --> yes '
-      else
-       write(pri,'(a/)')   'Need of additional calculations --> no '
       end if
 
       Deallocate(IT_stat)

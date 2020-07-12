@@ -3,20 +3,16 @@
 !======================================================================
 !     run loop over configurations 
 !-----------------------------------------------------------------------
-
-      USE param_jj
-      USE term_exp
-      USE conf_jj,   only: ne
-      Use symc_list, only: JC_need
+      Use dbsr_breit
+      Use term_exp
+      Use conf_jj
+      Use symc_list
 
       Implicit none 
-
       Integer :: i,j,ij,is,js, met
-
       Real(8) :: t1,t2,tt   
-      Real(8), External :: RRTC
 
-      t1=RRTC()
+      Call CPU_time(t1)
 
 !----------------------------------------------------------------------
 !                                          cycle 1 over configurations:
@@ -76,10 +72,13 @@
 
       End do    ! over jc
 
-      t2=RRTC()
-      write(pri,'(a,2i8,f10.2,a)')  'conf.', is,ic_case, (t2-t1)/60, '  min'
-      Close(pri); Open(pri,file=AF_pri,position='APPEND')
+      Call CPU_time(t2)
 
+      Call Incode_confj1
+      write(*,  '(a,4i6,f8.0,a,a)')  &
+        'ic,nsymc,kt,kdt =',ic,nsymc,kt1,kdt1,t2-t1,' sec ',trim(CONFIG)
+      write(pri,'(a,4i6,f8.0,a,a)')  &
+        'ic,nsymc,kt,kdt =',ic,nsymc,kt1,kdt1,t2-t1,' sec ',trim(CONFIG)
 
       End do    ! over ic
 
@@ -100,21 +99,19 @@
         Call Send_det_exp(i)
        End do
 
-
       End Subroutine Conf_loop
 
 
 !======================================================================
       Subroutine send_det_exp(id)
 !======================================================================
-
-      USE MPI
-
-      USE conf_jj,   only: ne
-      USE term_exp
+!  ... send determinant expansion to processor 'id'
+!----------------------------------------------------------------------
+      Use MPI
+      Use conf_jj,   only: ne
+      Use term_exp
 
       Implicit none
-      
       Integer :: ierr, id 
 
       Call MPI_SEND(ic  ,1,MPI_INTEGER,id,0,MPI_COMM_WORLD,ierr)

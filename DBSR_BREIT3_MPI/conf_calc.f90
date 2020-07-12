@@ -3,26 +3,19 @@
 !======================================================================
 !     run loop over configurations 
 !-----------------------------------------------------------------------
-
-      USE param_jj
-      USE conf_jj 
-
-      USE nljm_orbitals
-
-      USE term_exp
-
+      Use dbsr_breit
+      Use conf_jj 
+      Use nljm_orbitals
+      Use term_exp
       Use symc_list; Use symt_list
-
-      USE coef_list; USE zoef_list; Use boef_list
+      Use coef_list; USE zoef_list; Use boef_list
 
       Implicit none 
-
       Integer :: i,j,k,l,m,k1,k2,is,js, it,jt, ij
       Integer, external :: DEF_ij
       Real(8) :: t1,t2
-      Real(8), External :: RRTC
 
-      t1=RRTC()
+      Call CPU_time(t1)
 
 ! ... get the job:
 
@@ -102,7 +95,7 @@
 
       Call Send_res
 
-      t2=RRTC()
+      Call CPU_time(t2)
       if(pri.gt.0) then
       write(pri,'(a,3i8,f10.2,a)')  'send conf.', ic,jc,ic_case, (t2-t1)/60, '  min'
       Close(pri); Open(pri,file=AF_pri,position='APPEND')
@@ -117,14 +110,12 @@
       Subroutine get_det_exp
 !======================================================================
 
-      USE MPI
-
-      USE param_jj, only: myid, ierr, pri,AF_pri
-      USE conf_jj,  only: ne
-      USE term_exp
+      Use MPI
+      Use dbsr_breit, only: myid, ierr, pri,AF_pri
+      Use conf_jj,  only: ne
+      Use term_exp
 
       Implicit none
-
       Integer :: status(MPI_STATUS_SIZE)
 
       Call MPI_RECV(ic,1,MPI_INTEGER, 0,0, MPI_COMM_WORLD, status, ierr)
@@ -164,15 +155,11 @@
 !======================================================================
       Subroutine send_res
 !======================================================================
-
-      USE MPI
-
-      USE param_jj, only: myid, ierr, pri, AF_pri
-
-      USE term_exp
+      Use MPI
+      Use dbsr_breit, only: myid, ierr, pri, AF_pri
+      Use term_exp
       Use NDET_list
       Use NDEF_list 
-
       Use coef_list, only: mcoef,ntrm,ncoef,idfc,intc,coef
 
       Implicit none

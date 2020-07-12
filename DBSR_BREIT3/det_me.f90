@@ -193,7 +193,7 @@
       Use nljm_orbitals
 
       Implicit none
-      Integer :: i,j,i1,i2,k,k1,k2,is,idf,int
+      Integer :: i,j,k1,k2,is,idf,int
       Real(8) :: C
       Integer, external :: Idet_fact, Incode_int
 

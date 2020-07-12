@@ -1,18 +1,15 @@
 !======================================================================
       Subroutine DET_me
 !======================================================================
-!
 !     creates the common list of orbital symmetries for two input
 !     determinants and call the subroutines for calculations of
 !     m.e. between possible combinations of nj-orbitals
-!
 !----------------------------------------------------------------------
-
-      USE nljm_orbitals;  USE conf_jj, ONLY: ne
+      Use nljm_orbitals;  Use conf_jj, ONLY: ne
 
       Implicit none
-      Integer(4) :: i,i1,i2, j,j1,j2, k,k1,k2
-      Integer(4), External :: Isort
+      Integer :: i,i1,i2, j,j1,j2, k,k1,k2
+      Integer, external :: Isort
 
 !----------------------------------------------------------------------
 !                              creat common list of orbital symmetries:
@@ -180,8 +177,7 @@
 !     Calls: Idet_fact, Incode_int, Iadd_zoef
 !
 !--------------------------------------------------------------------
-
-      USE nljm_orbitals
+      Use nljm_orbitals
 
       Implicit none
       Integer(4) :: idf,int
@@ -200,20 +196,15 @@
 !====================================================================
       Subroutine ZNO_1ee
 !====================================================================
-!
 !    angular part of one-electron operator between two det.w.f
-!
 !    Calls: Idet_fact, Incode_int, Iadd_zoef.
-!
 !--------------------------------------------------------------------
-
       Use nljm_orbitals
 
       Implicit none
-
-      Integer(4) :: i,j,i1,i2,k,k1,k2,is,idf,int
+      Integer :: i,j,i1,i2,k,k1,k2,is,idf,int
       Real(8) :: C
-      Integer(4), External :: Idet_fact, Incode_int
+      Integer, external :: Idet_fact, Incode_int
 
       Do is=1,NSYM
 
@@ -246,14 +237,12 @@
 !
 !----------------------------------------------------------------------
 
-      USE nljm_orbitals;  USE boef_list
+      Use nljm_orbitals;  USE boef_list
 
       Implicit none
-      Integer(4), Intent(in) :: i1,i2,j1,j2
-      Integer(4) :: io1,io2,io3,io4
-      Integer(4) :: i,k, k1,k2,k3,k4, int,idf,kz
-
-      Integer(4), External :: Idet_fact, Incode_int
+      Integer, intent(in) :: i1,i2,j1,j2
+      Integer :: io1,io2,io3,io4,i,k, k1,k2,k3,k4, int,idf,kz
+      Integer, external :: Idet_fact, Incode_int
 
 !----------------------------------------------------------------------
 
@@ -301,7 +290,7 @@
 
 
 !======================================================================
-      Integer(4) Function Idet_fact (i1,i2,i3,i4)
+      Integer Function Idet_fact (i1,i2,i3,i4)
 !======================================================================
 !
 !     determines the overlap factor and its position in NDEF list
@@ -315,13 +304,13 @@
 !
 !----------------------------------------------------------------------
 
-      USE param_jj, ONLY: ibd,ibf
-      USE nljm_orbitals
+      Use dbsr_breit, only: ibd,ibf
+      Use nljm_orbitals
 
       Implicit none
-      Integer(4), Intent(in) :: i1,i2,i3,i4
-      Integer(4) :: i, k,k1,k2, is,id,kd
-      Integer(4), External :: Iadd_ndet, Iadd_ndef, ISORT
+      Integer, intent(in) :: i1,i2,i3,i4
+      Integer :: i, k,k1,k2, is,id,kd
+      Integer, External :: Iadd_ndet, Iadd_ndef, ISORT
 
       kd = 0
       Do is = 1,NSYM
@@ -370,10 +359,10 @@
 !
 !----------------------------------------------------------------------
  
-      Use param_jj
+      Use dbsr_breit
 
       Implicit none
-      Integer(4), intent(in) :: met,k,I1,I2,I3,I4       
+      Integer, intent(in) :: met,k,I1,I2,I3,I4       
 
       if(max(i1,i2,i3,i4).ge.ib5) Stop ' INT_pack: i > pack-base '
 
@@ -385,15 +374,13 @@
 !======================================================================
       Subroutine Decode_int (met,k,I1,I2,I3,I4,int)
 !======================================================================
-!
 !     decode the integral
-!
 !----------------------------------------------------------------------
  
-      Use param_jj
+      Use dbsr_breit
 
       Implicit none
-      Integer(4) :: int, met,k,I1,I2,I3,I4, ii
+      Integer :: int, met,k,I1,I2,I3,I4, ii
 
       ii = int
       met = mod(ii,ib2);  ii = ii/ib2
