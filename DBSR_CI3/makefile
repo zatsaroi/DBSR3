@@ -6,11 +6,11 @@ N  = dbsr_ci3
  
 L  =  $(DBS) $(ZCONFJJ) $(ZCOM) $(LAPACK)
 
-S  =	mod_dbsr_ci.f90	   mod_c_data.f90                      \
+S  =	mod_dbsr_ci.f90    read_arg.f90       setup_matrix.f90 \
 	add_integral.f90   dbsr_ci.f90        diag.f90         \
 	gen_matrix.f90     int_corr.f90       inf_dbsr_ci.f90  \
-	read_conf_jj.f90   read_data.f90                       \
-	shift.f90          rk_evaluate.f90 
+	read_conf_jj.f90   read_data.f90      read_shift.f90   \
+	rk_evaluate.f90    sk_evaluate.f90
 
 O = $(S:.f90=.o)
  
@@ -20,7 +20,7 @@ $(N): $(O)
 	rm *.o *.mod 
  
 clean:
-	rm -f *.o *.mod *~
+	rm -f *.o *.mod 
  
 x:
 	rm -f $(N)
@@ -32,4 +32,4 @@ x:
 	$(FC) $(comp)  $<
 
 # -fbacktrace -fbounds-check 
-
+# -fcheck=all -Wall

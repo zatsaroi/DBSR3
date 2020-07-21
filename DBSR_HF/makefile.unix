@@ -23,9 +23,9 @@ BINDIR = $(HOME)/BIN
 
 # source files: 
 S  =    dbsr_lib_zcom.f90            dbsr_lib_zconfjj.f90      dbsr_lib_dbs.f90       \
-	hf_MOD_dbsr_hf.f90           hf_MOD_df_orbitals.f90    hf_MOD_energy.f90      \
+        hf_MOD_dbsr_hf.f90           hf_MOD_df_orbitals.f90    hf_MOD_energy.f90      \
         dbsr_hf.f90                                                                   \
-	hf_boundary.f90              hf_check_tails.f90        hf_def_conf_jj.f90     \
+        hf_boundary.f90              hf_check_tails.f90        hf_def_conf_jj.f90     \
         hf_def_conf_LS.f90           hf_energy_BR.f90          hf_energy_SE.f90       \
         hf_energy_VP.f90             hf_get_case.f90           hf_get_estimates.f90   \
         hf_get_spline_param.f90      hf_matrix.f90             hf_orthogonality.f90   \

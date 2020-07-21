@@ -74,7 +74,7 @@
 
 ! ... allocate common working arrays:
 
-      read(nui) nsol
+      read(nui) nsol  !,jtype
       if(allocated(ipsol)) Deallocate(ipsol); Allocate(ipsol(0:nch))
       read(nui) ipsol
       if(allocated(bval)) Deallocate(bval); Allocate(bval(nsol))

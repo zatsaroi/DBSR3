@@ -43,6 +43,7 @@
        Call Find_channel_label_jj(isol(is),1,is,eval(is),Lab)
 
        write(nuu) js,LAB
+
        ich = isol(is)   ! dominant channel
        it=1; if(ich.le.nch) it=iptar(ich)
        write(nuu) eval(is),Ebind(is),ich,it 

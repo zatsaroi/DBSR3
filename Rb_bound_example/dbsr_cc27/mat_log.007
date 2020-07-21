@@ -1,0 +1,97 @@
+D B S R _ M A T
+***************
+
+calculations for partial wave:  klsp =  7     nprocs =     1
+
+c-file data: 
+
+ncfg   =       23  - number of configurations
+nwf    =       40  - number of one-electron orbitals
+
+Read configurations:                         0.00 min
+
+Partial wave total moment: 
+
+jpar   =        7  - 2J value
+ipar   =       -1  - odd parity
+
+Radial overlaps:      17                     0.00 min
+
+Preparations:                                0.01 min
+
+Main dimensions in dbsr_matrix module:
+
+nch    =       23  - number of channels
+npert  =        0  - number of perturbers
+ncp    =        0  - number of perturber config.s
+ms     =      218  - number of splines
+mhm    =     5014  - matrix dimension
+
+Main memory consumings:
+
+memory of conf_jj module:                    0.00 Mb
+memory of DBS_gauss module:                  1.81 Mb
+memory of DBS_orbitals:                      3.48 Mb
+memory of DBS_integrals:                   234.95 Mb
+memory of cdata module:                    160.49 Mb
+memory of bufer:                            22.89 Mb
+matrix memory:                             109.33 Mb
+total_estimations:                         532.95 Mb
+
+O-integrals:                                 0.00 min
+
+Diag. L-integrals:                           0.00 min
+
+Diag. R-integrals:                           0.03 min
+
+diagonalization:                             0.02 min 
+
+------------------------------------------------------------------------
+nsol =  2104  -  number of channel solutions (new basis)
+------------------------------------------------------------------------
+
+
+Checking overlap matrix: s_ovl = 0.750   k =  0
+
+diagonal blocks:                             0.06 min 
+
+None-diag. O-integrals:                      0.00 min
+
+None-diag. L-integrals:                      0.00 min
+
+None-diag. R-integrals:                      0.07 min
+
+Derivations from 2*nelc for asymptotic coefficients with k=0:
+
+non-diagonal blocks:                         0.15 min 
+
+transform and record matrix:                 0.02 min 
+
+Orthogonal conditions:
+
+ kd 2 ->  3d
+ kd 3 ->  3d
+ kd 4 ->  3d
+ kp 2 ->  2p    3p   4p 1
+ kp 3 ->  2p    3p   4p 1
+ kp 4 ->  2p    3p   4p 1  5p 1
+ kd 5 ->  3d
+ kd 6 ->  3d
+
+new target energies:
+
+      -2979.67991659      -2979.67991659          0.00000000     targ_001
+      -2979.05742392      -2979.05539687         -0.00202705     targ_002
+      -2979.04128301      -2979.02560415         -0.01567886     targ_003
+      -2979.02370914      -2979.00538695         -0.01832219     targ_004
+      -2978.97029756      -2978.96608447         -0.00421309     targ_005
+      -2978.96656698      -2978.96518408         -0.00138290     targ_006
+      -2978.96377266      -2978.96368637         -0.00008629     targ_007
+      -2978.96252867      -2978.95475880         -0.00776987     targ_008
+      -2978.95473785      -2978.93041440         -0.02432345     targ_009
+      -2978.93017656      -2978.92750933         -0.00266723     targ_010
+      -2978.92618950      -2978.92508824         -0.00110126     targ_011
+      -2978.92502290      -2978.90505233         -0.01997057     targ_012
+      -2978.80400266      -2978.90154541          0.09754275     targ_013
+
+total time:                                  0.17 min

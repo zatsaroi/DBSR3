@@ -123,6 +123,7 @@
         read(nub1) E1
         read(nub1) C1
        end if
+
        if(istate1.gt.0.and.istate1.ne.j1) Cycle
        if(istate1.gt.0.and.istate1.lt.j1) Exit
 

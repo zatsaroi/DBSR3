@@ -9,9 +9,9 @@
       Use term_exp;        Use zoef_list
 
       Implicit none 
-      Integer :: i,j,k,l,m,k1,k2,is,js, it,jt, ij
+      Integer :: i,j,k,k1,k2,is,js, it,jt
       Real(8) :: t1,t2,tt, CN   
-      Real(8), external :: RRTC, Z_3j2
+      Real(8), external :: Z_3j2
       Integer, external :: DEF_ij
 
 !----------------------------------------------------------------------
@@ -40,7 +40,7 @@
         k=k+iq1(i)
        End do
 
-       t1=RRTC()
+       Call CPU_time(t1)
 
 !----------------------------------------------------------------------
 !                                          cycle 2 over configurations:
@@ -123,7 +123,7 @@
 
       End do    ! over jc
 
-      t2=RRTC();  tt=t2-t1
+      Call CPU_time(t2);  tt=t2-t1
       Call Incode_confj1
       write(*,  '(a,4i6,f5.1,a,a)')  &
         'ic =',ic,nsymc,kt1,kdt1,tt,' sec ',CONFIG(1:ia)

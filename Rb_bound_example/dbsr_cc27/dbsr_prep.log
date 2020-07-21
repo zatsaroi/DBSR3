@@ -1,0 +1,181 @@
+DBSR_PREP:
+
+eps_ovl  =    0.100D-06   -  tolerance for orthogonality between orbitals
+
+eps_core =    0.100D-04   -  tolerance for orthogonality to core orbitals
+
+eps_sub  =    0.500D+00   -  tolerance for substitution orbitals
+
+eps_phys =    0.250D+00   -  tolerance for physical orbitals
+
+--------------------------------------------------------------------------------
+CORE:  ncore =    9
+
+     1s      2s      2p-     2p      3s      3p-     3p      3d-     3d 
+--------------------------------------------------------------------------------
+target        1        4p6_1S      
+
+  4s  -->  4s 1        new orbital and new set index     0.00000000
+  4p- -->  4p-1        new orbital and new set index     0.00000000
+  4p  -->  4p 1        new orbital and new set index     0.00000000
+
+nctarg =      1        number of configurations
+nwtarg =      3        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        2        4p5_5s_j1a  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5s  -->  5s 1        new orbital but old set index     0.00000000
+
+nctarg =      1        number of configurations
+nwtarg =      1        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        3        4p5_5s_j1b  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5s  -->  5s 1        existing orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        4        4p5_4d_j1a  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  4d- -->  4d-1        new orbital and new set index     0.00000000
+  4d                   excessive orbital
+
+nctarg =      1        number of configurations
+nwtarg =      1        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        5        4p5_5p_j1a  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p- -->  5p-1        new orbital but old set index     0.00000000
+  5p                   excessive orbital
+
+nctarg =      1        number of configurations
+nwtarg =      1        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        6        4p5_5p_j1b  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p-                  excessive orbital
+  5p  -->  5p 1        new orbital but old set index     0.00000000
+
+nctarg =      1        number of configurations
+nwtarg =      1        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        7        4p5_5p_j2a  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p- -->  5p-1        existing orbital
+  5p                   excessive orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        8        4p5_5p_j2b  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p-                  excessive orbital
+  5p  -->  5p 1        existing orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target        9        4p5_5p_j1c  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p- -->  5p-1        existing orbital
+  5p                   excessive orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target       10        4p5_5p_j1d  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p-                  excessive orbital
+  5p  -->  5p 1        existing orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target       11        4p5_5p_j2c  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  5p-                  excessive orbital
+  5p  -->  5p 1        existing orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target       12        4p5_4d_j1b  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  4d- -->  4d-1        existing orbital
+  4d                   excessive orbital
+
+nctarg =      1        number of configurations
+nwtarg =      0        number of new orbitals
+
+--------------------------------------------------------------------------------
+target       13        4p5_4d_j1c  
+
+  4s  -->  4s 1        existing orbital
+  4p- -->  4p-1        existing orbital
+  4p  -->  4p 1        existing orbital
+  4d-                  excessive orbital
+  4d  -->  4d 1        new orbital and new set index     0.00000000
+
+nctarg =      1        number of configurations
+nwtarg =      1        number of new orbitals
+
+--------------------------------------------------------------------------------
+target orbitals (beside core) =     8
+
+    4s 1    4p-1    4p 1    5s 1    4d-1    5p-1    5p 1    4d 1
+--------------------------------------------------------------------------------
+
+substitution orbitals (beside core) =     8
+
+    4s 1    4p-1    4p 1    5s 1    4d-1    5p-1    5p 1    4d 1                                                                                                                                                                                                                          
+
+all substitution orbitals are orthogonal
+
+--------------------------------------------------------------------------------
+
+total time:              0.00 min

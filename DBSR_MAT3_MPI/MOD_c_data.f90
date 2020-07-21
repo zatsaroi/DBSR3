@@ -154,7 +154,7 @@
        if(nblk(k,i).le.n) Cycle
        jtype = i; jpol = k; n = nblk(jpol,jtype)
       End do; End do
-write(*,*) 'Add_matrix: jtype, jpol = ', jtype, jpol
+write(*,*) 'Add_matrix full: jtype, jpol = ', jtype, jpol
       Call Add_matrix(jtype,jpol)
       if(jtype.eq.itype.and.jpol.eq.kpol) Return
 
@@ -319,7 +319,7 @@ write(*,*) 'Add_matrix: jtype, jpol = ', jtype, jpol
 !======================================================================
 !     merge data and generate the interaction matrix for given type
 !     "itype" and mutipole index "kpol"
-!     External call: O_data, L_data, I_data 
+!     External call: Gen_matrix 
 !----------------------------------------------------------------------
       Use c_data, nc => ncdata
 

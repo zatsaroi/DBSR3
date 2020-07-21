@@ -1,0 +1,40 @@
+This is an example for using the DBSR complex for bound-states calculations for the Rb states
+
+We consider the 4p6/nl Rydberg series as multi-channel expansion    e + Rb^+  :
+
+  4p6/nl  +  4p5/{5s,5p,4d}/n'l'    (overal 27 target [core]  state)
+
+where the first term represent the state under consideration and others - correlation states 
+which are supposed to represent the core-valence correlation
+
+==============================================================
+1 step  -  generation of target (core) states with DBSR_HF
+
+these calculations are given  in the 4p6 and 4p5_nl folders 
+and recorded in to batch (.bat) files
+
+==============================================================
+2 step  -  the main DBSR calculation, folder dbsr_cc027
+
+We fitst collect the target state and when run standard DBSR calculations given in the script files
+
+Final results can be considered the "bound_tab" file with the list of obtained states
+and "zf_res" file with oscillator strengths from the ground state
+
+==============================================================
+We also may extract the Rb states as pairs of c- and bsw- files
+(see the script run_07_bound_bsw.bat)
+which will be used in the Rb-scattering example
+
+==============================================================
+This is computationally rather intensive calculations,
+most likely, the memory on th standard PC could be not enough
+
+It is why I simplify the target expansions (see target_jj_0 as original full
+case which should be used into actual calculations)
+
+I also remove some big intermediate file to save the memory
+
+
+  
+ 

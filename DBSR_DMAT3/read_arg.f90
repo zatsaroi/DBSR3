@@ -7,7 +7,7 @@
 
 ! ... read first four basic "position" parameters:
 
-      iarg = IARGC()
+      iarg = command_argument_count()
       
       if(iarg.lt.4) then
        write(*,*) 'DBSR_DMAT: number of arguments  <  4'

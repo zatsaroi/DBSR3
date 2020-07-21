@@ -11,7 +11,7 @@
       Implicit none
       Integer :: i,j,ich,ii,jj,m,k,i1,i2,j1,j2,jb, info
       Integer, external :: Ipointer, IORT
-      Real(8), allocatable :: sol(:), aa(:)
+      Real(8), allocatable :: sol(:), aa(:),  cc(:,:), c(:)
       Real(8) :: S,EP, dmat, fvalue, alpha
       Real(8), external :: quadr
       Character(64) :: LAB
@@ -54,7 +54,7 @@
 
 ! ... solve the equation:
 
-      Call LAP_DGESV(mhm,nhm,1,hm,sol,info)
+      Call LAP_DGESV(mhm,mhm,1,hm,sol,info)
       if(info.ne.0) Stop 'DBSR_POL: solution failed'
 
 ! ... normalize the solution:
@@ -112,17 +112,16 @@
 
 ! ... check the orthogonality:
 
-      sol = v
       write(pri,'(/a/)') 'orthogonality check:'
       Do ich=1,nch; i=ipch(ich); ii=(ich-1)*ms+1      
        Do j = 1,nbf;  if(kbs(i).ne.kbs(j)) Cycle
         if(IORT(i,j).ne.0) Cycle
-        S = quadr(pq(1,1,j),sol(ii),0)
+        S = quadr(pq(1,1,j),v(ii),0)
         write(pri,'(2a6,f13.8)') ebs(i),ebs(j),S
        End do
       End do
 
-      Call Check_nortb(sol)
+      Call Check_nortb(v)
 
 ! ... output of solution:
 
@@ -133,7 +132,7 @@
       LAB = ELC(1)
       write(nur) 1,LAB
       write(nur) EP,(EP-E1)*27.2113, 1, 1 
-      write(nur) sol(1:khm)
+      write(nur) v(1:khm),sol(1:nhm)
 
       Deallocate(sol, aa)
 

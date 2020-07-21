@@ -45,8 +45,6 @@
        write(pri,'(a,T40,f10.2,a/)') 'broadcast of dets:',(t2-t1)/60,' min'
       end if
 
-
-
 !----------------------------------------------------------------------
 ! ... first, fill the buffer:
 

@@ -1,0 +1,26 @@
+D B S R _ H D 
+*************
+
+calculations for partial wave:  klsp =  2
+
+itype  =   -1  -  bound-state calculations
+
+nch    =   25  -  number of channels
+npert  =    0  -  number of pertubers
+
+iexp   =    0  -  theoretical target energies
+
+Restrictions for output of bound states:
+
+(zero value of any parameter means no restrictions)
+
+msol   =   10  -  max. number of solutions
+Emin   = 0.00000000E+00
+Emax   = 0.00000000E+00
+
+
+It is a standard eigenvalue problem: khm =    2248
+
+Eval(1:5) =    -2979.77526    -2979.72507    -2979.70628    -2979.69362    -2979.67709
+
+time =       0.44 min.

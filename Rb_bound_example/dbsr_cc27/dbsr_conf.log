@@ -1,0 +1,110 @@
+DBSR_CONF parameters:
+
+c_comp = 1.100 - tolerance for compansation configurations
+
+max_ll =     3 - restiction on max. small l
+
+
+number of target orbital:             17
+
+number of substitution orbitals:       8
+
+ 4s 1 4p-1 4p 1 5s 1 4d-1 5p-1 5p 1 4d 1
+
+number of phys. target config.s:      13
+
+number of target configurations:      13
+
+------------------------------------------------------------------------
+
+  9 - nlsp, number of partial waves
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   1   2J =   1  parity =   1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         25
+
+Number of compensation configurations:       15
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   2   2J =   1  parity =  -1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         25
+
+Number of compensation configurations:       14
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   3   2J =   3  parity =  -1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         40
+
+Number of compensation configurations:       26
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   4   2J =   3  parity =   1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         37
+
+Number of compensation configurations:       23
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   5   2J =   5  parity =   1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         33
+
+Number of compensation configurations:       20
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   6   2J =   5  parity =  -1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         35
+
+Number of compensation configurations:       21
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   7   2J =   7  parity =  -1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         23
+
+Number of compensation configurations:       12
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   8   2J =   7  parity =   1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:         20
+
+Number of compensation configurations:       11
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+Partial wave: ilsp =   9   2J =   9  parity =   1  ncp =   0  nwp =   0
+
+Number of scattering configutarions:          8
+
+Number of compensation configurations:        3
+
+------------------------------------------------------------------------

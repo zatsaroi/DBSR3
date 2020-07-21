@@ -5,14 +5,12 @@
 !     define there angular symmetries and compare with existing ones.
 !     Prepare the angular arrays.
 !----------------------------------------------------------------------
-      Use dbsr_ci
-      Use conf_jj
-      Use symc_list
-      Use symt_list
+      Use dbsr_ci;    Use symc_list
+      Use conf_jj;    Use symt_list
 
       Implicit none
       Integer, external :: Jdef_ncfg, Iadd_cfg_jj
-      Integer :: i,j,k,it,jt,ij,nsymc0,nsymt0
+      Integer :: i,k,it,jt,ij,nsymc0,nsymt0
 
 ! ... define ncfg:
 
@@ -77,7 +75,7 @@
        End do
         if(k.eq.1) Exit
       End do
-      if(k.eq.1) Stop 'bnk-fail is not complete; run bj first!'
+      if(k.eq.1) Stop 'bnk-fail is not complete; run DBSR_BREIT first!'
 
       End Subroutine read_conf_jj
 

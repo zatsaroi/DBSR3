@@ -45,7 +45,7 @@ $(N): $(O)
 	rm *.o  *.mod 
  
 clean:
-	rm *.o  *.mod  *.exe
+	rm *.o  *.mod 
  
 x:
 	rm $(N)

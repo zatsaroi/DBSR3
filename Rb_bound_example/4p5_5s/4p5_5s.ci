@@ -1,0 +1,61 @@
+DBSR_CI:     4p5_5s
+
+
+c-file data: 
+
+ncore  =        9
+ncfg   =        4
+nwf    =       13
+     1s      2s      2p-     2p      3s      3p-     3p      3d-     3d      4s 
+     4p-     4p      5s 
+
+Z        =  37.00
+nuclear  =  point               
+mbreit   =      0
+
+Atomic weight =      87.00
+a.u. --> cm-1 , au_cm =    219473.2474788585
+a.u. --> eV   , au_eV =        27.2112118193
+
+
+Ecore  =  -2955.91869078
+
+CORE:                            0.02 min
+
+L_integrals:                     0.01 min
+
+ndet  =        7       8
+ndef  =       44     150
+
+Read int_bnk:                    0.00 min
+Add_matrix:                      0.00 min
+
+NORT = 0 --> simple eigenvalue problem
+
+Matrix set-up:                   0.00 min
+Diagonalization:                 0.00 min
+
+ndet  =        7       8
+ndef  =       44     150
+
+Read int_bnk:                    0.00 min
+Add_matrix:                      0.00 min
+
+NORT = 0 --> simple eigenvalue problem
+
+Matrix set-up:                   0.00 min
+Diagonalization:                 0.00 min
+
+ndet  =        7       8
+ndef  =       44     150
+
+Read int_bnk:                    0.00 min
+Add_matrix:                      0.00 min
+
+NORT = 0 --> simple eigenvalue problem
+
+Matrix set-up:                   0.00 min
+Diagonalization:                 0.00 min
+
+Time of calculations =           0.04 min
+

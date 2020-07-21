@@ -74,6 +74,8 @@
        ncoef=0; Call Alloc_coef(icoef)
        nboef=0; Call Alloc_boef(iboef)
        nblk=0;  Call Alloc_blk(iblk); ncblk(0)=0
+       Call Alloc_ndet(-1)
+       Call Alloc_ndef(-1)
 
 ! ...  calculations:
 

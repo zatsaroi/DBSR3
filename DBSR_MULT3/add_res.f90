@@ -9,7 +9,7 @@
       Use ndef_list, only: IPF
 
       Implicit none
-      Integer :: i,j,ij, it,jt, k,k1,k2, n
+      Integer :: i,j, it,jt, k,k1,k2
       Real(8) :: C,CN
       Integer, external :: DEF_ij
 

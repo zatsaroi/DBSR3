@@ -34,6 +34,6 @@ x:
 .SUFFIXES: .f90 .mod .o
  
 .f90.o:
-	$(FC) $(comp) -fcheck=all -Wall $<
+	$(FC) $(comp)  $<
  
-# -fcheck=bounds -fbacktrace
+# -fcheck=bounds -fbacktrace -fcheck=all -Wall

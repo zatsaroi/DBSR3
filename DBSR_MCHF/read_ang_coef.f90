@@ -59,8 +59,8 @@
       Allocate(ii_int(nc),jj_int(nc))
       Allocate(ic_coef(nc),jc_coef(nc),Rk_coef(nc),ip_int(0:nc))
       ip_int(0) = 0
-      Allocate(nk_coef(kmin-1:kmax),); nk_coef = 0
-      Allocate(nk_int (kmin-1:kmax),); nk_int  = 0
+      Allocate(nk_coef(kmin-1:kmax)); nk_coef = 0
+      Allocate(nk_int (kmin-1:kmax)); nk_int  = 0
 
       ishift = 0
       jshift = 0

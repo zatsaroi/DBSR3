@@ -9,9 +9,8 @@
       Use nljm_orbitals;  Use conf_jj, only: ne
 
       Implicit none
-      Integer :: i,i1,i2, j,j1,j2, k,k1,k2
+      Integer :: i,j, i1,j1, k, k1,k2
       Integer, external :: Isort
-
 !----------------------------------------------------------------------
 !                              creat common list of orbital symmetries:
       ksym1=1; ksym2=1
@@ -117,9 +116,9 @@
       Case(0)
 
       if(kpol.eq.0) then
-	   Call ZNO_overlap
+       Call ZNO_overlap
       else
-	   Call ZNO_000
+       Call ZNO_000
       end if
 
       End Select
@@ -135,7 +134,7 @@
       Use dbsr_mult; Use nljm_orbitals
 
       Implicit none
-      Real(8) :: CA,CB	  
+      Real(8) :: CA,CB
       Integer, intent(in) :: is,js
       Integer :: i,j,i1,i2,j1,j2,k1,k2,idf,int,kz
       Integer, external :: Idet_fact, Incode_mult
@@ -172,7 +171,7 @@
       Use dbsr_mult; Use nljm_orbitals
 
       Implicit none
-      Real(8) :: CA,CB	  
+      Real(8) :: CA,CB
       Integer :: i,j,i1,i2,k,k1,k2,is,idf,int,kz
       Integer, external :: Idet_fact, Incode_mult
 

@@ -7,9 +7,15 @@
 !     Nulified B-splines are recorded in array "iprm".     
 !----------------------------------------------------------------------
       Use dbsr_mat
+      Use DBS_nuclear
 
       Implicit none
       Integer :: i,il,jl,m, mi,mj, ip,jp, ich
+
+      if(nuclear.eq.'point') then
+       ilzero=1
+       jlzero=1
+      end if
 
 ! ... define pointer to nulified elements:
 
@@ -39,14 +45,14 @@
        m=nsp+1-ibzero 
        Do i=1,ns; ip=ip+1
         if(i.le.il) iprm(ip)=0                   
-        if(i.ge.m) iprm(ip)=0
+        if(i.ge.m ) iprm(ip)=0
         jp=jp+iprm(ip)
        End do
 
        m=nsq+1-jbzero
        Do i=1,ns; ip=ip+1
         if(i.le.jl) iprm(ip)=0                   
-        if(i.ge.m) iprm(ip)=0
+        if(i.ge.m ) iprm(ip)=0
         jp=jp+iprm(ip)
        End do
       End do

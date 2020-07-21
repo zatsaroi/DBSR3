@@ -24,7 +24,7 @@
 
        ! ... apply boundary conditions (delete extra B-splines)
 
-       jj=0;  ishift=(ich-1)*ms
+       jj=0;  ishift=(ich-1)*ms; ach=0.d0; bch=0.d0
        Do j=1,ms
         if(iprm(j+ishift).eq.0) Cycle; jj=jj+1
         ii=0

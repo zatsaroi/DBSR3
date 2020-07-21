@@ -7,10 +7,11 @@
       Use channel_jj
 
       Implicit none
-      Integer :: i,j, k,n, ip,is, ich, j1,j2, nstate,nhmb,nchb,npertb,nsb
+      Integer :: i,j, k,n, ip,is, ich, j1,j2, nstate,nhmb,nchb,npertb,nsb, &
+                 jotb, parityb
       Real(8) :: S
       Real(8), allocatable :: a(:),b(:)
-      Integer, external :: Ifind_position, Ipointer
+      Integer, external ::  Ipointer
        
       if(nortb.eq.0) Return
       open(nuq,form='UNFORMATTED',status='SCRATCH')
@@ -18,48 +19,51 @@
 ! ... check bound states file:
 
       i=INDEX(AF_bnd,'.'); AF=AF_bnd(1:i)//ALSP
-      Call Check_file(AF); Open(nub,file=AF); rewind(nub)
+      Call Check_file(AF); Open(nub,file=AF,form='UNFORMATTED')
 
-      Call Read_ipar(nub,'nbound',nstate ) 
-      Call Read_ipar(nub,'basis' ,nhmb   ) 
-      Call Read_ipar(nub,'nchan' ,nchb   ) 
-      Call Read_ipar(nub,'npert' ,npertb ) 
-      Call Read_ipar(nub,'ns'    ,nsb    ) 
+      rewind(nub)
+      read(nub) nhmb,nchb,npertb,nsb,jotb,parityb,nstate
 
-      if(nsb .ne.ns ) Stop 'dbsr_pol: nsb <> ns '
-      if(nchb.ne.nch) Stop 'dbsr_pol: nchb - ?'
+      if(nsb   .ne.  ns ) Stop 'dbsr_pol: nsb <> ns '
+      if(nchb  .ne.  nch) Stop 'dbsr_pol: nchb - ?'
       if(npertb.ne.npert) Stop 'dbsr_pol: ncpb - ?'
-      if(nhmb.ne.khm) Stop 'dbsr_pol: nhmb - ?'
+      if(nhmb  .ne.  khm) Stop 'dbsr_pol: nhmb - ?'
 
       if(nstate.lt.nortb) Stop 'dbsr_pol: nstate < nortb - ?'
 
       Allocate(a(nhm),b(nhm))
-      i=Ifind_position(nub,'nbound');  read(nub,*) 
 
       Do is=1,nstate
-       read(nub,*) j
-       read(nub,*) S
-       read(nub,*) v
+
+       read(nub) j
+       read(nub) S
+       read(nub) v,a
        ip = Ipointer(nortb,iortb,j)
        if(ip.eq.0) Cycle
 
-       ! ... transform to a new basis
        
-       Do ich=1,nch; i=(ich-1)*ms     
-        j1 = ipsol(i-1)+1; j2=ipsol(i)
-        Do j=j1,j2
-         a(j) = SUM(v(i+1:i+ms)*bb(1:ms,j))
-        End do
-       End do
-       if(npert.gt.0)  a(nsol+1:nhm)=v(khm-npert+1:khm)
-       
+write(pri,'(/a/)') 'Solution'
+write(pri,'(10E15.5)') a(1:nhm)
+write(pri,*) 'nhm =',nhm
+
        ! ... multiply on overlap matrix 
 
        Do j = 1,nhm
         b(j) = SUM(om(1:nhm,j)*a(1:nhm))
        End do 
 
+      S = SUM(a(1:nhm)*b(1:nhm))
+write(*,*) 'O =', S
+      S = 0.0
+      Do i = 1,nhm; Do j = 1,nhm
+       S = S + a(i)*hm(i,j)*a(j)
+      End do; End do
+write(*,*) 'E =', S
+
+
+
        write(nuq) b
+
        iortb(ip) = -iortb(ip) 
        k=0; Do n=1,nortb; if(iortb(n).lt.0) Cycle; k=1; Exit; End do
        if(k.eq.0) Exit
@@ -83,24 +87,29 @@
       Use dbsr_pol
 
       Implicit none
-      Integer ::  i,j, k,n, ip, nstateb
+      Integer ::  i,j, k,n, ip
+      Integer ::  nhmb,nchb,npertb,nsb,jotb,parityb,nstateb
       Real(8) :: S, sol(*)
       Real(8), allocatable :: a(:),c(:)
-      Integer, External :: Ifind_position, Ipointer
+
+      Integer, external :: Ipointer
        
       if(nortb.eq.0) Return
 
        Allocate(a(nhm),c(nhm))
-       Call Read_ipar(nub,'nbound',nstateb) 
-       i=Ifind_position(nub,'nbound');  read(nub,*) 
+
+       rewind(nub)
+       read(nub) nhmb,nchb,npertb,nsb,jotb,parityb,nstateb
 
        rewind(nuq)
        Do i=1,nstateb
-        read(nub,*) j
-        read(nub,*) S
-        read(nub,*) C
+        read(nub) j
+        read(nub) S
+        read(nub) C
+
         ip = Ipointer(nortb,iortb,i)
         if(ip.eq.0) Cycle
+
         read(nuq) a
         S = SUM(sol(1:nhm)*a(1:nhm)) 
 

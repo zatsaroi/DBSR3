@@ -1,0 +1,405 @@
+==============================================================
+ DBSR_BREIT: angular coefficients for Dirak-Breit Hamiltonian 
+==============================================================
+
+Max. multipole index =  9
+
+Tollerance for coefficients =    1.E-07
+
+Breit coefficients are not included
+--------------------------------------------------------------------------------
+
+Partial wave:     1
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    25
+number of configurations  =    22
+number of ang. symmetries =    25
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    22     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4s ( 1)
+ic,nsymc,kt,kdt =     2    22     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     3    22     1     6      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     4    22     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     5    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     6    22     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     7    22     1    10      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     8    22     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     9    22     2     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    10    22     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    11    22     2    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    12    22     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    13    22     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    14    22     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    15    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    16    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    17    22     2     7      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    18    22     1     8      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    19    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    20    22     1     6      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    21    22     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    22    22     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5p ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        30         2
+number of overlap factors      =      1196         5
+total number of coeff.s        =      7430
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     2
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    25
+number of configurations  =    22
+number of ang. symmetries =    25
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    22     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4p-( 1)
+ic,nsymc,kt,kdt =     2    22     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     3    22     1     6      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     4    22     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     5    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     6    22     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     7    22     1    10      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     8    22     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     9    22     2     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    10    22     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    11    22     2    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    12    22     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    13    22     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    14    22     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    15    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    16    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    17    22     2     7      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    18    22     1     8      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    19    22     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    20    22     1     6      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    21    22     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    22    22     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5d-( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        47         3
+number of overlap factors      =      1574         9
+total number of coeff.s        =     12333
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     3
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    40
+number of configurations  =    31
+number of ang. symmetries =    40
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    31     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4p ( 1)
+ic,nsymc,kt,kdt =     2    31     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     3    31     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     4    31     1     6      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     5    31     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     6    31     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     7    31     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     8    31     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =     9    31     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    10    31     1    10      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    11    31     2     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    12    31     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    13    31     2     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    14    31     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    15    31     2     9      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    16    31     2    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    17    31     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    18    31     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    19    31     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    20    31     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    21    31     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    22    31     2     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    23    31     2     5      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    24    31     2     7      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    25    31     1     8      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    26    31     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    27    31     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    28    31     1     6      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    29    31     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    30    31     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    31    31     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5d ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        47         5
+number of overlap factors      =      1348        14
+total number of coeff.s        =     17352
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     4
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    37
+number of configurations  =    28
+number of ang. symmetries =    37
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    28     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4d-( 1)
+ic,nsymc,kt,kdt =     2    28     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     3    28     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     4    28     1     6      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     5    28     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     6    28     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     7    28     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     8    28     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =     9    28     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    10    28     1    10      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    11    28     2     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    12    28     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    13    28     2     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    14    28     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    15    28     2     9      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    16    28     2    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    17    28     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    18    28     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    19    28     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    20    28     2     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    21    28     2     5      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    22    28     2     7      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    23    28     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    24    28     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    25    28     1     6      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    26    28     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    27    28     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    28    28     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5f-( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        30         8
+number of overlap factors      =      1022        24
+total number of coeff.s        =     10615
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     5
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    33
+number of configurations  =    27
+number of ang. symmetries =    33
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    27     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4d ( 1)
+ic,nsymc,kt,kdt =     2    27     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     3    27     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     4    27     1     6      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     5    27     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     6    27     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     7    27     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     8    27     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     9    27     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    10    27     1    10      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    11    27     2     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    12    27     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    13    27     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    14    27     2     9      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    15    27     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    16    27     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    17    27     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    18    27     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    19    27     2     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    20    27     2     5      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    21    27     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5s ( 1)
+ic,nsymc,kt,kdt =    22    27     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    23    27     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    24    27     1     6      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    25    27     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    26    27     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    27    27     1    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5f ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        25        11
+number of overlap factors      =       651        41
+total number of coeff.s        =      6346
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     6
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    35
+number of configurations  =    26
+number of ang. symmetries =    35
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    26     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4f-( 1)
+ic,nsymc,kt,kdt =     2    26     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     3    26     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     4    26     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     5    26     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     6    26     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =     7    26     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     8    26     2     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =     9    26     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    10    26     2     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    11    26     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    12    26     2     9      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    13    26     2    12      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    14    26     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    15    26     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    16    26     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    17    26     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    18    26     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    19    26     2     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    20    26     2     5      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    21    26     2     7      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    22    26     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p-( 1)
+ic,nsymc,kt,kdt =    23    26     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    24    26     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    25    26     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    26    26     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5d ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        37         9
+number of overlap factors      =       767        40
+total number of coeff.s        =      9315
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     7
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    23
+number of configurations  =    17
+number of ang. symmetries =    23
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    17     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 4)  4f ( 1)
+ic,nsymc,kt,kdt =     2    17     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     3    17     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     4    17     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     5    17     2     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     6    17     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     7    17     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     8    17     2     9      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     9    17     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    10    17     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    11    17     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    12    17     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    13    17     2     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    14    17     2     5      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    15    17     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5p ( 1)
+ic,nsymc,kt,kdt =    16    17     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    17    17     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5d ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        27        14
+number of overlap factors      =       406        79
+total number of coeff.s        =      3662
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     8
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =    20
+number of configurations  =    17
+number of ang. symmetries =    20
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1    17     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     2    17     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     3    17     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     4    17     1     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     5    17     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =     6    17     1     7      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     7    17     2     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     8    17     2     5      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     9    17     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    10    17     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    11    17     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    12    17     2     3      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =    13    17     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d-( 1)
+ic,nsymc,kt,kdt =    14    17     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    15    17     1     4      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =    16    17     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5f-( 1)
+ic,nsymc,kt,kdt =    17    17     1     8      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5f ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        16        25
+number of overlap factors      =       180       181
+total number of coeff.s        =      2062
+
+time:         0.00 min
+--------------------------------------------------------------------------------
+
+Partial wave:     9
+
+It is a new calculation 
+
+Breit contribution is not included 
+
+number of atomic states   =     8
+number of configurations  =     8
+number of ang. symmetries =     8
+
+Need of additional calculations --> yes 
+
+ic,nsymc,kt,kdt =     1     8     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4s ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     2     8     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4s ( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     3     8     1     3      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     4     8     1     1      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p-( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     5     8     1     2      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     6     8     1     1      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4p ( 1)  5d ( 1)
+ic,nsymc,kt,kdt =     7     8     1     2      0. sec   1s ( 2)  2p-( 1)  3p ( 4)  4d-( 1)  5f ( 1)
+ic,nsymc,kt,kdt =     8     8     1     4      0. sec   1s ( 2)  2p-( 2)  3p ( 3)  4d ( 1)  5f ( 1)
+
+Results for new angular symmetry calculations:
+
+number of overlap determinants =        15        28
+number of overlap factors      =       147       226
+total number of coeff.s        =       565
+
+time:         0.00 min

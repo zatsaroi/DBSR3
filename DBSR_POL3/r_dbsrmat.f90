@@ -45,8 +45,6 @@
       khm = ms*nch + npert
       if(allocated(v)) Deallocate(v); Allocate(v(khm))
 
-write(*,*) 'nhm,mhm,khm',nhm,mhm,khm
-
 !----------------------------------------------------------------------
 ! ... read overlap matrix:
 
@@ -102,6 +100,7 @@ write(*,*) 'nhm,mhm,khm',nhm,mhm,khm
       Do i=1,mhm; Do j=1,i; hm(j,i)=hm(i,j); End do; End do
       open(nua,form='UNFORMATTED',status='SCRATCH')
       Do i=1,mhm; write(nua) hm(1:mhm,i); End do
+
       Deallocate(bval)
 
       End Subroutine R_dbsrmat 

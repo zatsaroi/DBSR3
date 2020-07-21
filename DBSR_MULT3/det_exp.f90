@@ -10,7 +10,6 @@
 
       Implicit none 
       Integer :: i,j, k,kt,kdt,ktm, it,it1,it2, JW,JQ
-      Real(8) :: S
       Integer, allocatable :: IP_kt(:)
       Integer, allocatable :: IP_det(:,:), JTs(:,:),JTi(:,:),IPs(:,:)
       Real(8), allocatable :: C_det(:)

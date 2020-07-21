@@ -1,1 +1,4 @@
 check_det -  ????
+
+
+read_bsw - we need force 0 at end, otherwise BS_orth can ditoriate the MBLOCH conditions!

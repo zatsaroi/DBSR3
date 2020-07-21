@@ -1,0 +1,10 @@
+jcfile 4p5_5p.j 1 4p5_5p_j0a.c  0.0000001
+jcfile 4p5_5p.j 2 4p5_5p_j0b.c  0.0000001
+jcfile 4p5_5p.j 3 4p5_5p_j1a.c  0.0000001
+jcfile 4p5_5p.j 4 4p5_5p_j1b.c  0.0000001
+jcfile 4p5_5p.j 5 4p5_5p_j1c.c  0.0000001
+jcfile 4p5_5p.j 6 4p5_5p_j1d.c  0.0000001
+jcfile 4p5_5p.j 7 4p5_5p_j2a.c  0.0000001
+jcfile 4p5_5p.j 8 4p5_5p_j2b.c  0.0000001
+jcfile 4p5_5p.j 9 4p5_5p_j2c.c  0.0000001
+jcfile 4p5_5p.j 10 4p5_5p_j3a.c  0.0000001

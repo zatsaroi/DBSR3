@@ -47,7 +47,7 @@
       if(n.le.0) return
       nbf=n
       Allocate(nbs(nbf),kbs(nbf),ibs(nbf),mbs(nbf),lbs(nbf),jbs(nbf), &
-               ebs(nbf),e(nbf),iord(nbf),qsum(nbf),dpm(nbf),clsd(nbf), )
+               ebs(nbf),e(nbf),iord(nbf),qsum(nbf),dpm(nbf),clsd(nbf) )
 
       nbs=0; kbs=0; ibs=0; mbs=0; lbs=0; jbs=0; iord=0
       qsum=0.d0; dpm=0.d0; clsd = .false.

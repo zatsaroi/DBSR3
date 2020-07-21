@@ -1,0 +1,17 @@
+D B S R _ D M A T
+*****************
+
+initial state - cfg.001   ncfg1 =    25   nwf1 =  33   kdm1 =    5450   jot1 =  1
+
+final state   - cfg.003   ncfg2 =    40   nwf2 =  48   kdm2 =    8720   jot2 =  3
+
+
+nstate1 =    10
+nstate2 =    10
+
+
+Atomic weight =      87.00
+a.u. --> cm-1 , au_cm =    219473.2474788585
+a.u. --> eV   , au_eV =        27.2112118193
+
+DBSR_DMAT:                         0.02 min 

@@ -31,4 +31,4 @@ x:
 .f90.o:
 	$(FC) $(comp) $<
  
-
+#-fbounds-check  -fbacktrace -fcheck=all -Wall 

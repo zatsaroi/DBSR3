@@ -77,7 +77,8 @@
 
       icase=0; Call Alloc_c_data(ntype_O,0,mk,mblock,nblock,kblock,eps_c) 
       Do ich=1,nch;  Call UPDATE_HX(ich,ich,fppqq,1.d0);  End do
-      Call State_res
+
+                     Call State_res
 
 ! ... save overlaps diagonal blocks:
 

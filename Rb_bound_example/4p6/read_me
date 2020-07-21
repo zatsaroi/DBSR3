@@ -1,0 +1,24 @@
+==============================================================================================
+1 step:   run  1.bat  to get  Rb+ wavefunctions
+
+After run, 
+
+mv  Rb.knot  knot.dat 
+
+and check the parameters for the B-spline grid.
+
+It is VERY important step: this grid will be used for all furter calculations.
+
+Because we are planning to use these wavfunction for scattering calculations,
+we reduce the 'hmax' from 1.0 to 0.65, to be able to get cross sections at least up to 100 eV
+
+Now rerun the 1.bat to get the results on new B-spline grid.
+
+The resulting knot.dat will be coping to all other foldes involved
+
+==============================================================================================
+2 step:  run 2.bat  to get  1.j  file
+
+==============================================================================================
+3 step:  run 3.bat  to  get  4p6 state as  pair of  4p6_1S.c and 4p6_1S.bsw files
+

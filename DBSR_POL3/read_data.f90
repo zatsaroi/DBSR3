@@ -92,8 +92,8 @@
 ! ... perturber radial functions:
 
       if(nwp.gt.0) then
-       i=Index(BFP,'.'); BFP(i+1:i+3)='bsw'
-       Open(nuw, file=BFP, STATUS='OLD', form='UNFORMATTED')
+       AF = trim(BFP)//'.bsw'
+       Open(nuw, file=AF, STATUS='OLD', form='UNFORMATTED')
        Call Read_pqbs(nuw)
        Close(nuw)
       end if

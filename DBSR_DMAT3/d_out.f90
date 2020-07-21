@@ -89,7 +89,8 @@
       write(nud) jot1,0,parity1,E1,       Label1                          
 
       write(*,*) 'jot2,0,parity2,Etarg(1),nstate2',jot2,0,parity2,Etarg(1),nstate2                 
-      write(*,*) 'jot1,0,parity1,E1,       Label1',jot1,0,parity1,E1,       Label1                          
+
+      write(*,*) 'jot1,0,parity1,E1,Label1',jot1,0,parity1,E1, Label1                          
 
       write(nud) (cl(i),cv(i),i=nstate2,1,-1)        
 

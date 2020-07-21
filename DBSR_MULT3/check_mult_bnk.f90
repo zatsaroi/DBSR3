@@ -10,9 +10,9 @@
       Use conf_jj;     Use symc_list;    Use symt_list
 
       Implicit none
+      Integer :: i,k, ic,jc, ik,jk, it,jt, ij,ijc, iort_c, &
+                 ne1,ne2, parity1,parity2
       Integer, external :: Iort_conf_jj, DEF_ij, ITRA, Jparity
-      Integer :: i,j,k,ic,jc,ik,jk,it,jt,ii,ij,ijc, iort_c
-      Integer :: ne1,ne2,parity1,parity2
 
 ! ... read old information, if any:
 

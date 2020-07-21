@@ -16,7 +16,7 @@
       Integer :: nut =  8; Character(ma) :: AF_tar  = 'target_jj'
       Integer :: nui =  9; Character(ma) :: AF_int  = 'dbsr_mat.nnn'
       Integer :: nuw = 10; Character(ma) :: AF_bsw  = 'target.bsw'
-      Integer :: nub = 11; Character(ma) :: AF_bnd  = 'bound.nnn'
+      Integer :: nub = 11; Character(ma) :: AF_bnd  = 'dbound.nnn'
       Integer :: nuc = 15; Character(ma) :: AF_cfg  = 'cfg.nnn'
       Integer :: nud = 17; Character(ma) :: AF_dip  = 'dv.nnn'
       Integer :: nur = 18; Character(ma) :: AF_pol  = 'pol.nnn'

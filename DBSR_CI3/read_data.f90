@@ -9,14 +9,12 @@
       Use c_data;              Use DBS_gauss         
                                
       Implicit none
-      Integer :: i,j,l,k,m,n,i1,i2,iarg 
-      Real(8) :: S,s1,s2
+      Integer :: i,j 
+      Real(8) :: S
       Integer, external :: Icheck_file
       Real(8), external :: QUADR_pq, OBS
 
-      Call Read_name(name)
-      if(name.eq.'?'.or.len_trim(name).eq.0) Call Inf_dbsr_ci
-   
+  
 !----------------------------------------------------------------------
 ! ... input data file if any:
 
@@ -60,34 +58,6 @@
       write(pri,'(a,5x,a/)')   'DBSR_CI:',trim(name)
 
 !----------------------------------------------------------------------
-! ... read parameters from arguments if any
-
-      Call Read_iarg('mbreit',mbreit)
-      Call Read_iarg('msol'  ,msol  )
-      Call Read_iarg('nzero' ,nzero )
-      Call Read_iarg('debug' ,debug )
-      Call Read_iarg('mdiag' ,mdiag )
-
-      Call Read_rarg('eps_det',eps_det)
-      Call Read_rarg('eps_ovl',eps_ovl)
-      Call Read_rarg('eps_o'  ,eps_o  )
-      Call Read_rarg('Emax'   ,Emax   )
-
-      Call Read_iarg('check_c',check_c)
-
-! ... c_data paramters:
-
-      Call Read_iarg('mb',mb)
-      Call Read_iarg('nb',nb)
-      Call Read_iarg('kb',kb)
-
-      Call Read_iarg('mk',mk);   kpol1=0; kpol2 = mk; mpol=mk
-      Call Read_iarg('kpol1',kpol1)
-      Call Read_iarg('kpol2',kpol2)
-
-      Call Read_rarg('eps_c',eps_c)
-      
-!----------------------------------------------------------------------
 ! ... read obitals and configurations along with expansion coeff's: 
 
       write(pri,'(/a/)')   'c-file data: '
@@ -108,7 +78,7 @@
       Call alloc_DBS_gauss
       Call def_Vnucl
 
-!      Call alloc_DBS_integrals(ns,ks,0,mpol,4)   ???  
+!      Call alloc_RK_integrals(ns,ks,0,mpol,4)   !???  
       Call alloc_Rk_integrals(ns,ks,0,mpol,4)
       if(mbreit.gt.0) &
       Call alloc_Sk_integrals(ns,ks,0,mpol,2)       
@@ -139,8 +109,8 @@
       j = 0
       Do i = 1,nwf
        if(mbs(i).ne.0) Cycle
-        write(pri,'(a,a)') 'Absent expansion for w.f. ',ebs(i)
-        j = j + 1
+       write(pri,'(a,a)') 'Absent expansion for w.f. ',ebs(i)
+       j = j + 1
       End do
       if(j.gt.0) Stop 'no correspondence between c- and w- files'
     
@@ -158,7 +128,7 @@
 
       if(debug.gt.0) then 
        write(pri,'(/a,f10.8/)') &
-	       'Non-trivial one-elctron overlaps: > eps_ovl = ',eps_ovl
+        'Non-trivial one-elctron overlaps: > eps_ovl = ',eps_ovl
        Do i=1,nbf
        Do j=i,nbf
         if(kbs(i).ne.kbs(j)) Cycle

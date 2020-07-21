@@ -93,12 +93,14 @@
        write(nuj,'(i8,2x,a)')  nsol, TRIM(Label)
        write(nuj,'(f16.8,3i8,f16.4)')  EVAL(k), jot, ishift+1,ishift+ncj,EVAL(k)*au_eV
        write(nuj,'(6f20.15)') (SM(j,k),j=1,ncj)
-       EE = 0.d0
-       Do i=1,ncj; Do j=1,i
-        S = SM(i,k)*SM(j,k)*HM(i,j)
-        EE = EE + S; if (i.ne.j) EE = EE + S
-       End do; End do
-       write(pri,'(a,3f16.8)') 'Energy  =',EE,EVAL(k),EE-EVAL(k)
+
+!       EE = 0.d0
+!       Do i=1,ncj; Do j=1,i
+!        S = SM(i,k)*SM(j,k)*HM(i,j)
+!        EE = EE + S; if (i.ne.j) EE = EE + S
+!       End do; End do
+!       write(pri,'(a,3f16.8)') 'Energy  =',EE,EVAL(k),EE-EVAL(k)
+
       End do
 
       Close(num,status='DELETE')

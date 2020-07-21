@@ -30,6 +30,6 @@ x:
 .SUFFIXES: .f90 .mod .o
  
 .f90.o:
-	$(FC) $(comp)  $<
+	$(FC) $(comp)   $<
 
 # -fcheck=bounds -fbacktrace 

@@ -41,7 +41,6 @@
       Implicit none 
       Integer :: i,ii,nct
       Real(8) :: t1,t2,tt 
-      Real(8), external :: RRTC
  
 ! ... read arguments from command line:
 
@@ -49,7 +48,7 @@
 
 !-----------------------------------------------------------------------
 !                                                          calculations:
-      t1=RRTC()
+      Call CPU_time(t1)
 
 ! ... input of configurations:
 
@@ -100,8 +99,8 @@
 
 ! ...  rename new results as new data bank (int_res -> jnt_bnk): 
  
-       AF = 'move '; i = 5               !  Windows
-!       AF = 'mv ';   i = 3               !  UNIX
+!       AF = 'move '; i = 5               !  Windows
+       AF = 'mv ';   i = 3               !  UNIX
 
        ii = LEN_TRIM(AF_res); AF(i+1:i+ii)=AF_res; i=i+ii+1
        ii = LEN_TRIM(AF_bnk); AF(i+1:i+ii)=AF_bnk; i=i+ii
@@ -113,7 +112,7 @@
 
 ! ... total time:
 
-      t2=RRTC(); tt=(t2-t1)/60
+      Call CPU_time(t2); tt=(t2-t1)/60
 
       write(pri,'(/a,F12.2,a)') ' DBSR_mult time: ',tt,' min'
       write(*,  '(/a,F12.2,a)') ' DBSR_mult time: ',tt,' min'

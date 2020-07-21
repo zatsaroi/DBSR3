@@ -1,0 +1,68 @@
+DBSR_MAT parameters:
+
+Partial waves:
+
+klsp1  =         1 - initial index
+klsp2  =         9 - final index
+
+mbreit =         0 - Breit interaction is exluded
+
+iitar  =         1 - target states may be non-orthogonal
+
+s_ovl  =   0.75000 - tollerence for channel overlaps
+
+Bloch operator:
+
+mbloch =         1 - flag for Bloch operator
+RB     =   0.00000 - b-parameter (derivative at r=a)
+pnu    =   1.00000 - "nu"-parameter (rotation)
+
+Boundary conditions:
+
+ilzero =        -1 - zero B-splines for large component at r=0
+jlzero =        -1 - zero B-splines for small component at r=0
+ibzero =         1 - zero B-splines for large component at r=a
+jbzero =         1 - zero B-splines for small component at r=a
+
+Restrictions on channel eigenvalues:
+
+Edmin  =  -3.8D+04 - minimum energy, -2*c^2
+Edmax  =  -1.0D+00 - maximum energy
+Egap   =   1.0D-03 - gap around E = 0.d0
+
+All one-channel solutions with E<Edmin, E>Edmax or abs(E)<Egap will be disregaded.
+
+
+Module cdata parameters:
+
+mk     =         7 - max. multipol index
+mblock =      3000 - size of block
+nblock =      2000 - number of blocks
+kblock =      2000 - number of blocks for one type
+memory of cdata module                    160.5 Mb
+
+Buffer parameters:
+
+mcbuf  =   1000000 - buffer dimension
+memory of the buffer:                      22.9 Mb
+
+Cut-off parameters:
+
+eps_c  =   1.0D-10 - tollerance for coefficients
+eps_det=   1.0D-10 - tollerance for det.overlaps
+eps_v  =   1.0D-10 - tollerance for <nl|kl>
+
+
+Additional debug output:
+
+debug  =         0 - flag for debug output
+pri_acf=         0 - asymptotic coefficients output
+
+ntarg  =        13 - number of target states
+
+ncore  =         9 - number of core subshells
+
+Ecore  =  -2955.91869078     - calculated core energy
+Ec     =      0.00000000     - given core energy if any
+
+total time:                                  2.40 min

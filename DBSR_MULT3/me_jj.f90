@@ -11,7 +11,7 @@
 
       Implicit none
       Integer, intent(in) :: l1,j1,m1,l2,j2,m2
-      Real(8), intent(out) :: CA,CB	  
+      Real(8), intent(out) :: CA,CB  
       Integer :: i
       Real(8), external :: Z_3j2, Cjkj
 

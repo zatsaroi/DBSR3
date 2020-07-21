@@ -1,0 +1,12 @@
+=============================================================================
+1 step:   1.bat -  get 4p5_5s.c and 4p5_5s.bsw
+
+=============================================================================
+2 step:   2.bat -  get  4p5_5s.j  
+
+Take attension to the parameter  "mdiag=1"  - no interaction between states   
+
+=============================================================================
+3 step:   3.bat -  get  description for 4p5_5s states for different J-values  
+                   They are not the real atomic states, but will be used as
+                   basis states
