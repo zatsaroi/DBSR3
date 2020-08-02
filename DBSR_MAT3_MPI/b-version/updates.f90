@@ -12,6 +12,7 @@
       mhm = nch*ms + npert 
       kprocs=nprocs-1
 
+      iicc = 0
       if(Allocated(icc)) Deallocate(icc) 
       Allocate(icc(nch,nch)); icc = 0; iicc = 0
       mem_mat = 4.d0*nch*nch      
@@ -43,6 +44,7 @@
 
       mem_mat = mem_mat + 8.d0*ms*ms*iicc + 4.d0*iicc*(mk+1)      
 
+      iicb = 0; iibb = 0
       if(npert.eq.0.or.idiag.eq.1) go to 1  
 
       if(Allocated(hcp)) Deallocate(hcp,icb) 
@@ -328,8 +330,6 @@
         write(pri,'(10E15.5)') hp(k) 
        End do
       End do
-
-
 
       End Subroutine Print_matrix
 

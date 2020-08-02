@@ -148,7 +148,7 @@
 
       Call descinit(descz,khm,khm,nblock,nblock,rsrc,csrc,ctxt,ld,info)
       Call p_error(info,'descz descriptor error')
-      allocate (z(np,nq));  z=zero
+      if(allocated(z)) deallocate(z); allocate (z(np,nq));  z=zero
 
       if(allocated(eval)) Deallocate(eval); Allocate(eval(khm))
 

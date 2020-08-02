@@ -11,7 +11,7 @@
 
       mhm = nch*ms + npert 
       kprocs=nprocs-1
-
+      iicc = 0
       if(Allocated(icc)) Deallocate(icc) 
       Allocate(icc(nch,nch)); icc = 0; iicc = 0
       k = 0; i=0
@@ -45,6 +45,7 @@
       if(.not.allocated(y)) Allocate(y(ns,ns),yy(ns,ns))
       mem_mat = mem_mat + 16.d0*(ms*ms+ns*ns)
 
+      iicb =0; iibb=0
       if(npert.eq.0) go to 1  
 
       if(Allocated(hcp)) Deallocate(hcp,icb) 

@@ -34,6 +34,6 @@ x:
 .SUFFIXES: .f90 .mod .o
  
 .f90.o:
-	$(FC) $(comp) -I${MKLROOT}/include $<
+	$(FC) $(comp) -I${MKLROOT}/include  $<
  
 #-CB -traceback 
