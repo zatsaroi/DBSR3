@@ -9,7 +9,8 @@
 
       Implicit none
       Integer, intent(in) :: nu
-      Integer :: i,j, it,jt, k,k1,k2
+      Integer :: i,j, it,jt, k,k1,k2, ij
+      Integer, external :: DEF_ij
 
 ! ... convert det.factors from ndef_list to common def_list:
 
@@ -36,7 +37,7 @@
         nc=nc+1
        End do
 
-       i=max(it,jt); j=min(it,jt); IT_done(i*(i-1)/2+j)=1
+       ij = DEF_ij(it,jt); IT_done(ij)=1
 
       End do; End do
 

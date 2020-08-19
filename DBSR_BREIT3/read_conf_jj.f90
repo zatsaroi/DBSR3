@@ -9,7 +9,7 @@
       Use conf_jj;  Use symc_list;  Use symt_list
 
       Implicit none
-      Integer :: i,k,ic,jc,ik,jk,it,jt,ij,ijc, iort_c
+      Integer :: i,k,ic,jc,ik,jk,it,jt,ij,iort_c
       Integer, external :: Jdef_ncfg, Iadd_symc, Iadd_symt, &
                            Iort_conf_jj, DEF_ij
 
@@ -54,7 +54,7 @@
 
       write(pri,'(/a,i5 )') 'number of atomic states   = ',ncfg
       write(pri,'( a,i5 )') 'number of configurations  = ',nsymc
-      write(pri,'( a,i5\)') 'number of ang. symmetries = ',nsymt
+      write(pri,'( a,i5/)') 'number of ang. symmetries = ',nsymt
 
 
 !----------------------------------------------------------------------
@@ -97,46 +97,38 @@
       if(allocated(IT_done)) Deallocate(IT_done)
                              Allocate(IT_done(nsymt*(nsymt+1)/2))
 
-      IT_done=0
-      if(new) then
-        icalc=.TRUE.; IC_need=1; JC_need=1; IT_need=1
-      else
-       Call Read_done(nub)
+      IT_done=0; if(.not.new)  Call Read_done(nub)
 
-       icalc=.FALSE.; IC_need = 0; JC_need = 0; IT_need = 0
-       Do ic = 1,nsymc
-        Call Get_symc(ic,Jtotal1,no1,nn1,kn1,ln1,jn1,iq1,in1)
-       Do jc = 1,ic
-        Call Get_symc(jc,Jtotal2,no2,nn2,kn2,ln2,jn2,iq2,in2)
-         iort_c = Iort_conf_jj(2)    !  ... l or kappa ???
-         if(Jtotal1.ne.Jtotal2) iort_c = 1
-
-         k = 0
-         Do ik=IC_term1(ic),IC_term2(ic);  it=JP_term(ik)
-         Do jk=IC_term1(jc),IC_term2(jc);  jt=JP_term(jk)
-          ij = DEF_ij(it,jt)
-          if(IT_done(ij).eq.0) IT_done(ij) = iort_c
-          if(IT_stat(it)*IT_stat(jt).eq.0.and.IT_done(ij).eq.0) &
-             IT_done(ij)=-1
-          if(IT_done(ij).eq.0) k = 1
-         End do
-         End do
-         if(k.eq.0) Cycle
-         ijc=DEF_ij(ic,jc); JC_need(ijc)=1; IC_need(ic)=1; IC_need(jc)=1
-         icalc=.TRUE.
+      icalc=.FALSE.; IC_need = 0; JC_need = 0; IT_need = 0
+      Do ic = 1,nsymc
+       Call Get_symc(ic,Jtotal1,no1,nn1,kn1,ln1,jn1,iq1,in1)
+      Do jc = 1,ic
+       Call Get_symc(jc,Jtotal2,no2,nn2,kn2,ln2,jn2,iq2,in2)
+       iort_c = Iort_conf_jj(2)    
+       if(Jtotal1.ne.Jtotal2) iort_c = 1
+       k = 0
+       Do ik=IC_term1(ic),IC_term2(ic);  it=JP_term(ik)
+       Do jk=IC_term1(jc),IC_term2(jc);  jt=JP_term(jk)
+        ij = DEF_ij(it,jt)
+        if(IT_done(ij).eq.0) IT_done(ij) = iort_c
+        if(IT_stat(it)*IT_stat(jt).eq.0.and.IT_done(ij).eq.0) IT_done(ij)=-1
+        if(IT_done(ij).eq.0) k = 1
        End do
        End do
+       if(k.eq.0) Cycle
+       ij=DEF_ij(ic,jc); JC_need(ij)=1; IC_need(ic)=1; IC_need(jc)=1
+       icalc=.TRUE.
+      End do
+      End do
 
-       ! ... define IT_need:
+      ! ... define IT_need:
 
-       Do it = 1,nsymt; k = 0
-        Do jt = 1,nsymt
-         ij=DEF_ij(it,jt); if(IT_done(ij).ne.0) Cycle; k=1; Exit
-        End do
-        IT_need(it) = k
+      Do it = 1,nsymt; k = 0
+       Do jt = 1,nsymt
+        ij=DEF_ij(it,jt); if(IT_done(ij).ne.0) Cycle; k=1; Exit
        End do
-
-      end if
+       IT_need(it) = k
+      End do
 
       Deallocate(IT_stat)
 

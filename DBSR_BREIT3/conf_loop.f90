@@ -13,7 +13,7 @@
       Implicit none
       Integer :: i,j,k,k1,k2,is,js, it,jt, ij
       Real(8) :: t1,t2
-      Integer, external :: Iort_conf, DEF_ij
+      Integer, external :: DEF_ij
 
 !----------------------------------------------------------------------
 ! ... cycle 1 over configurations:
@@ -55,8 +55,7 @@
        if(allocated(C_det2)) Deallocate(C_det2)
        Allocate(C_det2(kt2,kdt2)); read(nud) C_det2
 
-       i = max(ic,jc); j = min(ic,jc); ij = i*(i-1)/2 + j
-       if(JC_need(ij).eq.0) Cycle
+       ij = DEF_ij(ic,jc);  if(JC_need(ij).eq.0) Cycle
 
        Call Get_symc(jc,Jtotal2,no2,nn2,kn2,ln2,jn2,iq2,in2)
 
@@ -77,8 +76,7 @@
        Do k1=1,kt1; it=IP_kt1(k1)
        Do k2=1,kt2; jt=IP_kt2(k2)
         if(ic.eq.jc.and.it.gt.jt) Cycle
-        ij = DEF_ij(it,jt)
-        if(IT_done(ij).ne.0) Cycle
+        ij = DEF_ij(it,jt);  if(IT_done(ij).ne.0) Cycle
         k=k+1; IP_kt12(k1,k2) = 1
        End do; End do
        if(k.eq.0) Stop 'Conf_loop: k = 0'
