@@ -142,3 +142,36 @@
       End Subroutine Check_mult_bnk
 
 
+!======================================================================
+      Subroutine read_conf_jj(muc,kshift,job,check)
+!======================================================================
+!     read and add configurations to the list "conf_jj"
+!     job  =  'add'     -  just add
+!          =  'detect'  -  return -ic if exist and 
+!          =   others   -  add if not exist 
+!     check = 'check'   -  check the configurations for number of 
+!                          electrons and parity 
+!----------------------------------------------------------------------
+      Use conf_jj
+
+      Implicit none
+      Character(*), intent(in) :: job, check 
+      Integer, intent(in) :: muc,kshift
+      Integer, external :: Iadd_cfg_jj
+      Integer :: nuc,i,ic
+
+      nuc=iabs(muc); if(muc.gt.0) rewind(nuc)
+      if(check.eq.'check') then; ne=0; parity=0; end if
+    1 read(nuc,'(a)',end=2) CONFIG
+      if(CONFIG(1:3).eq.'*') go to 2
+      if(CONFIG(6:6).ne.'(') go to 1
+      read(nuc,'(a)') SHELLJ
+      read(nuc,'(5x,a)') INTRAJ
+      Call Decode_cj
+      in = in + kshift
+      if(check.eq.'check') Call Test_cj
+      ic = Iadd_cfg_jj(job)
+      go to 1
+    2 Continue
+
+      End Subroutine read_conf_jj

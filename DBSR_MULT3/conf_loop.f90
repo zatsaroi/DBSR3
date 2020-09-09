@@ -103,14 +103,15 @@
 
        qpol = Jtotal1-Jtotal2
        CN = Z_3j2(Jtotal1,-Jtotal1,kkpol,qpol,Jtotal2,Jtotal2)      
+
        if(CN.eq.0.d0) Cycle
        CN = 1.d0/CN  
 !----------------------------------------------------------------------
 ! ... calculations:
 
-       Do kd1=1,kdt1; Do i=1,ne;Msym1(i)=mj_orb(IP_det1(i,kd1));End do
+       Do kd1=1,kdt1; Do i=1,ne; Msym1(i)=mj_orb(IP_det1(i,kd1)); End do
 
-       Do kd2=1,kdt2; Do i=1,ne;Msym2(i)=mj_orb(IP_det2(i,kd2));End do
+       Do kd2=1,kdt2; Do i=1,ne; Msym2(i)=mj_orb(IP_det2(i,kd2)); End do
 
         Call Det_mult;   if(nzoef.gt.0) Call Term_loop 
 

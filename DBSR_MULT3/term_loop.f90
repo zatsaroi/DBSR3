@@ -22,7 +22,7 @@
        k = k + 1
        cdtrm(k) = C_det1(k1,kd1)*C_det2(k2,kd2)
       End do; End do 
- 
+
 ! ... add final coefficients:
 
       Do i=1,nzoef
