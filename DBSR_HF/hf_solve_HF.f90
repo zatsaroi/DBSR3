@@ -10,12 +10,11 @@
       Implicit none
       Real(8) :: hfm(ms,ms), v(ms), et
       Real(8), external :: QUADR
-      Integer :: ip, i,j, it
+      Integer :: ip, i,j, it, ita
 
-      Real(8) :: t1,t2,t3,t4 , S1,S2
-      Real(8), external :: RRTC
+      Real(8) :: t1,t2,t3,t4 , S,S1,S2
     
-      t1 = RRTC()
+      Call CPU_time(t1)
 
       et = etotal
       dpm = 0.d0
@@ -23,6 +22,8 @@
        write(log,'(//A,I6/A/)') 'Iteration ',it, &
                                 '----------------'
        write(log,'(2x,a,9x,a,10x,a,9x,a/)')  'nl', 'e(nl)', 'dpm', 'ns'
+
+!       Do ita =1,2
 
 ! ... main iterations other orbitals:
 
@@ -38,24 +39,35 @@
 
         Call hf_eiv(i,hfm,v) 
 
-
-        dpm(i)=maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
+        S = maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
+!        dpm(i)=maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
         if(ip.eq.1) then
-         if(dpm(i).lt.orb_tol) iord(i)=0
+         if(S.lt.orb_tol) iord(i)=0
         else
-         if(dpm(i).lt.orb_tol.and.iord(ip-1).eq.0) iord(i)=0
+         if(S.lt.orb_tol.and.iord(ip-1).eq.0) iord(i)=0
         end if
 
-        write(log,'(A5,f16.8,1PD13.2,I8)')  ebs(i),e(i,i),dpm(i),mbs(i)
-
+        if(it.gt.1.and.S.gt.dpm(i)) then
+         v(1:ns) = aweight * v(1:ns) + bweight * p(1:ns,1,i)
+         v(ns+1:ms) = aweight * v(ns+1:ms) + bweight * p(1:ns,2,i)
+         S1 = QUADR(v,v,0); S2 = sqrt(S1)
+         v = v / S2
+        end if
+       
+         dpm(i)=maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
 
         Call Put_pv(i,v)
 
         Call Check_tails(i)
 
-        t3=RRTC()
+        S=QUADR(p(1,1,i),p(1,1,i),0)
+        p(:,:,i) = p(:,:,i) / S
+
+        write(log,'(A5,f16.8,1PD13.2,I8,2f12.8)')  ebs(i),e(i,i),dpm(i),mbs(i)
+
+        Call CPU_time(t3)
         Call Update_int(i)
-        t4=RRTC()
+        Call CPU_time(t4)
         time_update_int=time_update_int+t4-t3
 
         ! .. remove tail zero
@@ -65,10 +77,12 @@
           if(i.eq.j) Cycle 
           if(e(i,j) < 1.d-10) Cycle      
           if(kbs(i).ne.kbs(j)) Cycle
-          write(log,'(a,a,a,f16.8)') &
+          write(log,'(a,a,a,f16.10)') &
            'Orthogonality ',ebs(i),ebs(j),QUADR(p(1,1,i),p(1,1,j),0)
          End do
         end if
+
+!       End do
 
        End do ! over functions 
 
@@ -122,9 +136,8 @@
       Integer :: j, jp, info, k,kk,m,mm, ipos(1)
 
       Real(8) :: t1,t2
-      Real(8), external :: RRTC
     
-      t1 = RRTC()
+      Call CPU_time(t1)
 
 ! ... apply orthogonality conditions for orbitals
 
@@ -203,7 +216,7 @@
        write(log,'(a,2i5,E15.5)') 'we choose m,mm,e =',m,mm,eval(mm)
       end if
 
-      t2 = RRTC()
+      Call CPU_time(t2)
       time_hf_eiv = time_hf_eiv + t2-t1
 
       End Subroutine hf_eiv

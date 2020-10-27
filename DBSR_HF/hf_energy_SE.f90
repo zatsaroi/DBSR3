@@ -11,8 +11,8 @@
 
       Implicit none
       Integer :: i,j
-      Real(8) :: SE,S1,S2, ratio, r1,ar1,ar2,am1,am2,am3
-      Real(8) :: Pcoef(ns),Qcoef(ns),fp_nucl(ns,ns),fq_nucl(ns,ns),v(ns)
+      Real(8) :: SE,S1,S2, ratio
+      Real(8) :: Pcoef(ns),Qcoef(ns),fp_nucl(ns,ns),fq_nucl(ns,ns)
       Real(8), external :: xAy, relci_qed_F
 
       SE = 0.d0; if(mode_SE.eq.0) Return
@@ -431,7 +431,10 @@
       integer       :: ibest, ilirok, ildiag, ilothr, irow, k, lhi, llo, llr, locnxt, nrsthi, nrstlo
       real(kind=dp) :: debe, debeb, diff, difft
       !
-      ! Determine the nearest two XARR entries bounding XVAL
+!zoi 
+      diff =accy; locnxt =0; nrstlo=0
+
+     ! Determine the nearest two XARR entries bounding XVAL
       if (xval < xarr(1)) then
          nrstlo = 1;   nrsthi = 1
          print *, "interpolation_aitken(): Extrapolating, not interpolating."

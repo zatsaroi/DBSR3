@@ -8,8 +8,8 @@
       Use dbsr_hf
 
       Implicit none
-      Integer :: i,j,m
-      Real(8) :: en, r1,r2,rm1, EV,EK,EM, ratio, TA,VA,AM 
+      Integer :: i
+      Real(8) :: r1,r2,rm1, EV,EK,EM, ratio, TA,VA,AM 
       Real(8), external :: quadr
 
       write(log,'(/84(''-''))')

@@ -106,7 +106,7 @@
       Use df_orbitals
 
       Implicit none
-      Integer :: i,j, bn
+      Integer :: i,j
       Real(8) :: a1,r1
 
       AF_dat = trim(name)//BF_dat
@@ -142,6 +142,9 @@
       Call Read_ipar(inp,'mdiag',mdiag)
 
       Call Read_apar(inp,'knot',knot)
+
+      Call Read_rpar(inp,'aweight',aweight)
+      Call Read_rpar(inp,'bweight',bweight)
 
 !-----------------------------------------------------------------------------------
      
@@ -179,6 +182,9 @@
 
       Call Read_aarg('knot',knot)
 
+      Call Read_rarg('aweight',aweight)
+      Call Read_rarg('bweight',bweight)
+
 !-----------------------------------------------------------------------------------
 
       if(len_trim(atom).eq.0) then
@@ -188,7 +194,7 @@
         an = NINT(Z)
         Call Def_atom(an,atom,a1,r1,conf_AV,conf_LS)
        else
-        atom = name
+        atom = trim(name)
        end if
       end if
 
@@ -262,16 +268,16 @@
 
       if(nconf.gt.1) then
       if(term.eq.'LS')  write(log,'(/a,i3,a)') 'nconf =',nconf,&
-	   '  - number of configurations to optimize, see conf-file'  
+        '  - number of configurations to optimize, see conf-file'  
       if(term.eq.'jj')  write(log,'(/a,i3,a)') 'nconf =',nconf,&
-	   '  - atomic states to optimize, see c-file'  
+        '  - atomic states to optimize, see c-file'  
 
       if(eal.eq.1)  write(log,'(a,i3,a)') 'eal   =',eal,&
-	   '  - weights of states are equal'  
+        '  - weights of states are equal'  
       if(eal.eq.5)  write(log,'(a,i3,a)') 'eal   =',eal,&
-	   '  - weights of states are statistical'  
+        '  - weights of states are statistical'  
       if(eal.eq.9)  write(log,'(a,i3,a)') 'eal   =',eal,&
-	   '  - weights of states are chosen by user'  
+        '  - weights of states are chosen by user'  
       end if
 
       write(log,'(//a/)') 'Running parameters:'
@@ -414,7 +420,7 @@
 
       nconf=1
       Allocate(weight(nconf)); weight=1.d0
-      Allocate(iqconf(nconf,nwf)); iqconf(nconf,1:nwf)=qsum(1:nwf)
+      Allocate(iqconf(nconf,nwf)); iqconf(nconf,1:nwf)=NINT(qsum(1:nwf))
 
       End Subroutine Def_conf
 
@@ -513,7 +519,7 @@
 
       Allocate(weight(nconf));     weight = 1.d0
       Allocate(iqconf(nconf,nwf)); iqconf = 0
-      Do i=1,ncore;  iqconf(:,i) = qsum(i); End do
+      Do i=1,ncore;  iqconf(:,i) = NINT(qsum(i)); End do
 
       i = 0
       rewind(nuc)
@@ -629,10 +635,12 @@
       elseif(string(1:4)=='NONE' .or. string(1:4)=='none') then 
        nit = 0 
       elseif (INDEX(string,'n=') /= 0) then 
+       i = INDEX(string,'n=') 
        read(string(i+2:),*) n 
        k=0; Do i=1,nwf; if(nbs(i).ne.n) Cycle; k=k+1; iord(k)=i; End do
        nit = k
       elseif (INDEX(string,'n>') /= 0) then 
+       i = INDEX(string,'n>') 
        read(string(i+2:),*) n 
        k=0; Do i=1,nwf; if(nbs(i).le.n) Cycle; k=k+1; iord(k)=i; End do
        nit = k

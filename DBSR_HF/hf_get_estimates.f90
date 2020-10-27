@@ -12,7 +12,7 @@
       Implicit none
       Real(8) :: zz,ss,s
       Real(8), external :: QUADR
-      Integer :: i, j,k, nnl
+      Integer :: i, j, nnl
       Integer, allocatable :: nl(:)
       Real(8), allocatable :: qnl(:), snl(:)
       Integer, external :: ipointer

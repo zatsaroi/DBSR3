@@ -31,7 +31,6 @@
 !     ipointer.f90
 !     read_arg.f90
 !     read_par.f90
-!     rrtc.f90
 !     splin3.f90
 !---------------------------------------------------------------
 
@@ -477,7 +476,7 @@
       Integer :: j1,j2
 
       j1 = j_kappa(kap1)
-      j2 = j_kappa(kap1)
+      j2 = j_kappa(kap2)
       Ckap = Cjkj(j1,k,j2)
 
       END Function Ckap
@@ -638,6 +637,7 @@
       Integer :: M, N
       Real(8), external :: ZCB
 
+      ZCLKL =0.d0
       M=K1+K2+K3
       N=M/2
       IF(N+N.NE.M) Return
@@ -934,8 +934,6 @@
       Implicit none
       Integer, intent(in) :: k1,k2,k3
       Real(8), external :: ZCB
-      Real(8) :: A,B,C
-      Integer :: I,J, K,L, M,N, N1,N2,N3, M1,M2,M3
 
       CLB = ZCB(k1,k2,k3)* (k3+k3+1)
       CLB = sqrt(CLB) * (-1)**(k1-k2)       ! sign?
@@ -1099,9 +1097,9 @@
       Real(8), External :: Z_6j
 
       i1 = max(abs(j1-j9),abs(j2-j6),abs(j4-j8))+1
-	  i2 = min(j1+j9,j2+j6,j4+j8)-1
+      i2 = min(j1+j9,j2+j6,j4+j8)-1
 
-	  Z_9j = 0.d0; if(i1.gt.i2) Return;  if(mod(i2-i1,2).ne.0) Return
+      Z_9j = 0.d0; if(i1.gt.i2) Return;  if(mod(i2-i1,2).ne.0) Return
 
       Do j = i1,i2,2
        Z_9j = Z_9j + j * (-1)**(j-1) * &
@@ -1342,10 +1340,11 @@
        else
         P0=zero; P1=DSQRT(one-x*x)
        end if
+       PN = one      ! ???
        DO N=1,L-1
         PN=((N+N+1)*x*P1-(N+MA)*P0)/(N-MA+1); P0=P1; P1=PN
        End do
-        ALEGF=PN*ALEGF; Return
+       ALEGF=PN*ALEGF; Return
       end if
 
 ! ... use the recurrence relations in respect to m:
@@ -1354,6 +1353,7 @@
       z = x/sqrt(one-x*x)
       P2 = FACT*(one-x*x)**(0.5d0*L)
       P1 = P2 * z; z = z * two
+      PM = 1.d0    ! ???
       Do MM = L-2,MA,-1
        PM=((MM+1)*z*P1-P2)/((L-MM)*(L+MM+1)); P2=P1; P1=PM
       End do
@@ -1919,6 +1919,8 @@
 
 ! ... This is the outer loop of the search for a pivot element.
 
+      irow = 1; icol = 1   ! zoi ???  to avoid warning
+
       do j=1,n;  if(ipiv(j).eq.1) Cycle
       do k=1,n;  if(ipiv(k).ne.0) Cycle
          if (abs(a(j,k)).ge.big) then
@@ -2385,7 +2387,7 @@
 
 !     ... now x .lt. xt(ilo) . decrease  ilo  to capture  x
 
-   30 istep = 1
+      istep = 1
    31    ihi = ilo
          ilo = ihi - istep
          if (ilo .le. 1)                go to 35
@@ -2484,23 +2486,21 @@
 
       End Function Apointer
 
-
 !======================================================================
       Subroutine Read_rarg(name,rvalue)
 !======================================================================
-!     read real argument as name=... from the command line
+!     read real argument as name=... from the command line 
 !----------------------------------------------------------------------
       Implicit none
       Character(*) :: name
       Real(8) :: rvalue
       Integer :: iarg,i,i1,i2,iname
       Character(80) :: AS
-!      Integer, internal :: IARGC
 
-      iarg = IARGC(); if(iarg.eq.0) Return
+      iarg = command_argument_count(); if(iarg.eq.0) Return 
       iname=LEN_TRIM(name)
       Do i=1,iarg
-       Call GETARG(i,AS)
+       Call GET_COMMAND_ARGUMENT(i,AS)
        i1=INDEX(AS,'=')+1; i2=LEN_TRIM(AS)
        if(AS(1:i1-2).ne.name(1:iname)) Cycle
        read(AS(i1:i2),*) rvalue; Exit
@@ -2512,19 +2512,18 @@
 !======================================================================
       Subroutine Read_iarg(name,ivalue)
 !======================================================================
-!     read integer argument as name=... from the command line
+!     read integer argument as name=... from the command line 
 !----------------------------------------------------------------------
       Implicit none
       Character(*) :: name
       Integer :: ivalue
       Integer :: iarg,i,i1,i2,iname
       Character(80) :: AS
-!      Integer, internal :: IARGC
 
-      iarg = IARGC(); if(iarg.eq.0) Return
+      iarg = command_argument_count(); if(iarg.eq.0) Return 
       iname=LEN_TRIM(name)
       Do i=1,iarg
-       Call GETARG(i,AS)
+       Call GET_COMMAND_ARGUMENT(i,AS)
        i1=INDEX(AS,'=')+1; i2=LEN_TRIM(AS)
        if(AS(1:i1-2).ne.name(1:iname)) Cycle
        read(AS(i1:i2),*) ivalue; Exit
@@ -2532,21 +2531,21 @@
 
       End Subroutine Read_iarg
 
+
 !======================================================================
       Subroutine Read_aarg(name,avalue)
 !======================================================================
-!     read character argument as name=... from the command line
+!     read character argument as name=... from the command line 
 !----------------------------------------------------------------------
       Implicit none
       Character(*) :: name, avalue
       Integer :: iarg,i,i1,i2,iname
       Character(80) :: AS
-!      Integer, internal :: IARGC
 
-      iarg = IARGC(); if(iarg.eq.0) Return
+      iarg = command_argument_count(); if(iarg.eq.0) Return 
       iname=LEN_TRIM(name)
       Do i=1,iarg
-       Call GETARG(i,AS)
+       Call GET_COMMAND_ARGUMENT(i,AS)
        i1=INDEX(AS,'=')+1; i2=LEN_TRIM(AS)
        if(AS(1:i1-2).ne.name(1:iname)) Cycle
        read(AS(i1:i2),'(a)') avalue; Exit
@@ -2565,13 +2564,12 @@
       Integer :: na,iarr(na)
       Integer :: iarg,ia,iname,i,i1,i2,j,j1,j2,k,k1,k2
       Character(180) :: AS
-!      Integer, internal :: IARGC
 
-      iarg = IARGC(); if(iarg.eq.0) Return
+      iarg = command_argument_count(); if(iarg.eq.0) Return 
       iname=LEN_TRIM(name)
       k=0
       Do i=1,iarg
-       Call GETARG(i,AS)
+       Call GET_COMMAND_ARGUMENT(i,AS)
        i1=INDEX(AS,'=')+1; i2=LEN_TRIM(AS)
        if(AS(1:i1-2).ne.name(1:iname)) Cycle
        k=1; Exit
@@ -2579,7 +2577,7 @@
       if(k.eq.0) Return
 
       ia=0; j1=i1; ! iarr=0
-      Do
+      Do 
        j2=INDEX(AS(j1:i2),',')
        if(j2.eq.0) then; j2=i2; else; j2=j2+j1-1; end if
        j=0 ! INDEX(AS(j1:j2),'-'); k = j+j1-1
@@ -2594,7 +2592,7 @@
          iarr(ia)=k
         End do
        end if
-       j1=j2+1;
+       j1=j2+1; 
        if(j1.gt.i2) Exit
       End do
 
@@ -2608,13 +2606,12 @@
 !----------------------------------------------------------------------
       Implicit none
       Character(*) :: name
-      Integer :: iarg,i,i1,i2,iname
+      Integer :: iarg,i
       Character(80) :: AS
-!      Integer, internal :: IARGC
 
-      iarg = IARGC(); if(iarg.eq.0) Return
+      iarg = command_argument_count(); if(iarg.eq.0) Return 
       Do i=1,iarg
-       Call GETARG(i,AS)
+       Call GET_COMMAND_ARGUMENT(i,AS)
        if(INDEX(AS,'=').ne.0) Cycle
        name=AS
        Exit
@@ -2829,37 +2826,6 @@
       End Subroutine Read_string
 
 
-
-!======================================================================
-      Real(8) Function RRTC()
-!======================================================================
-!     give the running time in seconds
-!     (some old version to adjust for different compilers)
-!----------------------------------------------------------------------
-      Implicit none
-
-!     CHARACTER(LEN=8) :: D
-!     CHARACTER(LEN=10) :: T
-!     INTEGER :: id,ih,im,is,ims
-
-      Real :: TM(2), ETIME !, DTIME
-
-! ... Power station Fortran 4.0:
-
-!     Call DATE_AND_TIME(date=D,time=T)
-!     read(D,'(6x,i2)') id
-!     read(T,'(3i2,1x,i3)') ih,im,is,ims
-!     RRTC = id*86400 + ih*3600 + im*60 + is
-!     RRTC = RRTC + ims/1000.d0
-
-! ... Digital Fortran 6.0:
-
-      RRTC = ETIME(TM); ! RRTC = TM(1)
-
-      End Function RRTC
-
-
-
 !======================================================================
       SUBROUTINE SPLIN3 (N, X, Y, B, C, D)
 !======================================================================
@@ -3008,6 +2974,7 @@
       else
        Stop  'xAy: not yet supported array type'
       end if
+      i = k   ! to remove warning
 
       End Function xAy
 

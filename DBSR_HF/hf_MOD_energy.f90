@@ -65,7 +65,6 @@
       Use hf_energy
       Use dbsr_hf
       Use df_orbitals, only: nbf,jbs
-      Integer :: i,j,k
 
       kmax = maxval(jbs(1:nbf))
       if(allocated(coef)) Deallocate(coef);  Allocate(coef(nbf,nbf,0:kmax))
@@ -218,7 +217,7 @@
 !----------------------------------------------------------------------
       Use hf_energy
       Use dbsr_hf,     only: Etotal, E1body, E2body
-      Use df_orbitals, only: nbf, kbs, l => lbs, qsum
+      Use df_orbitals, only: nbf, l => lbs, qsum
 
       Implicit none
       Integer :: i,j,k
@@ -269,7 +268,7 @@
       Use df_orbitals
 
       Implicit none
-      Integer :: i,j,k, ic,jc, ii,jj, km
+      Integer :: i,j,k, ic,jc, ii,jj
       Real(8) :: c
       Real(8), allocatable :: coefs(:,:,:)
       Integer, external :: Ifind_orb 

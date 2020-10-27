@@ -5,7 +5,7 @@
 ! ... eigenvalues of  (H' - lamda S)x = 0 are orthogonal to v.
 !              H' =>  (1 - Bvv^T ) H (1 - vv^TB) 
 !------------------------------------------------------------------
-      Use DBS_grid,  only: ns,ms
+      Use DBS_grid,  only: ms
       Use DBS_gauss, only: fppqq
 
       Implicit none

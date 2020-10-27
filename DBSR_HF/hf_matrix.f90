@@ -15,12 +15,11 @@
       Real(8) :: d(ns,ks),dd(ns,ks),x(ns,ns),xx(ns,ns)
       Real(8) :: c
       Real(8), external :: a,b
-      Integer :: j,ii,jj,k,ip,met
+      Integer :: j,ii,jj,k,met
 
       Real(8) :: t1,t2
-      Real(8), external :: RRTC
     
-      t1 = RRTC()
+      Call CPU_time(t1)
 
 ! ... one-electron integral contribution
 
@@ -66,7 +65,7 @@
 
       hfm = hfm / qsum(i)
 
-      t2 = RRTC()
+      Call CPU_time(t2)
       time_hf_matrix = time_hf_matrix + t2-t1
 
       End Subroutine hf_matrix
@@ -96,8 +95,7 @@
       Use dbsr_hf                           
       Use rk4_data      
       Use DBS_grid,    only: ns,ks,ms
-      Use DBS_dhl_pq,  only: dhl
-      Use df_orbitals, only: kbs,nbf,qsum,p
+      Use df_orbitals, only: p
       
       Implicit none
       Integer, intent(in) :: i
@@ -106,15 +104,12 @@
       Character :: sym, sym_int(4)
       Integer :: itype,k,kk,met, int,jnt, ik, j, kint(4), ip1,ip2, jp1,jp2
       Real(8) :: x(ns,ns),xx(ns,ns)
-      Real(8) :: c
-
       Real(8) :: t1,t2
-      Real(8), external :: RRTC
 
       Data sym_int /'n','n','x','x'/
       Data kint /2,1,4,3/
 
-      t1 = RRTC()
+      Call CPU_time(t1)
 
       Do itype=0,1                                          
       Do k=0,kmax; kk = k + 1000*itype
@@ -162,7 +157,7 @@
       End do ! over int
       End do; End do ! over k and itype
 
-      t2 = RRTC()
+      Call CPU_time(t2)
       time_hf_matrix_breit = time_hf_matrix_breit + t2-t1
 
       End Subroutine hf_matrix_breit

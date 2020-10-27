@@ -6,7 +6,7 @@
 !----------------------------------------------------------------------
       Use hf_energy
       Use dbsr_hf
-      Use df_orbitals, only: nbf, kbs, ebs
+      Use df_orbitals, only: nbf, kbs
       Use DBS_grid
       Use rk4_data      
 
@@ -64,7 +64,7 @@
       Implicit none
       Integer, intent(in) :: ka,kb,kc,kd,L,v
       Real(8), intent(out) :: S(8)
-      Integer :: i, la,lb,lc,ld, K,Kp, vv
+      Integer :: i, la,lb,lc,ld, K,Kp
       Integer, external :: ITRA, l_kappa
       Real(8) :: b,c,bp,cp
 

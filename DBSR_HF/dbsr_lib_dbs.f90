@@ -108,7 +108,7 @@
       Use DBS_nuclear
 
       Implicit none
-      Integer :: nu, i, an, aw
+      Integer :: nu, an, aw
       Real(8) :: apar,cpar, z,atw, rms, A
       Character(200) :: atom, core, conf
 
@@ -751,7 +751,7 @@
 
 ! ... "exponential" part of grid:
 
-      ht = 1.d0 + he
+      ht = 1.d0 + he; ne=ns
       Do
        tj = ti*ht
        if(tj-ti.gt.hmax) Exit
@@ -1113,8 +1113,6 @@
       Real(8) :: time_density = 0.d0
       Integer :: ic_density =0
 
-      Real(8), external :: RRTC
-
       End Module DBS_debug
 
 
@@ -1220,7 +1218,6 @@
       Integer, Intent(in) :: k1,k2
       Real(8), Intent(in) :: v1(ms),v2(ms)
       Real(8) :: v(ms)
-      Integer :: i,j
 
       Vp_dhl = 0.d0; if(k1.ne.k2) Return
       Call Mat_dhl_pq(k1)
@@ -2238,7 +2235,7 @@
       Integer :: i,j, ip,jp, imin,imax, jmin,jmax, ii,jj
       Real(8) :: c,t1,t2
 
-      t1 = RRTC()
+      Call CPU_time(t1)
 
       if(icase.le.2) a(1:ns,1:ks)=0.d0
       if(icase.gt.2) a(1:ns,1:ns)=0.d0
@@ -2474,7 +2471,7 @@
 
       End Select
 
-      t2 = RRTC()
+      Call CPU_time(t2)
       ic_convol = ic_convol + 1
       if(icase.le.2) time_convol=time_convol + (t2-t1)
 
@@ -2512,7 +2509,7 @@
       Integer :: i,j, ip,jp, imin,imax, jmin,jmax, ii,jj
       Real(8) :: c,t1,t2
 
-      t1 = RRTC()
+      Call CPU_time(t1)
 
       if(icase.le.2) a(1:ns,1:ks)=0.d0
       if(icase.gt.2) a(1:ns,1:ns)=0.d0
@@ -2748,7 +2745,7 @@
 
       End Select
 
-      t2 = RRTC()
+      Call CPU_time(t2)
       ic_convol = ic_convol + 1
       if(icase.le.2) time_convol=time_convol + (t2-t1)
 
@@ -2832,7 +2829,7 @@
       End Subroutine Def_Znucl
 
 
-
+      
 !======================================================================
       Subroutine density(ns,ks,d,p1,p2,type)
 !======================================================================
@@ -2851,7 +2848,7 @@
       Real(8) :: d(ns,*)
       Real(8) :: t1,t2
 
-      t1 = RRTC()
+      Call CPU_time(t1)
 
       if(type.eq.'s'.or.type.eq.'u') then
 
@@ -2887,7 +2884,7 @@
 
       end if
 
-      t2 = RRTC()
+      Call CPU_time(t2)
       ic_density=ic_density+1
       time_density = time_density + (t2-t1)
 

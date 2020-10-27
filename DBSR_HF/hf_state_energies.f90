@@ -306,7 +306,7 @@
       E1 = EE_tot(ipe(1))
 
       Do jc=1,nconf;  ic = ipe(jc); etotal = EE_tot(ic)
-                      configuration = labels(index(ic)); ii = ilabel
+                      configuration = trim(labels(index(ic))); ii = ilabel
 
        if(mbreit.eq.0) then 
 
@@ -435,6 +435,7 @@
       End do
 
       i = Jparity(no,ln,iq); if(i.eq.-1) LAB(k:k)='*'
+      i = Vshell(1)  ! to remove warning
 
       End Subroutine labelc_jj
 

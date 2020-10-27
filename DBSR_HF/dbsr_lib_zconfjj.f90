@@ -76,7 +76,6 @@
 
       Implicit none
       Integer, intent(in) :: m
-      Integer :: i,j
       Integer, allocatable :: iarr(:)
       Integer, allocatable :: jarr(:,:)
       Character(5), allocatable :: carr(:)
@@ -372,9 +371,9 @@
       Use symc_list
 
       Implicit none
-      Integer :: ic,JT,no,i,ii,ip
-      Integer, Dimension(*) :: nn,kn,ln,jn,iq,in
-      Integer, External :: l_kappa, j_kappa
+      Integer :: ic,JT,no,i,ip
+      Integer, dimension(*) :: nn,kn,ln,jn,iq,in
+      Integer, external :: l_kappa, j_kappa
 
       if(ic.le.0.or.ic.gt.nsymc) Stop 'Get_symc: <ic> is out of range'
 
@@ -1269,7 +1268,6 @@
       Implicit none
       Integer, Intent(in) :: int
       Real(8), Intent(in) :: C
-      Integer :: i
 
       if(mboef.eq.0.or.nboef.eq.mboef) Call Alloc_boef(mboef+iboef)
 
@@ -1290,7 +1288,7 @@
 
       Implicit none
       Integer :: l1,j1,m1, l2,j2,m2, l3,j3,m3, l4,j4,m4
-      Integer :: i1,i2,i3,i4, k,l,m,ipm
+      Integer :: k,l,m,ipm
 
       if(mblk.eq.0) Call Alloc_blk(iblk)
 
@@ -1373,6 +1371,7 @@
       Real(8) :: C
       Real(8), external :: Z_3j2, Cjkj
 
+      k = l1; k = l2; k = l3; k= l4
       m = m1-m3; !if(m.ne.m4-m2) Return
 
 ! ... define the range of multipole indeces:
@@ -3543,7 +3542,7 @@
 
 ! ... local variables:
 
-      Integer             :: ne,Jtotal,i,j,k, jmax,kd1,kd2
+      Integer             :: ne,Jtotal,i,kd1,kd2
       Integer             :: ip1(no),ip2(no)
       Integer, external   :: mj_value
 
@@ -3669,7 +3668,7 @@ CONTAINS
 !     combinations of nj-orbitals (me_ee)
 !----------------------------------------------------------------------
       Implicit none
-      Integer :: i,i1,i2, j,j1,j2, k,kk,k1,k2, idif, jdif, io,jo
+      Integer :: i,i1,i2, j, k,kk,k1,k2, idif, jdif, io,jo
       Integer :: is,js, isym1,isym2, jsym1,jsym2
       Integer :: ii(ne,ne)
 
@@ -3930,6 +3929,8 @@ CONTAINS
       Integer :: md(no),nd(no),ipn(no), MJs(no),MJi(no), ips(no)
       Integer :: Idet(ne)
 
+      i = ln(1)  ! to remove warning
+
 ! ... prepare working arrays:
 
       k = 1; mkdt = 1
@@ -4184,7 +4185,7 @@ CONTAINS
       Use orb_jj, only: kset, ASET
 
       Implicit none
-      Integer :: n,l,j,k, ll,jj, i,k1,k2,n1,n2, kappa
+      Integer :: n,l,j,k, i,k1,k2,n1,n2, kappa
       Character(5) :: EL
       Character(1), external :: AL
       Integer, external :: l_kappa, j_kappa
@@ -4244,7 +4245,7 @@ CONTAINS
       Use orb_jj, only: kset, ASET
 
       Implicit none
-      Integer :: n,l,j,k, ll,jj, i,k1,k2,n1,n2, kappa
+      Integer :: n,l,j,k, i,k1,k2,n1,n2
       Character(5) :: EL
       Character(1), external :: AL
 
@@ -4443,7 +4444,7 @@ CONTAINS
         read(SHELLJ(m+1:m+9),'(i9)') J; Jshell(i) = 2*J
        end if
 
-       k = INDEX(INTRAJ(m+1:m+9),'/')
+       k=0; k = INDEX(INTRAJ(m+1:m+9),'/')
        if(i.eq.1) then
         Jintra(i) = Jshell(i)
        elseif(i.eq.no) then
@@ -4453,8 +4454,8 @@ CONTAINS
        elseif(INTRAJ(m+1:m+9).ne.bl) then
         read(INTRAJ(m+1:m+9),*) J; Jintra(i) = 2*J
        else
-       if(Jshell(i).eq.0) Jintra(i) = Jintra(i-1)
-       if(Jintra(i-1).eq.0) Jintra(i) = Jshell(i)
+        if(Jshell(i).eq.0) Jintra(i) = Jintra(i-1)
+        if(Jintra(i-1).eq.0) Jintra(i) = Jshell(i)
        end if
 
       End do
@@ -4734,9 +4735,9 @@ CONTAINS
 ! ... the number of terms in j^q subshell:
 
       if(q.le.1.or.q.ge.qm-1) then
-       nterm = 1
+       nterm = 1;  ip=0
       elseif(q.eq.2.or.q.eq.qm-2) then
-       nterm = qm/2
+       nterm = qm/2; ip=0
       else
        Select case(j*100 + q)
         Case(503);       nterm = 3; ip = 0    ! 5/2 ^ 3
@@ -4866,7 +4867,7 @@ CONTAINS
       if(q.gt.j+1) Stop 'ndets_jq:  q > q_max'
       S=1.d0
       Do i=q+1,j+1; S=S*i/(i-q); End do
-      ndets_jq = S + 0.1d0
+      ndets_jq = NINT(S)
       End Function ndets_jq
 
 
@@ -4902,15 +4903,17 @@ CONTAINS
       if(jmin.eq.-1.or.jmax.eq.-1) then
        i=0
        Do
-        read(nu1,'(a)',end=10) AS
+        read(nu1,'(a)',end=10,err=10) AS
         if(AS(6:6).ne.'(') Cycle
         CONFIG = AS;  Call Decode_confj
         ii = SUM(iq(1:no)*jn(1:no)); if(ii.gt.i) i=ii
        End do
+       if(jmin.eq.-1) jmin=mod(i,2)
+       if(jmax.eq.-1) jmax = i
       end if
+
    10 Continue
-      if(jmin.eq.-1) jmin=mod(i,2)
-      if(jmax.eq.-1) jmax = i
+
       if(jmax.lt.jmin) jmax=jmin
 
 ! ... read configurations for each J-total:

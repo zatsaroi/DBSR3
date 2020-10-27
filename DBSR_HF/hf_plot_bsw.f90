@@ -14,7 +14,7 @@
  
       Implicit none
       Real(8) :: yp(nv*ks+2,nbf),yq(nv*ks+2,nbf),r(nv*ks+2)
-      Integer :: i,j,io,i1,i2,m,nr
+      Integer :: i,j,io,i1,i2,m
       Character(6) :: pel(nbf), qel(nbf)
       Real(8) :: P0, gamma
  
@@ -79,7 +79,7 @@
       Integer, parameter :: ng = 540  ! max. number of points in GRASP 
       Real(8) :: yp(ng),yq(ng),r(ng)
       Real(8) :: P0, gamma, r_max, RNT,HNT
-      Integer :: i,j, io,m,np,nr
+      Integer :: i,io,m,np,nr
       Real(8), external :: bvalu2 
       
       if(out_w.eq.0) Return
@@ -165,7 +165,7 @@
       Integer, parameter :: ng = 540  ! max. number of points in GRASP 
       Real(8) :: yp(ng),yq(ng),r(ng)
       Real(8) :: P0, gamma, r_max, RNT,HNT
-      Integer :: i,j, io,m,np,nr, k
+      Integer :: i,io,np,nr
       Real(8), external :: bvalu2 
       
       if(out_nl.eq.0) Return
@@ -233,7 +233,7 @@
       Subroutine Write_isodata
 !======================================================================
       Use DBS_nuclear
-      Use dbsr_hf, only: nelc, Etotal  
+      Use dbsr_hf, only: Etotal  
 
       Implicit none
       Integer :: nu

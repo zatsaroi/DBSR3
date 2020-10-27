@@ -53,7 +53,7 @@
 !--------------------------------------------------------------------
       Use zconst
       Use DBS_grid,    only: nv,ks
-      Use DBS_gauss,   only: gr,ygw,grw
+      Use DBS_gauss,   only: gr,ygw
       Use DBS_nuclear, only: nuclear, atomic_number, ZR_nucl
 
       Implicit none

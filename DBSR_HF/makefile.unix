@@ -40,7 +40,7 @@ O = $(S:.f90=.o)
  
 $(N): $(O)
 	$(FC) -o $(N) $(O) $(link)  $(LAPACK)  $(BLAS)  
-	mv $(N) $(BINDIR)   # your choice 
+	mv $(N) $(BINDIR)    
 	rm *.o *.mod   
  
 clean:
