@@ -4908,12 +4908,12 @@ CONTAINS
         CONFIG = AS;  Call Decode_confj
         ii = SUM(iq(1:no)*jn(1:no)); if(ii.gt.i) i=ii
        End do
-       if(jmin.eq.-1) jmin=mod(i,2)
-       if(jmax.eq.-1) jmax = i
       end if
 
    10 Continue
 
+      if(jmin.eq.-1) jmin=mod(i,2)
+      if(jmax.eq.-1) jmax = i
       if(jmax.lt.jmin) jmax=jmin
 
 ! ... read configurations for each J-total:
