@@ -54,6 +54,9 @@
 
       Integer :: max_it  = 25
       
+      Real(8) :: aweight = 0.8
+      Real(8) :: bweight = 0.6
+
       Integer :: n_corr  = 1
       Real(8) :: eps_corr= 1.d-1
 

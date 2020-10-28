@@ -8,7 +8,7 @@
 
       Implicit none
       Real(8) :: hfm(ms,ms), v(ms), et, rhs(ms), hx(ms,ms)
-      Real(8) :: t1,t2
+      Real(8) :: t1,t2, S,S1,S2
       Real(8), external :: quadr
       Integer :: ip, i,j, it
 
@@ -45,6 +45,20 @@
         Call CPU_time(t2)
         time_solve = time_solve + (t2-t1)
 
+        S = maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
+        if(ip.eq.1) then
+         if(S.lt.orb_tol) iord(i)=0
+        else
+         if(S.lt.orb_tol.and.iord(ip-1).eq.0) iord(i)=0
+        end if
+
+        if(it.gt.1.and.S.gt.dpm(i)) then
+         v(1:ns) = aweight * v(1:ns) + bweight * p(1:ns,1,i)
+         v(ns+1:ms) = aweight * v(ns+1:ms) + bweight * p(1:ns,2,i)
+         S1 = QUADR(v,v,0); S2 = sqrt(S1)
+         v = v / S2
+        end if
+       
         dpm(i)=maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
         p(1:ns,1,i) = v(1:ns)
         p(1:ns,2,i) = v(ns+1:ms)       
