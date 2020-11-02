@@ -97,21 +97,23 @@
       Call Read_core_jj(nuc)
       write(pri,'(80(''-''))')
       write(pri,'(a,i5/)') 'CORE:  ncore =', ncore
+
       if(ncore.gt.0) then
+
        write(pri,'(10a8)') (ELF(j),j=1,nwf)
        AFW = trim(AFT(1))//'.bsw'
        Open(nuw,file=AFW,form='UNFORMATTED')
        Call read_dbsw(nuw,0,0)
        Do i=1,ncore
         Do j=1,ncore
-        if(kbs(i).ne.kbs(j)) Cycle
-        S = QUADR_00(i,j,0)
-        if(abs(S).lt.eps_core) Cycle 
-        Call Iadd_obs(i,j,S) 
+         if(kbs(i).ne.kbs(j)) Cycle
+         S = QUADR_00(i,j,0)
+         if(abs(S).lt.eps_core) Cycle 
+         Call Iadd_obs(i,j,S) 
+        End do
+        OBS1(i) = QUADR_pq(i,i,1)
+        OBS2(i) = QUADR_pq(i,i,2)
        End do
-       OBS1(i) = QUADR_pq(i,i,1)
-       OBS2(i) = QUADR_pq(i,i,2)
-      End do
 
       end if
 
@@ -166,7 +168,9 @@
 
       end if
 
-      nwt = nbf;  ipbs = 0; ipbs(1:nbf) = 1  ! sub. orb. pointer
+      if(nbf.gt.0) then
+       nwt = nbf;  ipbs = 0; ipbs(1:nbf) = 1  ! sub. orb. pointer
+      end if
 
 !-----------------------------------------------------------------------
 ! ... check orbitals in target states:

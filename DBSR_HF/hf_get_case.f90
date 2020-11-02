@@ -319,6 +319,7 @@
       Integer :: i,i1,i2,ii
 
       ncore = 0
+      if(core.eq.'none') core=' '
       ii = LEN_TRIM (core)
       if(ii.eq.0) Return
       i1 = INDEX (core,'[')
