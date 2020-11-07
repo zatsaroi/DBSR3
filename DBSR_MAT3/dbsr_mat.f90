@@ -98,9 +98,14 @@
 
 ! ... find nclosd and core energy:
 
+      Ecore = 0
+
       i=LEN_TRIM(AF_cfg); write(AF_cfg(i-2:i),'(i3.3)') klsp1
       Call Check_file(AF_cfg); Open(nuc,file=AF_cfg)
       Call Read_core_jj(nuc)
+      
+      if(ncore.eq.0) Return
+
       Do i=1,nwf; j=Ifind_bsorb(NEF(i),KEF(i),IEF(i),2); End do
       mbs = 0
       Open(nuw, file=AF_bsw, STATUS='OLD', form='UNFORMATTED')

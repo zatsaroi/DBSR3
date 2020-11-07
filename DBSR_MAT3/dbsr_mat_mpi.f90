@@ -114,24 +114,29 @@
 
       if(myid.eq.0) then
 
+      Ecore = 0.d0
+
       write(ALSP,'(i3.3)') klsp1  
       i=LEN_TRIM(AF_cfg); AF_cfg(i-2:i)=ALSP
       Call Check_file(AF_cfg); Open(nuc,file=AF_cfg)
       Call Read_core_jj(nuc)
-      Do i=1,nwf; j=Ifind_bsorb(NEF(i),KEF(i),IEF(i),2); End do
-      mbs = 0
-      Open(nuw, file=AF_bsw, STATUS='OLD', form='UNFORMATTED')
-      Call Read_dbsw(nuw,0,0)
-      Close(nuw)
 
-      Ecore = Ecore_dbs(ncore,mbreit,kbs) 
+      if(ncore.gt.0) then
+       Do i=1,nwf; j=Ifind_bsorb(NEF(i),KEF(i),IEF(i),2); End do
+       mbs = 0
+       Open(nuw, file=AF_bsw, STATUS='OLD', form='UNFORMATTED')
+       Call Read_dbsw(nuw,0,0)
+       Close(nuw)
 
-      write(prj,'(/a,i10,T20,a)')  'ntarg  =',ntarg,'- number of target states'
-      write(prj,'(/a,i10,T20,a)')  'ncore  =',ncore,'- number of core subshells'
-      write(prj,'(/a,F16.8,5x,a)') 'Ecore  =',Ecore,'- calculated core energy'
-      write(prj,'( a,F16.8,5x,a)') 'Ec     =',EC,   '- given core energy if any'
-      if(EC.ne.0.d0) Ecore = EC
-      EC = Ecore
+       Ecore = Ecore_dbs(ncore,mbreit,kbs) 
+
+       write(prj,'(/a,i10,T20,a)')  'ntarg  =',ntarg,'- number of target states'
+       write(prj,'(/a,i10,T20,a)')  'ncore  =',ncore,'- number of core subshells'
+       write(prj,'(/a,F16.8,5x,a)') 'Ecore  =',Ecore,'- calculated core energy'
+       write(prj,'( a,F16.8,5x,a)') 'Ec     =',EC,   '- given core energy if any'
+       if(EC.ne.0.d0) Ecore = EC
+       EC = Ecore
+      end if
 
       end if
 
