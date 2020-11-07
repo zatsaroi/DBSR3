@@ -129,7 +129,7 @@
         i=i+1
         go to 1
       else
-        if(Jintra(no).eq.Jtotal) Call Check_cfg(ii)
+        if(Jintra(no).eq.Jtotal) Call Check_cfg
       end if
 
     3 if(Jintra(i).lt.Jmax(i)) then
