@@ -22,7 +22,7 @@
       if(Icheck_file(AF_LS).eq.0) then
        Call Decode_conf_jj(configuration,no,nn,kn,ln,jn,iq,in)
        if(no.eq.0) Stop 'Stop in Def_conf_LS: no = 0'
-       Call Reduce_jj_LS(no,nn,kn,ln,jn,iq,in)
+       Call Reduce_jj_LS(no,nn,ln,iq,in)
        Call Incode_conf_LS(configuration,no,nn,ln,iq,in)
        open(nus,file=AF_LS)
        write(nus,'(a)') atom
@@ -45,7 +45,6 @@
        if(index(conf,'(').eq.0) Cycle
        Call Decode_conf_LS(conf,no,nn,ln,iq,in)
        nelc = sum(iq(1:no))
-
        Call Reduce_LS_jj (no,nn,kn,ln,jn,iq,in,iq_min,iq_max)
        iqsum(1:no) = iq(1:no)
        if(len_trim(conf_LS).eq.0) conf_LS=conf
@@ -66,15 +65,7 @@
       1 ii=SUM(iq(1:no))
 
         if(ii.eq.nelc) then
- 
-         m = 0
-         Do j=1,no; if(ln(j).eq.0) Cycle
-          if(j.gt.1) then; if(ln(j).eq.ln(j-1)) Cycle; end if
-          if(iq(j)+iq(j+1).eq.iqsum(j+1)) Cycle
-          m = 1; Exit
-         End do
-         if(m.eq.0) Call Record_conf
-
+         Call Record_conf
         elseif(ii.lt.nelc.and.i.lt.no) then
          i=i+1;  iq(i)=iq_max(i); go to 1
         end if
@@ -125,7 +116,7 @@ CONTAINS
       Real(8) :: W
       Integer, external :: Ndets_jq
 
-      Call Incode_conf_jj(conf,no,nn,kn,ln,jn,iq,in)
+      Call Incode_conf_jj(conf,no,nn,kn,iq,in)
 
 ! ... statistical weight:
 
@@ -178,13 +169,13 @@ CONTAINS
       End Subroutine Decode_conf_jj
 
 !======================================================================
-      Subroutine Incode_conf_jj(configuration,no,nn,kn,ln,jn,iq,in)
+      Subroutine Incode_conf_jj(configuration,no,nn,kn,iq,in)
 !======================================================================
 !     incodes the configuration from INTEGER format to c-file format
 !----------------------------------------------------------------------
       Implicit none
       Character(*) :: configuration
-      Integer :: nn(*),kn(*),ln(*),jn(*),iq(*),in(*)
+      Integer :: nn(*),kn(*),iq(*),in(*)
       Integer :: no,i,m
       Character(5), external :: ELi
 
@@ -199,13 +190,13 @@ CONTAINS
       End Subroutine Incode_conf_jj
 
 !======================================================================
-      Subroutine Reduce_jj_LS(no,nn,kn,ln,jn,iq,in)
+      Subroutine Reduce_jj_LS(no,nn,ln,iq,in)
 !======================================================================
 ! ... convert jj- to LS-configuration
 !----------------------------------------------------------------------
       Implicit none
       Integer :: no,i,n
-      Integer :: nn(*),kn(*),ln(*),jn(*),iq(*),in(*)
+      Integer :: nn(*),ln(*),iq(*),in(*)
 
       n=1
       Do i=2,no
@@ -280,7 +271,7 @@ CONTAINS
 ! ... convert LS- to jj-configuration
 !----------------------------------------------------------------------
       Implicit none
-      Integer :: no,i,n,l,k,j,jj
+      Integer :: no,i,n,l,k,j
       Integer :: nn(*),kn(*),ln(*),jn(*),iq(*),in(*),iq_min(*),iq_max(*)
       Integer :: n1(no),l1(no),q1(no),i1(no)
 
@@ -300,15 +291,15 @@ CONTAINS
         Cycle
        end if
 
-       j=l+l-1; k=(l+l-j)*(j+1)/2; jj=l+l+1
-       n = n + 1
-       nn(n) = n1(i); kn(n)=k; ln(n)=l; jn(n)=j; iq(n)=0; in(n)=i1(i)
-       iq_min(n)=max(0,q1(i)-jj-1); iq_max(n)=min(q1(i),j+1)
-
-       j=l+l+1; k=(l+l-j)*(j+1)/2; jj=l+l-1
+       j=l+l+1; k=(l+l-j)*(j+1)/2
        n = n + 1
        nn(n) = n1(i); kn(n)=k; ln(n)=l; jn(n)=j; iq(n)=q1(i); in(n)=i1(i)
-       iq_min(n)=max(0,q1(i)-jj-1); iq_max(n)=min(q1(i),j+1)
+       iq_min(n)=max(0,q1(i)-j+1); iq_max(n)=min(q1(i),j+1)
+
+       j=l+l-1; k=(l+l-j)*(j+1)/2
+       n = n + 1
+       nn(n) = n1(i); kn(n)=k; ln(n)=l; jn(n)=j; iq(n)=0; in(n)=i1(i)
+       iq_min(n)=0; iq_max(n)=min(q1(i),j+1)
 
       End do
       no = n
