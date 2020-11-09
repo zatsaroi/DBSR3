@@ -353,13 +353,11 @@
        BFC = 'no'; BFW = 'no'
        nbf = nwt; ncfg = 0; lcfg = 0; nwf = ncore  
        if(mbf.gt.nwt) ipbs(nwt+1:mbf) = 0
-
        npert = 0;  Call Allocate_pert(0)
 
 ! ... usual perturber (as list of separate configurations) :
 
        if(LEN_TRIM(AFP(ilsp)).gt.0.and.AFP(ilsp).ne.'no') then
-
         AFC = trim(AFP(ilsp))//'.c'  
         write(pri,'(a,i6,T24,a/)') 'perturber', ilsp, trim(AFC)
         Call Check_file(AFC)
@@ -390,7 +388,7 @@
         write(pri,'(/a,i5,5x,a/)') 'perturber', ilsp, trim(AFK(iip))
         Open(nuc,file=AFC)
 
-        kshift = maxval(KEF(1:nwf))
+        kshift = maxval(IEF(1:nbf))
 
         Call Read_conf_jj(nuc,kshift,'add','check')
 
