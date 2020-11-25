@@ -70,9 +70,9 @@
         CM = 0.d0; k = 1
         Do j=ip+1,ip+nc
          if(abs(coefs(j)).lt.CM) Cycle
-         k = i; CM = abs(coefs(j))
+         k = j-ip; CM = abs(coefs(j))
         End do
-        Call Get_cfg_jj(k)
+        Call Get_cfg_jj(JTc1(ib)+k-1)
         Call Label_jj (mlab,Lab,0); Labeln(i) = Lab
         write(nuj,'(i8,2x,a)') i,trim(LAB)
         write(nuj,'(f16.8,3i8)') elevel(i), JJc(ib), JTc1(ib),JTc2(ib)

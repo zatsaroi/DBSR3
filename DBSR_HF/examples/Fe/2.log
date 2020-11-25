@@ -1,0 +1,108 @@
+
+========================================
+ B - S P L I N E  D I R A C - F O C K   
+========================================
+
+name:   2                                                                               
+
+ATOM    Fe    
+TERM    LS    
+Z      26.
+
+core:   1s   2s   2p-  2p   3s   3p-  3p
+conf:   3d-(2.8)3d(4.2)4s(1.0)
+
+orbitals to optimize:  3d-,3d                                                                          
+
+nconf =  4  - number of configurations to optimize, see conf-file
+eal   =  5  - weights of states are statistical
+
+
+Running parameters:
+
+scf_tol =  1.00E-10     - energy convergence tolerance
+orb_tol =  1.00E-07     - orbital convergence tolerance
+end_tol =  1.00E-07     - orbital tail cut-off
+max_it  =  75           - max. number of iterations
+
+
+B-spline parameters:
+
+ns   =  113             -  number of splines
+ks   =    9             -  order  of splines
+ksp  =    8             -  for large component
+ksq  =    9             -  for small component
+hi   =    0.250         -  initial point
+he   =    0.250         -  exponetial step size
+tmax =   50.538         -  maximum radius
+
+Spline integrals:
+
+kmin =    0             -  min. multipole index
+kmax =    5             -  max. multipole index
+ntype=    4             -  number of different integrals
+memory=    189.38       -  memory required (in Mb)
+
+
+Initial estimations for orbitals:
+
+  1s  - read from file 2.bsw
+  2s  - read from file 2.bsw
+  2p- - read from file 2.bsw
+  2p  - read from file 2.bsw
+  3s  - read from file 2.bsw
+  3p- - read from file 2.bsw
+  3p  - read from file 2.bsw
+  3d- - read from file 2.bsw
+  3d  - read from file 2.bsw
+  4s  - read from file 2.bsw
+
+
+Iteration      1
+----------------
+
+  nl         e(nl)          dpm         ns
+
+  3d-     -0.38070268     9.58D-08      79
+  3d      -0.37476063     4.89D-08      80
+
+Etotal =   -1271.36345065
+
+Maximum orbital diff.     9.58D-08
+Energy difference         1.14D-11
+
+------------------------------------------------------------------------------------
+
+ATOM  Fe    
+
+core: 1s   2s   2p-  2p   3s   3p-  3p
+
+conf: 3d-(4)3d(2)4s(2)
+
+
+  nl         e(nl)          dmp         ns      <r>      max_r
+
+  1s    -263.83043503     0.00D+00      59     0.058     4.538
+  2s     -32.47592950     0.00D+00      62     0.265     7.538
+  2p-    -27.84899719     0.00D+00      64     0.233     9.538
+  2p     -27.38260382     0.00D+00      65     0.236    10.538
+  3s      -4.26968011     0.00D+00      74     0.810    19.538
+  3p-     -2.81557004     0.00D+00      75     0.855    20.538
+  3p      -2.75494465     0.00D+00      75     0.864    20.538
+  3d-     -0.38070268     9.58D-08      79     1.206    24.538
+  3d      -0.37476063     4.89D-08      80     1.215    25.538
+  4s      -0.22583339     0.00D+00      90     3.546    35.538
+
+Orbital convergence:      9.58D-08
+Energy  convergence:      1.14D-11
+
+Coulomb energy:       -1271.363450653636164 au      -34595.219399297733617 eV
+
+Configuration energies:
+
+  3d-( 4)  3d ( 3)  4s ( 1)   -1271.374867906037025 au     -34595.530075486785790 eV
+  3d-( 1)  3d ( 6)  4s ( 1)   -1271.372086243353124 au     -34595.454383338488697 eV
+  3d-( 3)  3d ( 4)  4s ( 1)   -1271.361059950982735 au     -34595.154345608505537 eV
+  3d-( 2)  3d ( 5)  4s ( 1)   -1271.360132730088253 au     -34595.129114892413781 eV
+
+time:      2.17  sec

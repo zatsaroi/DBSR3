@@ -4,11 +4,11 @@
 !     This routine obtains information about the problem to be solved
 !     and reads main parameters
 !----------------------------------------------------------------------
-      Use dbsr_mchf
+      Use dbsr_mchf, ac1 => ac
 
       Implicit none
       Real(8) :: atw_atom, rms_atom
-      Integer :: an, ai
+      Integer :: an=0, ai=0
       Character(200) :: A_core, A_conf, AC
 
 ! ... name of case:
@@ -82,6 +82,11 @@
        Call Read_ipar(inp,'jpzero' ,jpzero )
        Call Read_ipar(inp,'jqzero' ,jqzero )
 
+       Call Read_rpar(inp,'aweight',aweight)
+       Call Read_rpar(inp,'bweight',bweight)
+       Call Read_ipar(inp,'ac'     ,ac     )
+
+
 !       Call Read_rpar(inp,'c_au'  ,c_au  )
 
       end if
@@ -89,7 +94,7 @@
 ! ... check the command-line arguments:
 
       Call Read_aarg('atom'   ,atom   )
-      Call Read_iarg('an'     ,ai     )
+      Call Read_iarg('an'     ,an     )
       Call Read_aarg('ion'    ,ion    )
       Call Read_iarg('ai'     ,ai     )
       Call Read_rarg('z'      ,z      )
@@ -116,6 +121,10 @@
       Call Read_iarg('jpzero' ,jpzero )
       Call Read_iarg('jqzero' ,jqzero )
 
+      Call Read_rarg('aweight',aweight)
+      Call Read_rarg('bweight',bweight)
+      Call Read_iarg('ac',ac)
+
 !      Call Read_iarg('c_au'   ,c_au   )
 
 !------------------------------------------------------------------------------
@@ -123,6 +132,7 @@
 
       if(len_trim(atom).eq.0.and.an.ne.0) &
        Call Def_atom(an,atom, atw_atom, rms_atom, A_core,A_conf)
+
       if(len_trim(ion).eq.0.and.ai.ne.0) &
        Call Def_atom(ai,ion , atw_atom, rms_atom, A_core,A_conf)
 
@@ -198,7 +208,7 @@
       write(inp,'(a,1x,a,T40,a)') 'atom    = ',trim(atom),'- atomic symbol'
       if(ion.ne.atom) &
       write(inp,'(a,1x,a,T40,a)') 'ion     = ',trim(ion) ,'- ionic stage'
-      write(inp,'(a,f4.1,T40,a)') 'z       = ',z,         '- nuclear number'
+      write(inp,'(a,f5.1,T40,a)') 'z       = ',z,         '- nuclear charge'
 
       write(inp,'(/a,a)')         'varied  =  ',trim(adjustl(avaried))
 
@@ -312,8 +322,6 @@
  
       write(nu,'(a,i2,T40,a)') 'method  = ',method,  &
                 '- method for solving MCHF equation'
-      write(nu,'(a,i2,T40,a)') 'all     = ',all,    &
-                '- collective optimization'  
       write(nu,'(a,i2,T40,a)') 'irhs    = ',irhs,   &
                 '- convert right-hand-side to main matrix'  
       write(nu,'(a,i2,T40,a)') 'newton  = ',newton, &

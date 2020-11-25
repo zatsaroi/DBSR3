@@ -2,9 +2,10 @@ Main atomic parameters:
 
 atom    =  B
 z       =   5.0000
+nuclear = Fermi               
 atw     =  10.0000
 rms     =   2.4277
-core    =  1s
+core    =  
 conf    =  2p(3)
 varied  =  all
 term    =  LS
@@ -13,6 +14,8 @@ eal     =  5
 Running parameters:
 
 mbreit  =  0                           - Breit interaction mode
+mode_SE =  3                           - self-energy correction mode
+mode_VP =  1                           - vacuum-polarization correction mode
 scf_tol =  1.00E-10                    - Energy convergence tolerance
 orb_tol =  1.00E-07                    - Orbital convergence tolerance
 end_tol =  1.00E-07                    - Orbital tail cut-off

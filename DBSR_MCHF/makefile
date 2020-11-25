@@ -17,7 +17,7 @@ S  = MOD_dbsr_mchf.f90         MOD_df_orbitals.f90       MOD_average_energy.f90 
 	read_ang_coef.f90         read_conf_jj.f90          read_pqbs.f90       \
 	rotate.f90                solve_eiv.f90             mchf_matrix.f90     \
 	solve_nr.f90              solve_direct.f90          scf_mchf.f90        \
-	scf_mchf_all.f90          summry.f90                rk_df.f90
+	summry.f90                rk_df.f90
 	
 O = $(S:.f90=.o)
  
@@ -36,6 +36,6 @@ x:
 .SUFFIXES: .f90 .mod .o
  
 .f90.o:
-	$(FC) $(comp) $<
+	$(FC) $(comp) -fcheck=bounds -fbacktrace $<
  
 #	$(FC) $(comp) -fcheck=bounds -fcheck=all -Wall $<

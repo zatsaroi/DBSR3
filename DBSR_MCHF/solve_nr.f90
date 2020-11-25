@@ -22,6 +22,9 @@
         
       Integer :: mm,md, k,  info, j, jp,ii, ipos(1)
 
+      write(log,'(a,1Pe12.2)') 'srhs = ', srhs
+      write(log,'(a)') 'method - solve_nr'
+
       Call Get_pv_df(i,v)
       md = ms+nbf
 

@@ -47,8 +47,7 @@
 
 ! ... Computing:
 
-      if(all.eq.0)   Call scf_mchf
-      if(all.eq.1)   Call scf_mchf_all
+      Call scf_mchf
 
 ! ... output the results:
 

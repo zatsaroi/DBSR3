@@ -42,9 +42,9 @@
         S = maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
 !        dpm(i)=maxval(abs(p(1:ns,1,i)-v(1:ns)))/maxval(abs(p(:,1,i)))
         if(ip.eq.1) then
-         if(S.lt.orb_tol) iord(i)=0
+         if(S.lt.orb_tol) iord(ip)=0
         else
-         if(S.lt.orb_tol.and.iord(ip-1).eq.0) iord(i)=0
+         if(S.lt.orb_tol.and.iord(ip-1).eq.0) iord(ip)=0
         end if
 
         if(it.gt.1.and.S.gt.dpm(i)) then

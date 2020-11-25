@@ -9,27 +9,39 @@
       Implicit none
       Character(160) :: conf
       Integer :: iqsum(msh),iq_min(msh),iq_max(msh) 
-      Integer :: i,j,ii,m
+      Integer :: i,j,ii,m, no_LS
+      Integer :: nn_LS(msh),ln_LS(msh),iq_LS(msh),in_LS(msh)
 
       Integer, parameter :: morb=100
       Character(5) :: EL(morb), EL1, ELi
       Integer :: norb=0
 
 ! ... create file name.LS if absent:
-
+                         
       AF_LS = trim(name)//BF_LS
       Call Read_aarg('LS',AF_LS)
       if(Icheck_file(AF_LS).eq.0) then
-       Call Decode_conf_jj(configuration,no,nn,kn,ln,jn,iq,in)
-       if(no.eq.0) Stop 'Stop in Def_conf_LS: no = 0'
-       Call Reduce_jj_LS(no,nn,kn,ln,jn,iq,in)
-       Call Incode_conf_LS(configuration,no,nn,ln,iq,in)
+       if(len_trim(configuration).eq.0) &
+        Call Def_atom_LS(an,atom,core,configuration)
+       Call Decode_conf_LS(configuration,no_LS,nn_LS,ln_LS,iq_LS,in_LS)
+       Call Incode_conf_LS(configuration,no_LS,nn_LS,ln_LS,iq_LS,in_LS)
+       core = ' '
+write(*,*) 'ncore =', ncore
+       if(ncore.gt.0) then
+        m = 0
+        Do i=1,ncore
+write(*,*) 'ecore = ', E_core(i)
+         write(core(m+1:),'(2x,a)') E_core(i); m = m + 4
+        End do
+       end if
+
        open(nus,file=AF_LS)
        write(nus,'(a)') atom
        write(nus,'(a)') trim(core)
        write(nus,'(a)') trim(configuration)
        write(nus,'(a)') '*'
        close(nus)
+
       end if
 
 ! ... generate all possible rel. configurations:
@@ -38,8 +50,9 @@
       open(nua,file='LS')
       rewind(nus)
       read(nus,'(/a)') core
+      Call core_LS_jj
+     
       nconf=0
-
       Do 
        read(nus,'(a)',end=10,err=10) conf
        if(index(conf,'(').eq.0) Cycle
@@ -148,6 +161,35 @@ CONTAINS
       End Subroutine Record_conf
 
       End Subroutine Def_conf_LS
+
+
+!=========================================================================
+      Subroutine core_LS_jj
+!=========================================================================
+! ... convrt the LS core to jj-core
+!-------------------------------------------------------------------------
+      Use dbsr_hf
+
+      Implicit none
+      Character(5) :: EL
+      Integer :: i,j,k,n,ii
+
+      n = len_trim(core)/4; i = 0;  k = 0
+      Do j=1,n
+       EL='     '; EL(1:4) = core(k+1:k+4);  k = k + 4
+       if(EL(4:4).ne.'s') then
+        i=i+1; EL(5:5)='-'; e_core(i)=EL; EL(5:5)=' '  
+        e_core(i) = adjustl(e_core(i))
+        Call EL_NLJK(e_core(i),n_core(i),k_core(i),l_core(i),j_core(i),ii)
+       end if
+       i=i+1; e_core(i)=EL  
+       e_core(i) = adjustl(e_core(i))
+       Call EL_NLJK(e_core(i),n_core(i),k_core(i),l_core(i),j_core(i),ii)
+      End do
+      ncore = i
+      write(core,'(50a5)') (e_core(i),i=1,ncore)
+
+      End Subroutine core_LS_jj
 
 
 !=========================================================================

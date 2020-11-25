@@ -16,11 +16,13 @@
       Real(8) :: eval(ms), a(ms), s(ms), rh(ms), zz,eii,C
       Integer :: j, jp, info, k,ii,m,mm, ipos(1)
     
+      write(log,'(a,1Pe12.2)') 'srhs = ', srhs
+
       if(srhs.gt.0.d0.and.method.eq.1) then
        Call solve_direct (i,hfm,v,rhs); Return
       end if
 
-      if(debug.eq.1) write(log,'(a)') 'method - solve_eiv'
+      write(log,'(a)') 'method - solve_eiv'
 
       eii = e(i)
 
@@ -87,7 +89,7 @@
 
       else   !  with rhs
 
-      if(debug.eq.1) write(log,'(a)') 'method - inverse iterations'
+      write(log,'(a)') 'method - inverse iterations'
 
        a = 0.d0
        Do j = 1,ii

@@ -18,7 +18,7 @@
       Real(8) :: y(ms), w(ms)
       Integer :: mm, md, k, info, j, jp, ii, ipos(1)
 
-      if(debug.eq.1) write(log,'(a)') 'method - direct'
+      write(log,'(a)') 'method - direct'
 
       md = ms+nbf
       mm = ms

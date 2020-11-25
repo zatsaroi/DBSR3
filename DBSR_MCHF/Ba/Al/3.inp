@@ -1,0 +1,90 @@
+Main parameters:
+
+atom    =  Al                          - atomic symbol
+z       =  13.0                        - nuclear charge
+
+varied  =  3s,3p-,3p,3d-,3d
+
+eol     =  5                           - optimzation mode
+
+levels  =  1,  1
+levels  =  2,  1
+
+physical=  3s,3p-,3p
+
+--------------------------------------------------------------------------------
+
+Running parameters:
+
+scf_tol =  1.00E-09                    - tolerance for energy convergence
+orb_tol =  1.00E-05                    - tolerance for orbital convergence
+end_tol =  1.00E-06                    - tolerance for ending zeros
+max_it  =  25                          - max. number of iterations
+
+ipzero  =  0                           - initial zeros for larger component
+iqzero  =  0                           - initial zeros for small component
+jpzero  =  1                           - final zeros for larger component
+jqzero  =  1                           - final zeros for small component
+
+--------------------------------------------------------------------------------
+
+Additonal options (not applied if = 0)
+
+method  =  2                           - method for solving MCHF equation
+irhs    =  1                           - convert right-hand-side to main matrix
+newton  =  0                           - use Newton-Rapson method
+rotate  =  0                           - use rotations
+debug   =  0                           - additional debug output
+
+--------------------------------------------------------------------------------
+
+c_au    =  137.0359997600000           - speed of light
+
+--------------------------------------------------------------------------------
+
+All parameters from input files can be replaced from command line as:
+
+          dbsr_mchf [name] par1=value par2=value par3=value ... 
+
+--------------------------------------------------------------------------------
+
+Name-driven fine-name and key-words for their re-definition:
+
+name.inp                               - input parameters
+name.log                               - run output and summry
+name.c             c=...               - input configurations
+name.bnk           bnk=...             - angular coefficients
+                   int_bnk             - generic name
+name.knot          knot=...            - B-spline parameters
+                   knot.dat            - generic name
+name.bsw           inp=...             - input w.f. if any
+name.bsw           out=...             - output w.f.
+name.j             j=...               - expansion coef.s in the DBSR format
+
+--------------------------------------------------------------------------------
+
+ Additional information for input parameters:
+            
+ varied   - possible options -> all, none, list of nl, =last, n=..., n>...
+            
+ eol      - indicates the mode for the state weights:
+            =1 - equally weighted
+            =5 - statistically weighed, default
+            =9 - defined by user in .conf or .c files
+            
+ relevant level-block parameters:
+            
+ if eol = 1 or 5, repeat for each J-block: 
+            
+ levels = 1,1,2 - block, list of levels to be optimized
+            
+ if eol = 9, repeat for each level to be optimized
+            
+ weights = 1,2,0.5 - block, level, weight
+            
+ if level information is absent - program will optimized the first 
+ level in each block
+            
+ ipzero = 0 means  l+1 zero B-splines in the beginning for large component
+ iqzero = 0 means  l (l+2) zero B-splines in the beginning for small component
+--------------------------------------------------------------------------------
