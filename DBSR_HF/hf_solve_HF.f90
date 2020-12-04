@@ -177,25 +177,6 @@
       Do j=1,kk; mm = j; if(eval(j).gt.zz) Exit; End do
       mm = m + mm - 1
 
-! ... save all solutions if nl > 0:
-
-      if(out_nl.gt.0.and.i.eq.nwf) then 
-       nsol_nl = kk - mm + 1 
-       if(.not.allocated(p_nl)) Allocate(p_nl(ms,nsol_nl),e_nl(nsol_nl))
-       p_nl = 0.d0; e_nl=0.d0
-       Do m=mm,kk
-        a(1:ms) = aa(1:ms,m);  v=0.d0; k=0
-        Do j=1,ms
-         if(iprm(j,i).eq.0) Cycle; k=k+1; v(j)=a(k)
-        End do 
-
-        if (v(ks) < 0.d0) v = -v
-
-        p_nl(:,m-mm+1)=v(:)
-        e_nl(m-mm+1) = eval(m)
-       End do
-      end if
-
 ! ... restore the solutions in original B-spline net:
 
       a(1:ms) = aa(1:ms,mm);  v=0.d0; k=0
@@ -207,7 +188,6 @@
       if(v(ipos(1)).lt.0.d0) v=-v
 
 !      if (v(ks) < 0.d0) v = -v
-
 
       e(i,i) = eval(mm)
 

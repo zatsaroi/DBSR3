@@ -117,12 +117,6 @@
       Integer :: ibi = 2**16
       Integer :: mdiag = 0
 
-! ... solutions for Rydberg series:
-
-      Integer :: out_nl = 0
-      Integer :: nsol_nl = 0
-      Real(8), allocatable :: p_nl(:,:), e_nl(:)
-
       Integer :: out_w = 0     ! output in the GRASP format
       Integer :: out_plot = 0  ! output in table form
 

@@ -67,7 +67,6 @@
       Call Write_nl
       Call Plot_bsw
       Call Grasp_wfn
-      Call Grasp_nl
       Call Summry
       Call CPU_time(t4)
       if(debug.gt.0) &

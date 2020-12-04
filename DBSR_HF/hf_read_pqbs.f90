@@ -95,33 +95,3 @@
 
       End Subroutine write_pqbs
 
-
-
-!======================================================================
-      Subroutine write_nl
-!======================================================================
-!     record B-spline w.f. to file (unit nuw)
-!----------------------------------------------------------------------
-      Use DBS_grid
-      Use DBSR_HF
-
-      Implicit none
-      Integer :: i
-
-      if(out_nl.eq.0) Return
-      AF_nl = trim(name)//BF_nl
-      Call Read_ipar(inp,'nl',AF_nl)
-      Call Read_iarg('nl',AF_nl)
-      open(nuw,file=AF_nl,form='UNFORMATTED')
-
-      rewind(nuw)
-      write(nuw) grid_type,ns,ks,t(1:ns+ks),ksp,ksq
-      Do i=1,nsol_nl
-       write(nuw) e_nl(i)
-       write(nuw) p_nl(1:ns,i)
-       write(nuw) p_nl(ns+1:ns+ns,i)
-      End do
-      Close(nuw)
-
-      End Subroutine write_nl
-

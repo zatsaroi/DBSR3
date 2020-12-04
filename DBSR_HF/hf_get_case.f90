@@ -134,7 +134,6 @@
       Call Read_ipar(inp,'ilzero' ,ilzero )
       Call Read_ipar(inp,'ibzero' ,ibzero )
       Call Read_ipar(inp,'mbreit' ,mbreit )
-      Call Read_ipar(inp,'out_nl' ,out_nl )
       Call Read_ipar(inp,'out_w'  ,out_w  )
       Call Read_ipar(inp,'out_plot',out_plot)
       Call Read_ipar(inp,'mode_SE',mode_SE)
@@ -173,7 +172,6 @@
       Call Read_iarg('ilzero' ,ilzero )
       Call Read_iarg('ibzero' ,ibzero )
       Call Read_iarg('mbreit' ,mbreit )
-      Call Read_iarg('out_nl' ,out_nl )
       Call Read_iarg('out_w'  ,out_w  )
       Call Read_iarg('out_plot',out_plot)
       Call Read_iarg('mode_SE',mode_SE)
@@ -789,8 +787,8 @@
       write(inp,'(a)') '!            = 3 - GRASP mode'
       write(inp,'(a)') '!            '
       write(inp,'(a)') '! out_w=1    - additional output of w.f. in GRASP format, name.w '
-      write(inp,'(a)') '! out_nl=1   - additional output of name.nl with w.f. for outer electron'
       write(inp,'(a)') '! out_plot=1 - additional output in name.plot'
+      write(inp,'(a)') '! nl=all|list of oritals  - additional output of whohe HF spectrun for given orbitals'
       write(inp,'(80("_"))')
      
       rewind(inp)
