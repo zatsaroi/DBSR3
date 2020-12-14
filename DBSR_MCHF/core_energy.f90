@@ -122,14 +122,14 @@
 
 
 !======================================================================
-      Subroutine Get_core_coef (ncore,mbreit,kbs)
+      Subroutine Get_core_coef (ncore,kbs)
 !======================================================================
 !     define the angular coefficients
 !----------------------------------------------------------------------
       Use Core_energy
 
       Implicit none
-      Integer, intent(in) :: ncore, mbreit, kbs(*)
+      Integer, intent(in) :: ncore, kbs(*)
       Integer :: i,j,k,v, ka,ja,la, kb,jb,lb, int
       Real(8) :: C, ca,cb, S(8)
       Integer, external :: l_kappa,j_kappa
@@ -163,42 +163,11 @@
 
       kbk = maxval(kr2(1:nbk))
 
-! ... Breit conttribution:
-
-      if(mbreit.eq.0) Return
-
-      int=2
-      Do i=1,ncore;  ka=kbs(i); ja=j_kappa(ka)
-      Do j=i,ncore;  kb=kbs(j); jb=j_kappa(kb)
-
-       Do k = iabs(ja-jb)/2,(ja+jb)/2
-
-        C = -Cjkj(ja,k,jb)**2;   if(i.eq.j) C = C / two
-        if(C.eq.zero) Cycle
-
-        Do v = k-1,k+1
-         if(SMU(ka,kb,kb,ka,k,v,S).eq.0.d0) Cycle
-         Call Add_core_coef(int,v,i,j,j,i,C*S(1))
-         Call Add_core_coef(int,v,j,i,i,j,C*S(2))
-         Call Add_core_coef(int,v,j,i,i,j,C*S(3))
-         Call Add_core_coef(int,v,i,j,j,i,C*S(4))
-         Call Add_core_coef(int,v,i,i,j,j,C*S(5))
-         Call Add_core_coef(int,v,i,i,j,j,C*S(6))
-         Call Add_core_coef(int,v,j,j,i,i,C*S(7))
-         Call Add_core_coef(int,v,j,j,i,i,C*S(8))
-        End do
-
-       End do
-
-      End do; End do
-
-      kbk = maxval(kr2(1:nbk))
-
       End Subroutine Get_core_coef
 
 
 !======================================================================
-      Real(8) Function Ecore_df (ncore,mbreit)
+      Real(8) Function Ecore_df (ncore)
 !======================================================================
 !     compute energy of the common closed shells (core)
 !----------------------------------------------------------------------
@@ -207,14 +176,14 @@
       Use DBS_grid, only: ns,ks
 
       Implicit none
-      Integer, intent(in) :: ncore, mbreit
+      Integer, intent(in) :: ncore
       Integer :: i, k, i1,i2,j1,j2, ii,jj, iii
       Real(8) :: d(ns,ks),dd(ns,ks),x(ns,ks),xx(ns,ks)
       Real(8), external :: dh_value, SUM_AmB
 
       Ecore_df = 0.d0;  if(ncore.eq.0) Return
 
-      if(nbk.eq.0) Call Get_core_coef (ncore,mbreit,kbs)
+      if(nbk.eq.0) Call Get_core_coef (ncore,kbs)
 
 ! ... evaluate the L-integrals:
   
@@ -258,8 +227,6 @@
 
       End do; End do
       End do  ! over k
-
-! ... evaluate the Sk-integrals:  ???
 
       End Function Ecore_df
 

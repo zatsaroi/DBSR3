@@ -18,7 +18,7 @@
       Real(8) :: y(ms), w(ms)
       Integer :: mm, md, k, info, j, jp, ii, ipos(1)
 
-      write(log,'(a)') 'method - direct'
+      write(amethod,'(a)') 'direct MCHF solution'
 
       md = ms+nbf
       mm = ms

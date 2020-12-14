@@ -33,13 +33,15 @@
         ebs(i), e(i), rm1, r1, r2, dpm(i), mbs(i), t(mbs(i)+ks)  
       End do 
       
-      write(log,'(/a,T36,f25.16)') 'Average energy:', Etotal
+      write(log,'(/a,T32,f25.12)') 'Average energy:', Etotal
 
       write(log,'(/a/)') 'Optimized states:'
 
       Call SortR(nlevels,elevel,ip_level)
+      r1 = elevel(ip_level(1))
       Do j = 1,nlevels; i = ip_level(j)
-       write(log,'(a34,T36,f25.16)') labeln(i),elevel(i)
+       write(log,'(a34,T32,f25.12,5x,F12.5)') labeln(i),elevel(i), &
+                                              (elevel(i)-r1)*au_eV
       End do
 
       End Subroutine Summry 

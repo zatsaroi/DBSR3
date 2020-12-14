@@ -53,7 +53,7 @@
 
 ! ... one-electron DH integrals:
 
-      if(icore.gt.0.and.all.eq.0) Call Gen_hd_core (ncore,mbreit,kbs(i))
+      if(icore.gt.0) Call Gen_hd_core (ncore,mbreit,kbs(i))
       Call Get_hd_core(kbs(i),dhl)   
   
       S = 0.d0; CI = 0.d0

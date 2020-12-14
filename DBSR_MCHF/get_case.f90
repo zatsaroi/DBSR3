@@ -4,7 +4,7 @@
 !     This routine obtains information about the problem to be solved
 !     and reads main parameters
 !----------------------------------------------------------------------
-      Use dbsr_mchf, ac1 => ac
+      Use dbsr_mchf
 
       Implicit none
       Real(8) :: atw_atom, rms_atom
@@ -56,26 +56,24 @@
        Open(inp,file=AF_dat)
 
        Call Read_apar(inp,'atom'   ,atom   )
-       Call Read_ipar(inp,'an'     ,an     )
-       Call Read_apar(inp,'ion'    ,ion    )
-       Call Read_ipar(inp,'ai'     ,ai     )
        Call Read_rpar(inp,'z'      ,z      )
        Call Read_rpar(inp,'atw'    ,atw    )
        Call Read_rpar(inp,'rrms'   ,rms    )
 
        Call Read_apar(inp,'varied' ,avaried)     
+       Call Read_string(inp,'physical',physical)    
        Call Read_rpar(inp,'scf_tol',scf_tol)
        Call Read_rpar(inp,'orb_tol',orb_tol)
        Call Read_rpar(inp,'end_tol',end_tol)
        Call Read_ipar(inp,'max_it' ,max_it )
 
+       Call Read_ipar(inp,'eol'    ,eol)
+
        Call Read_ipar(inp,'method' ,method )
-       Call Read_ipar(inp,'all'    ,all    )
        Call Read_ipar(inp,'irhs'   ,irhs   )
        Call Read_ipar(inp,'newton' ,newton )
        Call Read_ipar(inp,'rotate' ,rotate )
        Call Read_ipar(inp,'debug'  ,debug  )
-       Call Read_ipar(inp,'n_corr' ,n_corr )
                                            
        Call Read_ipar(inp,'ipzero' ,ipzero )
        Call Read_ipar(inp,'iqzero' ,iqzero )
@@ -84,37 +82,32 @@
 
        Call Read_rpar(inp,'aweight',aweight)
        Call Read_rpar(inp,'bweight',bweight)
-       Call Read_ipar(inp,'ac'     ,ac     )
-
-
-!       Call Read_rpar(inp,'c_au'  ,c_au  )
+       Call Read_ipar(inp,'acc'    ,acc    )
 
       end if
 
 ! ... check the command-line arguments:
 
       Call Read_aarg('atom'   ,atom   )
-      Call Read_iarg('an'     ,an     )
-      Call Read_aarg('ion'    ,ion    )
-      Call Read_iarg('ai'     ,ai     )
       Call Read_rarg('z'      ,z      )
       Call Read_rarg('atw'    ,atw    )
       Call Read_rarg('rrms'   ,rms    )
 
       Call Read_aarg('varied' ,avaried)     
+      Call Read_aarg('physical',physical)
 
       Call Read_rarg('scf_tol',scf_tol)
       Call Read_rarg('orb_tol',orb_tol)
       Call Read_rarg('end_tol',end_tol)
       Call Read_iarg('max_it' ,max_it )
 
+      Call Read_iarg('eol'    ,eol    )
+
       Call Read_iarg('method' ,method )
-      Call Read_iarg('all'    ,all    )
       Call Read_iarg('irhs'   ,irhs   )
       Call Read_iarg('newton' ,newton )
       Call Read_iarg('rotate' ,rotate )
       Call Read_iarg('debug'  ,debug  )
-      Call Read_iarg('n_corr' ,n_corr )
 	
       Call Read_iarg('ipzero' ,ipzero )
       Call Read_iarg('iqzero' ,iqzero )
@@ -123,21 +116,10 @@
 
       Call Read_rarg('aweight',aweight)
       Call Read_rarg('bweight',bweight)
-      Call Read_iarg('ac',ac)
-
-!      Call Read_iarg('c_au'   ,c_au   )
+      Call Read_iarg('acc',ac)
 
 !------------------------------------------------------------------------------
 ! ... check the atom if available:
-
-      if(len_trim(atom).eq.0.and.an.ne.0) &
-       Call Def_atom(an,atom, atw_atom, rms_atom, A_core,A_conf)
-
-      if(len_trim(ion).eq.0.and.ai.ne.0) &
-       Call Def_atom(ai,ion , atw_atom, rms_atom, A_core,A_conf)
-
-      if(len_trim(atom).ne.0.and.len_trim(ion).eq.0) ion=atom 
-      if(len_trim(atom).eq.0.and.len_trim(ion).ne.0) atom=ion 
 
       if(len_trim(atom).gt.0) then
        Call Def_atom(an,atom, atw_atom, rms_atom, A_core,A_conf)
@@ -146,26 +128,12 @@
        if(rms.eq.0.d0) rms=rms_atom
       end if
 
-      if(len_trim(ion).gt.0) then
-       Call Def_atom(ai,ion , atw_atom, rms_atom, A_core,A_conf)
-      end if
-      if(len_trim(ion) .eq.0) ion=atom
-
-! ... prepare c-file if absent   (require additional PROGRAMS ???)
-
-      AF_cfg = TRIM(name)//'.c'
-      Call Read_aarg('c',AF_cfg)
-      if(Icheck_file(AF_cfg).eq.0) then        
-       write(AC,'(10a)') 'genjconf atom=',trim(ion),' out=',trim(name),'.conf'
-       Call System(AC)
-       write(AC,'(10a)') 'genjterm ',trim(name)
-       Call System(AC)
-      end if
+      Call Conv_au (Z,atw,au_cm,au_eV,0)
 
 ! ... prepare bnk-file if absent   (require additional PROGRAMS ???)
 
       AF_bnk = TRIM(name)//'.bnk'
-      Call Read_aarg('bnk',AF_cfg)
+      Call Read_aarg('bnk',AF_bnk)
       if(Icheck_file(AF_bnk).eq.0) then        
        write(AC,'(10a)') 'dbsr_breit3 ',trim(name),'.c'
        Call System(AC)

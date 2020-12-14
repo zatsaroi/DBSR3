@@ -11,7 +11,7 @@
       Implicit none
       Real(8) :: s,snl(nbf)
       Real(8), external :: quadr, Ecore_df
-      Integer :: i, j, nnl(nbf)
+      Integer :: i, j
 
       write(log,'(/80(''-''))')
       write(log,'(/a/)') 'Initial estimations:'
@@ -27,17 +27,17 @@
        Call Read_pqbs(nuw)
       end if
 
-      snl = 0.d0; nnl = 0
+      snl = 0.d0
       Do i = 1, nbf
        if(mbs(i).ne.0) Cycle  ! We already have an initial estimate
-       Call Screen_nl(i,snl(i),nnl(i))
+       Call Screen_nl(i,snl(i))
       End do 
       
       Do i=1,nbf; if(mbs(i).ne.0) Cycle
                   if(snl(i).eq.0.d0) Cycle
        Do j=i+1,nbf; if(mbs(j).ne.0) Cycle
                      if(snl(j).eq.0.d0) Cycle
-        if(nnl(i).ne.nnl(j)) Cycle
+        if(nbs(i).ne.nbs(j)) Cycle
         if(lbs(i).ne.lbs(j)) Cycle
         S = (snl(i)+snl(j))/2
         snl(i) = s; snl(j) = s
@@ -46,7 +46,7 @@
 
       Do i = 1, nbf;   if(mbs(i).ne.0) Cycle  
 
-       Call bdcwf_pq(nnl(i),kbs(i),z-snl(i),p(1,1,i),p(1,2,i))
+       Call bdcwf_pq(nbs(i),kbs(i),z-snl(i),p(1,1,i),p(1,2,i))
 
 ! ... set orthogonality constraints:
 
@@ -59,7 +59,7 @@
        S=quadr(p(1,1,i),p(1,1,i),0);  p(:,:,i) = p(:,:,i)/ sqrt(S)
 
        write(log,'(a,a,f5.2,a,i2)') ebs(i),&
-       ' - hydrogenic orbital with screening ',snl(i),'  and  n = ',nnl(i)
+       ' - hydrogenic orbital with screening ',snl(i)
 
       End do
 
@@ -67,13 +67,13 @@
 
       Call Gen_hd_core (ncore,mbreit,0)    
 
-      Ecore = Ecore_df (ncore,mbreit) 
+      Ecore = Ecore_df (ncore) 
 
       End Subroutine get_estimates
 
 
 !======================================================================
-      Subroutine Screen_nl(io,S,nnn)
+      Subroutine Screen_nl(io,S)
 !======================================================================
 ! ... find screenning parameter for orbital i
 !----------------------------------------------------------------------
@@ -83,7 +83,7 @@
       Implicit none
       Integer, intent(in) :: io
       Real(8), intent(out) :: S
-      Integer :: i, ic,jc, ip, nnn
+      Integer :: i, ic,jc, ip
       Real(8) :: C
 
 ! ... core orbitals:
@@ -94,7 +94,6 @@
         S = S + qsum(i)
        End do
        S = S + qsum(io)/2      
-       nnn = nbs(io)
        Return
       end if
 
@@ -125,12 +124,6 @@
         Exit
        end if
       End do
-
-! ... reduce n-value for correlated orbitals:
-
-      nnn = nbs(io)
-      if(abs(WC(jc)).lt.eps_corr) nnn = n_corr
-      if(nnn.le.lbs(io)) nnn=lbs(io)+1      
 
       End Subroutine Screen_nl
 

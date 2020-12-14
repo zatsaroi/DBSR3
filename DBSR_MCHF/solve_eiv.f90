@@ -16,13 +16,11 @@
       Real(8) :: eval(ms), a(ms), s(ms), rh(ms), zz,eii,C
       Integer :: j, jp, info, k,ii,m,mm, ipos(1)
     
-      write(log,'(a,1Pe12.2)') 'srhs = ', srhs
-
       if(srhs.gt.0.d0.and.method.eq.1) then
        Call solve_direct (i,hfm,v,rhs); Return
       end if
 
-      write(log,'(a)') 'method - solve_eiv'
+      write(amethod,'(a)') 'diagonalization MCHF matrix'
 
       eii = e(i)
 
@@ -89,7 +87,7 @@
 
       else   !  with rhs
 
-      write(log,'(a)') 'method - inverse iterations'
+      write(amethod,'(a)') 'diagonalization MCHF matrix with rhs'
 
        a = 0.d0
        Do j = 1,ii

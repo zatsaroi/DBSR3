@@ -42,6 +42,8 @@
 
       Real(8) :: Etotal, Ecore
 
+      Integer :: mbreit = 0
+
 ! ... convergence:
 
       Real(8) :: scf_tol = 1.d-9,   scf_diff = 1.d0
@@ -56,14 +58,10 @@
       
       Real(8) :: aweight = 0.7
       Real(8) :: bweight = 0.7
-      Integer :: ac = 0
-
-      Integer :: n_corr  = 1
-      Real(8) :: eps_corr= 1.d-1
+      Integer :: acc = 0
 
 ! ... running options:
 
-      Integer :: all     = 0
       Integer :: method  = 1
       Integer :: newton  = 0
       Integer :: rotate  = 0
@@ -71,6 +69,7 @@
       Real(8) :: srhs    = 0.d0
       Integer :: debug   = 0
       Integer :: icore   = 0
+      Character(80) :: amethod
 
 ! ... block parameters: 
 
@@ -100,10 +99,10 @@
       Integer :: mblock = 5000
 
       Integer :: varied = 0
-      Character(ma) :: avaried = 'all'
+      Character(200) :: avaried = 'all'
       Integer, allocatable :: ivaried(:)
-
-      Integer :: mbreit = 0      
+      Integer, allocatable :: iphys(:)       !  physical orbital 
+      Character(200) :: physical = ' '
 
       Integer :: ipzero = 0 
       Integer :: iqzero = 0 
@@ -155,26 +154,8 @@
       Integer, allocatable :: nk_coef(:)     ! pointer for coefficients for given k-value
       Integer(1), allocatable :: if_int(:)   ! fixed or not
 
-! ... list of Sk-integrals:
-
-      Integer :: Sint = 0                    ! number of integrals
-      Real(8), allocatable :: Sk_int (:)     ! value of integral
-      Integer, allocatable :: i1_Sint(:)     ! orbital index
-      Integer, allocatable :: i2_Sint(:)     ! 
-      Integer, allocatable :: i3_Sint(:)     ! 
-      Integer, allocatable :: i4_Sint(:)     ! 
-      Integer :: Scoef = 0                   ! number of angular coefficients
-      Integer, allocatable :: ic_Scoef(:)    ! first configuration index
-      Integer, allocatable :: jc_Scoef(:)    ! second configuration index
-      Real(8), allocatable :: Rk_Scoef(:)    ! angular coefficients
-      Integer, allocatable :: ip_Sint (:)    ! pointers to the coefficient 
-      Integer, allocatable :: nk_Sint (:)    ! pointer for integrals for given k-value
-      Integer, allocatable :: nk_Scoef(:)    ! pointer for coefficients for given k-value
-      Integer(1), allocatable :: if_Sint(:)  ! fixed or not
+      Real(8) :: au_cm, au_eV
 
       Real(8) :: memory_coefs = 0.d0 
-
-      Integer, allocatable :: iphys(:)       !  physical orbital 
-      Character(200) :: physical = ' '
 
       End Module dbsr_mchf

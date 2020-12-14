@@ -1,17 +1,16 @@
 Main parameters:
 
-atom    =  F                           - atomic symbol
+atom    =  He                          - atomic symbol
 ion     =                              - ionic stage
-z       =   9.0                        - nuclear charge
+z       =   2.0                        - nuclear charge
 
 varied  =  all
 
 eol     =  1                           - optimzation mode
 
 levels  =  1,  1
-levels  =  2,  1
 
-physical=  2p-,2p
+physical=  1s
 
 --------------------------------------------------------------------------------
 

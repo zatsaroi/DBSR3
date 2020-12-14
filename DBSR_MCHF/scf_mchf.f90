@@ -53,7 +53,7 @@
          if(S.lt.orb_tol.and.iord(ip-1).eq.0) iord(ip)=0
         end if
 
-        if((it.gt.1.and.S.gt.dpm(i).and.ac.ne.-1).or.ac.eq.1) then
+        if((it.gt.1.and.S.gt.dpm(i).and.acc.ne.-1).or.acc.eq.1) then
          v(1:ns) = aweight * v(1:ns) + bweight * p(1:ns,1,i)
          v(ns+1:ms) = aweight * v(ns+1:ms) + bweight * p(1:ns,2,i)
          S1 = QUADR(v,v,0); S2 = sqrt(S1)
@@ -68,8 +68,8 @@
 
         Call Check_tails(i)
 
-        write(log,'(1x,a5,3e15.5,i7)') &
-                   ebs(i),  e(i), qsum(i),dpm(i), mbs(i)
+        write(log,'(1x,a5,3e15.5,i7,5x,a)') &
+              ebs(i), e(i), qsum(i), dpm(i), mbs(i), trim(amethod)
 
        End do ! over functions 
 

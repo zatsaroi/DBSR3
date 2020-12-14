@@ -1,0 +1,143 @@
+================================================================================
+                   MULTICONFIGURATION B-SPLINE DIRAC-HARTREE-FOCK
+================================================================================
+
+Name of case:                     He
+
+Configuration file:               He.c
+
+Angular-coefficients file:        He.bnk
+
+--------------------------------------------------------------------------------
+
+c-file data: 
+
+number of electrons:              2
+number of configurations:         1
+core orbitals:                    0
+number of peel orbitals:          1
+
+     1s 
+
+number of J-blocks:   1
+
+block  1  2J=  0   ncfg=     1
+
+optimization mode: eol = 1  -  equally weighted levels
+
+number of levels to optimize:  1
+
+block  1  level=  1   weight=    1.00000
+
+Memory required for Hamiltonian matrix:      0.00 Mb
+
+--------------------------------------------------------------------------------
+
+B-spline parameters:
+
+ns   =   90             -  number of splines
+ks   =    9             -  order  of splines
+ksp  =    8             -  for large component
+ksq  =    9             -  for small component
+he   =    0.250         -  exponetial step size
+tmax =   25.674         -  maximum radius
+
+Spline integrals:
+
+kmin =    0             -  min. multipole index
+kmax =    1             -  max. multipole index
+ntype=    4             -  number of different integrals
+
+Memory required for spline integrals:       40.05 Mb
+
+--------------------------------------------------------------------------------
+
+Initial estimations:
+
+  1s  - read from file He.bsw and converted
+
+--------------------------------------------------------------------------------
+
+Running parameters:
+
+scf_tol =  1.00E-09                    - tolerance for energy convergence
+orb_tol =  1.00E-05                    - tolerance for orbital convergence
+end_tol =  1.00E-06                    - tolerance for ending zeros
+max_it  =  25                          - max. number of iterations
+
+ipzero  =  0                           - initial zeros for larger component
+iqzero  =  0                           - initial zeros for small component
+jpzero  =  1                           - final zeros for larger component
+jqzero  =  1                           - final zeros for small component
+
+--------------------------------------------------------------------------------
+
+Additonal options (not applied if = 0)
+
+method  =  1                           - method for solving MCHF equation
+irhs    =  0                           - convert right-hand-side to main matrix
+newton  =  0                           - use Newton-Rapson method
+rotate  =  0                           - use rotations
+debug   =  0                           - additional debug output
+
+--------------------------------------------------------------------------------
+
+c_au    =  137.0359997600000           - speed of light
+
+--------------------------------------------------------------------------------
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.86181333   1  1.0000
+
+--------------------------------------------------------------------------------
+Iteration    1
+--------------------------------------------------------------------------------
+
+   nl       e(nl)          qsum           dpm           ns
+
+   1s    -0.91799E+00    0.20000E+01    0.19005E-05     72     diagonalization MCHF matrix
+
+Block Level  2J      Energy      Leading CSFs
+
+    1     1   0     -2.86181333   1  1.0000
+
+etotal =            -2.86181333
+
+Maximum orbital diff (relative):         1.90D-06  1.00D-05
+Energy difference (relative):            3.12D-12  1.00D-09
+
+--------------------------------------------------------------------------------
+
+ATOM:  He
+
+Convergence (latest difference):
+Orbital diff. =                          1.90D-06
+SCF diff. =                              3.12D-12
+
+  nl       E(nl)        1/R       R       R**2       dmp       ns     max_R
+
+  1s     -0.91799172    1.687    0.927    1.185    1.90E-06    72     15.67
+
+Average energy:                          -2.861813327080
+
+Optimized states:
+
+1s2.0                                    -2.861813327080          0.00000
+
+time:                    0.27  sec
+
+--------------------------------------------------------------------------------
+
+
+debug timing:
+
+time_matrix:             0.00  sec
+time_solve:              0.02  sec
+time_diag:               0.16  sec
+
+time_convolution:        0.00  sec
+time_density:            0.00  sec
+
+Calls to convol  =         12
+Calls to density =         12

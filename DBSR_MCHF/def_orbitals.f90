@@ -171,12 +171,8 @@
       Integer :: i,j,start,ip,ib,ic, n,l,k,iset
       Integer, external :: Ifind_orb_df
 
-      Allocate(iphys(1:nbf)); iphys=0              ! add ipys to df_orbitals ???
+      Allocate(iphys(1:nbf)); iphys=0              
       if(ncore.gt.0) iphys(1:ncore)=1
-
-      physical = ' '
-      Call Read_string(inp,'physical',physical)    
-      Call Read_aarg('physical',physical)
 
 ! ... if given - just read:
 
@@ -195,7 +191,6 @@
        End do
        Call Clean_a(physical)
        Return
-
       end if 
 
 ! ... if not given - try to anticipate:

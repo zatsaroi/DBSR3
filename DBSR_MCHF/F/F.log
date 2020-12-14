@@ -25,12 +25,12 @@ number of J-blocks:   2
 block  1  2J=  1   ncfg=     1
 block  2  2J=  3   ncfg=     1
 
-optimization mode: eol = 5  -  statistically weighted levels
+optimization mode: eol = 1  -  equally weighted levels
 
 number of levels to optimize:  2
 
-block  1  level=  1   weight=    0.33333
-block  2  level=  1   weight=    0.66667
+block  1  level=  1   weight=    0.50000
+block  2  level=  1   weight=    0.50000
 
 Memory required for Hamiltonian matrix:      0.00 Mb
 
@@ -57,10 +57,10 @@ Memory required for spline integrals:      126.26 Mb
 
 Initial estimations:
 
-  1s  - hydrogenic orbital with screening  1.00  and  n =  1
-  2s  - hydrogenic orbital with screening  3.00  and  n =  2
-  2p- - hydrogenic orbital with screening  6.00  and  n =  2
-  2p  - hydrogenic orbital with screening  6.00  and  n =  2
+  1s  - hydrogenic orbital with screening  1.00
+  2s  - hydrogenic orbital with screening  3.00
+  2p- - hydrogenic orbital with screening  5.50
+  2p  - hydrogenic orbital with screening  5.50
 
 --------------------------------------------------------------------------------
 
@@ -81,7 +81,6 @@ jqzero  =  1                           - final zeros for small component
 Additonal options (not applied if = 0)
 
 method  =  1                           - method for solving MCHF equation
-all     =  0                           - collective optimization
 irhs    =  0                           - convert right-hand-side to main matrix
 newton  =  0                           - use Newton-Rapson method
 rotate  =  0                           - use rotations
@@ -97,8 +96,8 @@ Ecore  =     -86.25880713
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -95.68812176   1  1.0000
-    2     1   3    -95.68865806   1  1.0000
+    1     1   1    -96.60195878   1  1.0000
+    2     1   3    -96.60275168   1  1.0000
 
 --------------------------------------------------------------------------------
 Iteration    1
@@ -106,22 +105,22 @@ Iteration    1
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.29294E+02    0.20000E+01    0.73710E-01     62
-   2s    -0.26182E+01    0.20000E+01    0.19635E+01     67
-   2p-   -0.15456E+01    0.16667E+01    0.83945E+00     67
-   2p    -0.98174E+00    0.33333E+01    0.69505E+00     69
+   1s    -0.28682E+02    0.20000E+01    0.73332E-01     62     diagonalization MCHF matrix
+   2s    -0.22763E+01    0.20000E+01    0.19537E+01     66     diagonalization MCHF matrix
+   2p-   -0.12577E+01    0.15000E+01    0.61979E+00     68     diagonalization MCHF matrix
+   2p    -0.90044E+00    0.35000E+01    0.52052E+00     70     diagonalization MCHF matrix
 
-Ecore  =     -87.95570820
+Ecore  =     -87.89192474
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.07682234   1  1.0000
-    2     1   3    -98.95446035   1  1.0000
+    1     1   1    -99.22965462   1  1.0000
+    2     1   3    -99.15681115   1  1.0000
 
-etotal =           -98.99524768
+etotal =           -99.19323289
 
-Maximum orbital diff (relative):         1.96D+00  1.00D-05
-Energy difference (relative):            3.34D-02  1.00D-09
+Maximum orbital diff (relative):         1.95D+00  1.00D-05
+Energy difference (relative):            2.61D-02  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    2
@@ -129,22 +128,22 @@ Iteration    2
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.25294E+02    0.20000E+01    0.11920E-01     62
-   2s    -0.12399E+01    0.20000E+01    0.18805E+00     68
-   2p-   -0.58058E+00    0.16667E+01    0.23552E+00     73
-   2p    -0.74341E+00    0.33333E+01    0.75920E-01     71
+   1s    -0.25521E+02    0.20000E+01    0.10697E-01     62     diagonalization MCHF matrix
+   2s    -0.13051E+01    0.20000E+01    0.14930E+00     68     diagonalization MCHF matrix
+   2p-   -0.61082E+00    0.15000E+01    0.19238E+00     73     diagonalization MCHF matrix
+   2p    -0.71843E+00    0.35000E+01    0.75549E-01     72     diagonalization MCHF matrix
 
-Ecore  =     -87.26124389
+Ecore  =     -87.33027665
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.45703255   1  1.0000
-    2     1   3    -99.44418683   1  1.0000
+    1     1   1    -99.46953961   1  1.0000
+    2     1   3    -99.46265894   1  1.0000
 
-etotal =           -99.44846874
+etotal =           -99.46609928
 
-Maximum orbital diff (relative):         2.36D-01  1.00D-05
-Energy difference (relative):            4.56D-03  1.00D-09
+Maximum orbital diff (relative):         1.92D-01  1.00D-05
+Energy difference (relative):            2.74D-03  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    3
@@ -152,22 +151,22 @@ Iteration    3
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26720E+02    0.20000E+01    0.39112E-02     63
-   2s    -0.16699E+01    0.20000E+01    0.83996E-01     68
-   2p-   -0.75183E+00    0.16667E+01    0.87492E-01     71
-   2p    -0.70863E+00    0.33333E+01    0.74471E-02     72
+   1s    -0.26679E+02    0.20000E+01    0.32392E-02     63     diagonalization MCHF matrix
+   2s    -0.16590E+01    0.20000E+01    0.67142E-01     68     diagonalization MCHF matrix
+   2p-   -0.76157E+00    0.15000E+01    0.71809E-01     71     diagonalization MCHF matrix
+   2p    -0.71859E+00    0.35000E+01    0.57568E-02     72     diagonalization MCHF matrix
 
-Ecore  =     -87.62034068
+Ecore  =     -87.61310979
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.49870058   1  1.0000
-    2     1   3    -99.49998737   1  1.0000
+    1     1   1    -99.49907799   1  1.0000
+    2     1   3    -99.50012778   1  1.0000
 
-etotal =           -99.49955844
+etotal =           -99.49960288
 
-Maximum orbital diff (relative):         8.75D-02  1.00D-05
-Energy difference (relative):            5.13D-04  1.00D-09
+Maximum orbital diff (relative):         7.18D-02  1.00D-05
+Energy difference (relative):            3.37D-04  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    4
@@ -175,22 +174,22 @@ Iteration    4
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26388E+02    0.20000E+01    0.73853E-03     62
-   2s    -0.15738E+01    0.20000E+01    0.16488E-01     68
-   2p-   -0.74036E+00    0.16667E+01    0.52250E-02     71
-   2p    -0.73592E+00    0.33333E+01    0.10047E-01     71
+   1s    -0.26371E+02    0.20000E+01    0.71306E-03     62     diagonalization MCHF matrix
+   2s    -0.15666E+01    0.20000E+01    0.15747E-01     68     diagonalization MCHF matrix
+   2p-   -0.73906E+00    0.15000E+01    0.89333E-02     71     diagonalization MCHF matrix
+   2p    -0.73067E+00    0.35000E+01    0.40397E-02     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55460261
+Ecore  =     -87.55025241
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50018158   1  1.0000
-    2     1   3    -99.50213162   1  1.0000
+    1     1   1    -99.50027874   1  1.0000
+    2     1   3    -99.50221596   1  1.0000
 
-etotal =           -99.50148160
+etotal =           -99.50124735
 
-Maximum orbital diff (relative):         1.65D-02  1.00D-05
-Energy difference (relative):            1.93D-05  1.00D-09
+Maximum orbital diff (relative):         1.57D-02  1.00D-05
+Energy difference (relative):            1.65D-05  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    5
@@ -198,22 +197,22 @@ Iteration    5
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26395E+02    0.20000E+01    0.20701E-04     62
-   2s    -0.15689E+01    0.20000E+01    0.29571E-03     68
-   2p-   -0.72604E+00    0.16667E+01    0.51650E-02     71
-   2p    -0.72761E+00    0.33333E+01    0.33149E-02     71
+   1s    -0.26408E+02    0.20000E+01    0.77071E-04     62     diagonalization MCHF matrix
+   2s    -0.15736E+01    0.20000E+01    0.15522E-02     68     diagonalization MCHF matrix
+   2p-   -0.73415E+00    0.15000E+01    0.16553E-02     71     diagonalization MCHF matrix
+   2p    -0.72518E+00    0.35000E+01    0.21160E-02     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55350547
+Ecore  =     -87.55659601
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50022669   1  1.0000
-    2     1   3    -99.50225685   1  1.0000
+    1     1   1    -99.50031008   1  1.0000
+    2     1   3    -99.50224942   1  1.0000
 
-etotal =           -99.50158013
+etotal =           -99.50127975
 
-Maximum orbital diff (relative):         5.17D-03  1.00D-05
-Energy difference (relative):            9.90D-07  1.00D-09
+Maximum orbital diff (relative):         2.12D-03  1.00D-05
+Energy difference (relative):            3.26D-07  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    6
@@ -221,22 +220,22 @@ Iteration    6
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26421E+02    0.20000E+01    0.65657E-04     62
-   2s    -0.15790E+01    0.20000E+01    0.16014E-02     68
-   2p-   -0.73266E+00    0.16667E+01    0.25570E-02     71
-   2p    -0.72845E+00    0.33333E+01    0.43489E-03     71
+   1s    -0.26417E+02    0.20000E+01    0.24675E-04     62     diagonalization MCHF matrix
+   2s    -0.15779E+01    0.20000E+01    0.63461E-03     68     diagonalization MCHF matrix
+   2p-   -0.73798E+00    0.15000E+01    0.14340E-02     71     diagonalization MCHF matrix
+   2p    -0.72651E+00    0.35000E+01    0.57100E-03     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55993735
+Ecore  =     -87.55913166
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50030421   1  1.0000
-    2     1   3    -99.50226380   1  1.0000
+    1     1   1    -99.50034082   1  1.0000
+    2     1   3    -99.50223434   1  1.0000
 
-etotal =           -99.50161060
+etotal =           -99.50128758
 
-Maximum orbital diff (relative):         2.56D-03  1.00D-05
-Energy difference (relative):            3.06D-07  1.00D-09
+Maximum orbital diff (relative):         1.43D-03  1.00D-05
+Energy difference (relative):            7.87D-08  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    7
@@ -244,22 +243,22 @@ Iteration    7
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26410E+02    0.20000E+01    0.26085E-04     62
-   2s    -0.15754E+01    0.20000E+01    0.61230E-03     68
-   2p-   -0.73128E+00    0.16667E+01    0.55495E-03     71
-   2p    -0.72885E+00    0.33333E+01    0.12710E-03     71
+   1s    -0.26410E+02    0.20000E+01    0.16484E-04     62     diagonalization MCHF matrix
+   2s    -0.15755E+01    0.20000E+01    0.39296E-03     68     diagonalization MCHF matrix
+   2p-   -0.73676E+00    0.15000E+01    0.46996E-03     71     diagonalization MCHF matrix
+   2p    -0.72639E+00    0.35000E+01    0.68315E-04     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55747127
+Ecore  =     -87.55755126
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50028977   1  1.0000
-    2     1   3    -99.50227531   1  1.0000
+    1     1   1    -99.50033227   1  1.0000
+    2     1   3    -99.50224563   1  1.0000
 
-etotal =           -99.50161346
+etotal =           -99.50128895
 
-Maximum orbital diff (relative):         6.12D-04  1.00D-05
-Energy difference (relative):            2.87D-08  1.00D-09
+Maximum orbital diff (relative):         4.70D-04  1.00D-05
+Energy difference (relative):            1.38D-08  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    8
@@ -267,22 +266,22 @@ Iteration    8
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26412E+02    0.20000E+01    0.45424E-05     62
-   2s    -0.15759E+01    0.20000E+01    0.10143E-03     68
-   2p-   -0.73123E+00    0.16667E+01    0.75518E-05     71
-   2p    -0.72861E+00    0.33333E+01    0.88572E-04     71
+   1s    -0.26412E+02    0.20000E+01    0.49384E-05     62     diagonalization MCHF matrix
+   2s    -0.15761E+01    0.20000E+01    0.11417E-03     68     diagonalization MCHF matrix
+   2p-   -0.73696E+00    0.15000E+01    0.82001E-04     71     diagonalization MCHF matrix
+   2p    -0.72633E+00    0.35000E+01    0.18294E-04     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55788236
+Ecore  =     -87.55801196
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50029163   1  1.0000
-    2     1   3    -99.50227450   1  1.0000
+    1     1   1    -99.50033448   1  1.0000
+    2     1   3    -99.50224360   1  1.0000
 
-etotal =           -99.50161354
+etotal =           -99.50128904
 
-Maximum orbital diff (relative):         1.01D-04  1.00D-05
-Energy difference (relative):            8.04D-10  1.00D-09
+Maximum orbital diff (relative):         1.14D-04  1.00D-05
+Energy difference (relative):            8.85D-10  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration    9
@@ -290,22 +289,21 @@ Iteration    9
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26412E+02    0.20000E+01    0.92257E-06     62
-   2s    -0.15761E+01    0.20000E+01    0.14291E-04     68
-   2p-   -0.73138E+00    0.16667E+01    0.52202E-04     71
-   2p    -0.72867E+00    0.33333E+01    0.24352E-04     71
+   2s    -0.15761E+01    0.20000E+01    0.16036E-04     68     diagonalization MCHF matrix
+   2p-   -0.73697E+00    0.15000E+01    0.37475E-05     71     diagonalization MCHF matrix
+   2p    -0.72637E+00    0.35000E+01    0.12970E-04     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55793904
+Ecore  =     -87.55794661
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50029242   1  1.0000
-    2     1   3    -99.50227412   1  1.0000
+    1     1   1    -99.50033437   1  1.0000
+    2     1   3    -99.50224371   1  1.0000
 
-etotal =           -99.50161355
+etotal =           -99.50128904
 
-Maximum orbital diff (relative):         5.22D-05  1.00D-05
-Energy difference (relative):            9.55D-11  1.00D-09
+Maximum orbital diff (relative):         1.60D-05  1.00D-05
+Energy difference (relative):            1.94D-11  1.00D-09
 
 --------------------------------------------------------------------------------
 Iteration   10
@@ -313,81 +311,57 @@ Iteration   10
 
    nl       e(nl)          qsum           dpm           ns
 
-   1s    -0.26412E+02    0.20000E+01    0.92231E-06     62
-   2s    -0.15760E+01    0.20000E+01    0.14809E-04     68
-   2p-   -0.73132E+00    0.16667E+01    0.20342E-04     71
-   2p    -0.72867E+00    0.33333E+01    0.18132E-05     71
+   2s    -0.15760E+01    0.20000E+01    0.24025E-05     68     diagonalization MCHF matrix
+   2p-   -0.73695E+00    0.15000E+01    0.41034E-05     71     diagonalization MCHF matrix
+   2p    -0.72636E+00    0.35000E+01    0.52178E-05     71     diagonalization MCHF matrix
 
-Ecore  =     -87.55787952
-
-Block Level  2J      Energy      Leading CSFs
-
-    1     1   1    -99.50029195   1  1.0000
-    2     1   3    -99.50227436   1  1.0000
-
-etotal =           -99.50161355
-
-Maximum orbital diff (relative):         2.03D-05  1.00D-05
-Energy difference (relative):            2.23D-11  1.00D-09
-
---------------------------------------------------------------------------------
-Iteration   11
---------------------------------------------------------------------------------
-
-   nl       e(nl)          qsum           dpm           ns
-
-   1s    -0.26412E+02    0.20000E+01    0.92237E-06     62
-   2s    -0.15760E+01    0.20000E+01    0.46479E-05     68
-   2p-   -0.73133E+00    0.16667E+01    0.34672E-05     71
-   2p    -0.72866E+00    0.33333E+01    0.14716E-05     71
-
-Ecore  =     -87.55789827
+Ecore  =     -87.55793706
 
 Block Level  2J      Energy      Leading CSFs
 
-    1     1   1    -99.50029207   1  1.0000
-    2     1   3    -99.50227430   1  1.0000
+    1     1   1    -99.50033435   1  1.0000
+    2     1   3    -99.50224374   1  1.0000
 
-etotal =           -99.50161355
+etotal =           -99.50128904
 
-Maximum orbital diff (relative):         4.65D-06  1.00D-05
-Energy difference (relative):            1.55D-12  1.00D-09
+Maximum orbital diff (relative):         5.22D-06  1.00D-05
+Energy difference (relative):            2.40D-12  1.00D-09
 
 --------------------------------------------------------------------------------
 
 ATOM:  F 
 
 Convergence (latest difference):
-Orbital diff. =                          4.65D-06
-SCF diff. =                              1.55D-12
+Orbital diff. =                          5.22D-06
+SCF diff. =                              2.40D-12
 
   nl       E(nl)        1/R       R       R**2       dmp       ns     max_R
 
-  1s    -26.41175905    8.648    0.176    0.042    9.22E-07    62      7.54
-  2s     -1.57598576    1.453    1.000    1.213    4.65E-06    68     13.54
-  2p-    -0.73133118    1.274    1.083    1.539    3.47E-06    71     16.54
-  2p     -0.72866146    1.271    1.085    1.546    1.47E-06    71     16.54
+  1s    -26.41230955    8.648    0.176    0.042    4.94E-06    62      7.54
+  2s     -1.57603521    1.453    1.000    1.213    2.40E-06    68     13.54
+  2p-    -0.73695100    1.276    1.081    1.532    4.10E-06    71     16.54
+  2p     -0.72635593    1.270    1.086    1.548    5.22E-06    71     16.54
 
-Average energy:                         -99.5016135546891007
+Average energy:                         -99.501289040854
 
 Optimized states:
 
-2p-.2p4.1/2*                            -99.5002920717159896
-2p-2.2p3.3/2*                           -99.5022742961756705
+2p-2.2p3.3/2*                           -99.502243736378          0.00000
+2p-.2p4.1/2*                            -99.500334345330          0.05196
 
-time:                    5.34  sec
+time:                    5.61  sec
 
 --------------------------------------------------------------------------------
 
 
 debug timing:
 
-time_matrix:             2.22  sec
-time_solve:              1.89  sec
-time_diag:               0.61  sec
+time_matrix:             1.98  sec
+time_solve:              1.66  sec
+time_diag:               1.33  sec
 
-time_convolution:        1.12  sec
-time_density:            0.02  sec
+time_convolution:        1.42  sec
+time_density:            0.03  sec
 
-Calls to convol  =       1032
-Calls to density =       1880
+Calls to convol  =       1184
+Calls to density =       2192

@@ -13,10 +13,9 @@
 
       Call CPU_time(t1)
 
-      if(icore.gt.0.and.all.eq.1) Call Gen_hd_core (ncore,mbreit,0)  
-
-      if(icore.gt.0) then 
-       Ecore = Ecore_df (ncore,mbreit) 
+      if(icore.gt.0) then
+       Call Gen_hd_core (ncore,mbreit,0)                  ! always ???
+       Ecore = Ecore_df (ncore) 
        write(log,'(/a,f16.8)')  'Ecore  = ',Ecore
       end if
 

@@ -17,9 +17,6 @@
        write(log,'(a,i2,a,i2,a,i5)') 'block ',i,'  2J= ',JJc(i),'   ncfg= ',Jncfg(i) 
       End do
 
-      Call Read_ipar(inp,'eol',eol)
-      Call Read_iarg('eol',eol)
-
       if(eol.eq.9) then
        Call Read_weights
       else
@@ -211,20 +208,6 @@
       end if
 
       if(nlevels.eq.0) then 
-       Call Read_ipar(inp,'nlevels',nlevels)
-       Call Read_ipar(inp,'nlevels',nlevels)
-      end if 
-
-      if(nlevels.eq.0) then
-       nlevels = ncfg
-       Do ib=1,njbl
-        Do i=JTc1(ib),JTc2(ib)
-         WC(i) = JJc(ib)+1; if(eol.eq.1) WC(i)=1.d0 
-        End do
-       End do
-      end if     
-
-      if(nlevels.eq.-1) then
        nlevels = njbl
        Do ib=1,njbl; j=JTc1(ib)
         WC(j) = JJc(ib)+1; if(eol.eq.1) WC(j)=1.d0 

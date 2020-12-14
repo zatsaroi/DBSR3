@@ -134,11 +134,6 @@
       time_read_coef = t2-t1
 
 !----------------------------------------------------------------------
-! ... Sk-integrals:
-
-!      if(mbreit.eq.0) Return
-
-!----------------------------------------------------------------------
 ! ... debug printing of integrals:
 
       if(debug.gt.0) then
@@ -193,8 +188,6 @@
       Case(1) 
        Call Alloc_c_data(1,0,0,mblock,nblock,eps_c)
       Case(2)
-       Call Alloc_c_data(1,kmin,kmax,mblock,nblock,eps_c)
-      Case(3)
        Call Alloc_c_data(1,kmin,kmax,mblock,nblock,eps_c)
       End Select
 
@@ -276,22 +269,9 @@
        Case(2)
         Call Jsym_Rk(m1,m2,m3,m4,j1,j2,j3,j4)
         l1=lef(j1);l2=lef(j2);l3=lef(j3);l4=lef(j4) 
-        if(mod(l1+l3+kpol,2) + mod(l2+l4+kpol,2) .ne. 0) Cycle   ! ???
+        if(mod(l1+l3+kpol,2) + mod(l2+l4+kpol,2) .ne. 0) Cycle   
         ii = j1*ibi+j3; jj = j2*ibi+j4
         Call Add_coef(CC,kpol,ii,jj,ih,jh,1)
-       Case(3)
-        Do kk = kpol-1,kpol+1
-         if(SMU(kef(m1),kef(m2),kef(m3),kef(m4),kpol,kk,S).eq.0.d0) Cycle
-         S = S * CC
-         ii = m1*ibi+m3; jj = m2*ibi+m4; Call Add_coef(S(1),kk,ii,jj,ih,jh,1)
-         ii = m2*ibi+m4; jj = m1*ibi+m3; Call Add_coef(S(2),kk,ii,jj,ih,jh,1)
-         ii = m3*ibi+m1; jj = m4*ibi+m2; Call Add_coef(S(3),kk,ii,jj,ih,jh,1)
-         ii = m4*ibi+m2; jj = m3*ibi+m1; Call Add_coef(S(4),kk,ii,jj,ih,jh,1)
-         ii = m1*ibi+m3; jj = m4*ibi+m2; Call Add_coef(S(5),kk,ii,jj,ih,jh,1)
-         ii = m4*ibi+m2; jj = m1*ibi+m3; Call Add_coef(S(6),kk,ii,jj,ih,jh,1)
-         ii = m3*ibi+m1; jj = m2*ibi+m4; Call Add_coef(S(7),kk,ii,jj,ih,jh,1)
-         ii = m2*ibi+m4; jj = m3*ibi+m1; Call Add_coef(S(8),kk,ii,jj,ih,jh,1)
-        End do
        End Select
 
       End do   ! over jc
